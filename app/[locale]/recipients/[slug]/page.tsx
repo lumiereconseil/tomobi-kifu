@@ -7,6 +7,7 @@ import { getDictionary, isLocale } from "@/lib/i18n";
 import { getStore } from "@/lib/db";
 import { getRecipient, type Recipient } from "@/lib/recipients";
 import { recipientsWithStats } from "@/lib/stats";
+import { pageMetadata } from "@/lib/seo";
 import { getStripe } from "@/lib/stripe";
 
 // Totals and supporters change with every gift.
@@ -40,7 +41,7 @@ export async function generateMetadata({ params }: { params: Params }): Promise<
   const { locale, slug } = await params;
   const r = getRecipient(slug);
   if (!r || !isLocale(locale)) return {};
-  return { title: r.name[locale], description: r.summary[locale] };
+  return pageMetadata(locale, `/recipients/${slug}`, { title: r.name[locale], description: `${r.summary[locale]} ${r.description[locale]}`.slice(0, 160) });
 }
 
 export default async function RecipientPage({ params }: { params: Params }) {
