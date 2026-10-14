@@ -51,7 +51,7 @@ for (const f of ["app/robots.ts", "app/sitemap.ts"]) {
 execSync("npx next build", {
   cwd: tmp,
   stdio: "inherit",
-  env: { ...process.env, NEXT_PUBLIC_SITE_URL: siteUrl, NODE_ENV: "production" },
+  env: { ...process.env, NEXT_PUBLIC_SITE_URL: siteUrl, NEXT_PUBLIC_TRAILING_SLASH: "1", NODE_ENV: "production" },
 });
 
 const out = join(root, "out");

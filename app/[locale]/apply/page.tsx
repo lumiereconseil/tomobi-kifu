@@ -3,10 +3,11 @@ import { notFound } from "next/navigation";
 import { ApplyForm } from "@/components/ApplyForm";
 import { getDictionary, isLocale, type Locale } from "@/lib/i18n";
 import { acceptsApplications, operator } from "@/lib/site";
+import { pageMetadata } from "@/lib/seo";
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
   const { locale } = await params;
-  return isLocale(locale) ? { title: getDictionary(locale).apply } : {};
+  return isLocale(locale) ? pageMetadata(locale, "/apply", { title: getDictionary(locale).apply }) : {};
 }
 
 const content: Record<Locale, { title: string; intro: string; who: string[]; need: string[]}> = {
