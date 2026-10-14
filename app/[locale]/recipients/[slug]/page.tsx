@@ -5,7 +5,7 @@ import { Progress } from "@/components/Progress";
 import { formatMoney, limits, platformFeePercent } from "@/lib/donation";
 import { getDictionary, isLocale } from "@/lib/i18n";
 import { getStore } from "@/lib/db";
-import { getRecipient, type Recipient } from "@/lib/recipients";
+import { getRecipient, isDirect, type Recipient } from "@/lib/recipients";
 import { recipientsWithStats } from "@/lib/stats";
 import { pageMetadata } from "@/lib/seo";
 import { getStripe } from "@/lib/stripe";
@@ -73,7 +73,7 @@ export default async function RecipientPage({ params }: { params: Params }) {
         {r.emergency && (
           <div className="emergency-banner">
             <strong>{t.emergencyTitle}</strong>
-            <span>{t.emergencyBody(fee)}</span>
+            <span>{isDirect(r) ? t.emergencyBody(fee) : t.emergencyReferralBody}</span>
           </div>
         )}
         <h1>{r.name[locale]}</h1>

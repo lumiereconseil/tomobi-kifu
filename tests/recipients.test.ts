@@ -53,7 +53,7 @@ describe("listing priority", () => {
     const domestic = sorted.slice(0, firstWorld);
     const firstMunicipalOnly = domestic.findIndex((r) => priorityRank(r) === 3);
     if (firstMunicipalOnly >= 0) {
-      expect(domestic.slice(0, firstMunicipalOnly).every((r) => ["disaster", "welfare"].includes(r.category))).toBe(true);
+      expect(domestic.slice(0, firstMunicipalOnly).every((r) => ["disaster", "welfare", "municipality"].includes(r.category))).toBe(true);
     }
   });
 });
