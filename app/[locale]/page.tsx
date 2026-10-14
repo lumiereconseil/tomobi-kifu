@@ -1,0 +1,128 @@
+import Link from "next/link";
+import { notFound } from "next/navigation";
+import { RecipientCard } from "@/components/RecipientCard";
+import { formatMoney } from "@/lib/donation";
+import { getDictionary, isLocale } from "@/lib/i18n";
+import { isDirect, type Category, type Region } from "@/lib/recipients";
+import { recipientsWithStats } from "@/lib/stats";
+
+const categories: Category[] = ["disaster", "welfare", "municipality"];
+const regions: Region[] = ["japan", "world"];
+
+export default async function Home({
+  params,
+  searchParams,
+}: {
+  params: Promise<{ locale: string }>;
+  searchParams: Promise<{ cat?: string; region?: string }>;
+}) {
+  const { locale } = await params;
+  if (!isLocale(locale)) notFound();
+  const t = getDictionary(locale);
+  const { cat, region } = await searchParams;
+  const recipients = await recipientsWithStats();
+
+  const list = recipients.filter(
+    (r) => (!cat || r.category === cat) && (!region || r.region === region),
+  );
+  // Only gifts made on this site are counted; external pages keep their own totals.
+  const direct = recipients.filter(isDirect);
+  const total = direct.reduce((s, r) => s + r.raisedJpy, 0);
+  const supporters = direct.reduce((s, r) => s + r.supporters, 0);
+
+  const href = (next: { cat?: string; region?: string }) => {
+    const q = new URLSearchParams();
+    const c = "cat" in next ? next.cat : cat;
+    const g = "region" in next ? next.region : region;
+    if (c) q.set("cat", c);
+    if (g) q.set("region", g);
+    const s = q.toString();
+    return `/${locale}${s ? `?${s}` : ""}#recipients`;
+  };
+
+  return (
+    <>
+      <section className="hero">
+        <div className="container">
+          <h1>{t.tagline}</h1>
+          <p className="lead">{t.heroLead}</p>
+          <div className="hero-actions">
+            <Link href="#recipients" className="btn btn-primary">
+              {t.browse}
+            </Link>
+            <Link href={`/${locale}/how-it-works`} className="btn btn-ghost">
+              {t.howItWorks}
+            </Link>
+          </div>
+          {total > 0 && (
+          <dl className="stats">
+            <div>
+              <dt>{t.raised}</dt>
+              <dd>{formatMoney(total, "jpy", locale)}</dd>
+            </div>
+            <div>
+              <dt>{t.supporterCount}</dt>
+              <dd>{supporters.toLocaleString(locale)}</dd>
+            </div>
+          </dl>
+          )}
+        </div>
+      </section>
+
+      {recipients.some((r) => r.emergency) && (
+        <section className="container section emergency-section">
+          <h2>🚨 {t.emergencyHome}</h2>
+          <div className="grid">
+            {recipients
+              .filter((r) => r.emergency)
+              .map((r) => (
+                <RecipientCard key={r.slug} r={r} locale={locale} t={t} />
+              ))}
+          </div>
+        </section>
+      )}
+
+      <section id="recipients" className="container section">
+        {recipients.some((r) => r.sample) && <p className="notice">{t.sampleNotice}</p>}
+        {recipients.some((r) => r.partner === false) && <p className="notice">{t.referralNotice}</p>}
+        <div className="filters">
+          <div className="chips">
+            <Link href={href({ cat: undefined })} className={!cat ? "chip active" : "chip"}>
+              {t.all}
+            </Link>
+            {categories.map((c) => (
+              <Link key={c} href={href({ cat: c })} className={cat === c ? "chip active" : "chip"}>
+                {t.categories[c]}
+              </Link>
+            ))}
+          </div>
+          <div className="chips">
+            <Link href={href({ region: undefined })} className={!region ? "chip active" : "chip"}>
+              {t.all}
+            </Link>
+            {regions.map((g) => (
+              <Link key={g} href={href({ region: g })} className={region === g ? "chip active" : "chip"}>
+                {t.regions[g]}
+              </Link>
+            ))}
+          </div>
+        </div>
+        {[
+          { key: "japan", title: t.sectionJapan, items: list.filter((r) => r.region === "japan") },
+          { key: "world", title: t.sectionWorld, items: list.filter((r) => r.region === "world") },
+        ]
+          .filter((s) => s.items.length > 0)
+          .map((s) => (
+            <div key={s.key} className="region-block">
+              <h2>{s.title}</h2>
+              <div className="grid">
+                {s.items.map((r) => (
+                  <RecipientCard key={r.slug} r={r} locale={locale} t={t} />
+                ))}
+              </div>
+            </div>
+          ))}
+      </section>
+    </>
+  );
+}
