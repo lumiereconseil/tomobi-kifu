@@ -82,3 +82,9 @@ stripe listen --forward-to localhost:3000/api/webhooks/stripe
 4. 変数を変えたら Deployments から Redeploy
 
 公開版の掲載団体はすべて公式寄付ページへの案内（`payment.mode = "external"`、`partner: false`）で、当サイトでは決済しません。
+
+## GitHub Pages（静的版）
+
+`main` に push すると GitHub Actions（`.github/workflows/pages.yml`）が `node scripts/build-pages.mjs` で静的版を書き出し、`gh-pages` ブランチへ公開します。公開先: https://lumiereconseil.github.io/tomobi-kifu/
+
+静的版はサーバーがないため、決済・管理画面・API・申請フォーム・絞り込みは含みません（掲載団体は公式ページへのリンクで案内）。これらが必要になったら Vercel など Next.js が動くホストへ移します。
