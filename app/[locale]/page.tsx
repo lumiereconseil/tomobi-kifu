@@ -4,6 +4,7 @@ import { RecipientCard } from "@/components/RecipientCard";
 import { formatMoney } from "@/lib/donation";
 import { getDictionary, isLocale } from "@/lib/i18n";
 import { isDirect, type Category, type Region } from "@/lib/recipients";
+import { homeJsonLd } from "@/lib/seo";
 import { recipientsWithStats } from "@/lib/stats";
 
 const categories: Category[] = ["disaster", "welfare", "municipality"];
@@ -42,6 +43,10 @@ export default async function Home({
 
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(homeJsonLd(locale)).replace(/</g, "\\u003c") }}
+      />
       <section className="hero">
         <div className="container">
           <h1>{t.tagline}</h1>
@@ -108,7 +113,7 @@ export default async function Home({
           </div>
         </div>
         {[
-          { key: "japan", title: t.sectionJapan, items: list.filter((r) => r.region === "japan") },
+          { key: "japan", title: t.sectionJapan, items: list.filter((r) => r.region === "japan" && !(r.emergency && !cat && !region)) },
           { key: "world", title: t.sectionWorld, items: list.filter((r) => r.region === "world") },
         ]
           .filter((s) => s.items.length > 0)

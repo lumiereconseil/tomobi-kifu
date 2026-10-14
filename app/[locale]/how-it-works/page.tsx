@@ -1,10 +1,11 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { getDictionary, isLocale, type Locale } from "@/lib/i18n";
+import { pageMetadata } from "@/lib/seo";
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
   const { locale } = await params;
-  return isLocale(locale) ? { title: getDictionary(locale).howItWorks } : {};
+  return isLocale(locale) ? pageMetadata(locale, "/how-it-works", { title: getDictionary(locale).howItWorks }) : {};
 }
 
 const content: Record<Locale, { title: string; steps: [string, string][]; fees: string[] }> = {

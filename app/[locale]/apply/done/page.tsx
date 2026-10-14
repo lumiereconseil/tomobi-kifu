@@ -22,7 +22,7 @@ const content: Record<Locale, { title: string; body: string[] }> = {
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
   const { locale } = await params;
-  return isLocale(locale) ? { title: content[locale].title } : {};
+  return isLocale(locale) ? { title: content[locale].title, robots: { index: false } } : {};
 }
 
 export default async function ApplyDone({ params }: { params: Promise<{ locale: string }> }) {

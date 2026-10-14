@@ -3,6 +3,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { LocaleSwitcher } from "@/components/LocaleSwitcher";
 import { getDictionary, isLocale, locales } from "@/lib/i18n";
+import { pageMetadata } from "@/lib/seo";
 import { siteUrl } from "@/lib/stripe";
 import "../globals.css";
 
@@ -18,19 +19,13 @@ export async function generateMetadata({
   const { locale } = await params;
   if (!isLocale(locale)) return {};
   const t = getDictionary(locale);
+  const verification = process.env.GOOGLE_SITE_VERIFICATION?.trim();
   return {
+    ...pageMetadata(locale, "", {}),
     metadataBase: new URL(siteUrl()),
-    title: { default: t.siteName, template: `%s | ${t.siteName}` },
-    description: t.tagline,
-    alternates: {
-      languages: { ...Object.fromEntries(locales.map((l) => [l, `/${l}`])), "x-default": "/ja" },
-    },
-    openGraph: {
-      type: "website",
-      siteName: t.siteName,
-      locale: locale === "ja" ? "ja_JP" : "en_US",
-      alternateLocale: locale === "ja" ? ["en_US"] : ["ja_JP"],
-    },
+    title: { default: t.metaTitle, template: `%s | ${t.siteName}` },
+    applicationName: t.siteName,
+    ...(verification ? { verification: { google: verification } } : {}),
   };
 }
 
