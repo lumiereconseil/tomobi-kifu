@@ -25,7 +25,11 @@ for (const p of ["app/api", "app/admin", "app/[locale]/donate", "app/[locale]/ap
 
 const edit = (file, fn) => {
   const f = join(tmp, file);
-  writeFileSync(f, fn(readFileSync(f, "utf8")));
+  const before = readFileSync(f, "utf8");
+  const after = fn(before);
+  // A rewrite that no longer matches the source would silently ship a broken build.
+  if (after === before) throw new Error(`build-pages: no change applied to ${file}`);
+  writeFileSync(f, after);
 };
 
 edit("next.config.ts", () =>
@@ -35,8 +39,8 @@ edit("app/[locale]/recipients/[slug]/page.tsx", (s) =>
   s
     .replace('export const dynamic = "force-dynamic";', 'export const dynamic = "force-static";')
     .replace(
-      'import { getRecipient, type Recipient } from "@/lib/recipients";',
-      'import { getRecipient, recipients as allRecipients, type Recipient } from "@/lib/recipients";\nimport { locales } from "@/lib/i18n";\nexport function generateStaticParams() {\n  return locales.flatMap((locale) => allRecipients.map((r) => ({ locale, slug: r.slug })));\n}',
+      'import { getRecipient, isDirect, type Recipient } from "@/lib/recipients";',
+      'import { getRecipient, isDirect, recipients as allRecipients, type Recipient } from "@/lib/recipients";\nimport { locales } from "@/lib/i18n";\nexport function generateStaticParams() {\n  return locales.flatMap((locale) => allRecipients.map((r) => ({ locale, slug: r.slug })));\n}',
     ),
 );
 // Query-string filters need a server; the static home lists everything, split by region.
@@ -51,7 +55,7 @@ for (const f of ["app/robots.ts", "app/sitemap.ts"]) {
 execSync("npx next build", {
   cwd: tmp,
   stdio: "inherit",
-  env: { ...process.env, NEXT_PUBLIC_SITE_URL: siteUrl, NODE_ENV: "production" },
+  env: { ...process.env, NEXT_PUBLIC_SITE_URL: siteUrl, NEXT_PUBLIC_TRAILING_SLASH: "1", NODE_ENV: "production" },
 });
 
 const out = join(root, "out");

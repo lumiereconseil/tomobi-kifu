@@ -10,6 +10,9 @@ export type Localized = Record<Locale, string>;
 const dict = {
   ja: {
     siteName: "ともに寄付",
+    metaTitle: "ともに寄付｜被災地支援・福祉施設への寄付先が見つかる寄付ポータル",
+    metaDescription:
+      "能登半島地震や令和8年熊本地震の被災自治体、全国の福祉施設・NPOへの寄付先をまとめて探せます。寄付は各団体・自治体の公式窓口へ直接届き、手数料はかかりません。",
     tagline: "まずは日本の被災地と福祉施設へ。そして世界へ。",
     heroLead:
       "被災地の自治体や福祉施設への寄付を、ひとつの場所から探せます。寄付は各団体の公式窓口へ直接届きます。海外の被災国への支援も順次広げていきます。",
@@ -82,12 +85,16 @@ const dict = {
     emergencyBadge: "緊急支援",
     emergencyTitle: "緊急支援を受付中",
     emergencyBody: (fee: number) => `この寄付先は災害の緊急支援のため、事務手数料を${fee}%に下げています。`,
+    emergencyReferralBody: "この災害への寄付を、公式の窓口で受け付けています。",
     emergencyHome: "いま支援が必要な災害",
     matching: (sponsor: string) => `この寄付先への寄付は、${sponsor}が同額を上乗せします。`,
     matchingCap: (cap: string) => `（上限 ${cap}）`,
   },
   en: {
     siteName: "Give Together",
+    metaTitle: "Give Together | Find trusted ways to donate to disaster relief and welfare in Japan",
+    metaDescription:
+      "One place to find official donation pages for disaster-hit towns in Japan (Noto, the 2026 Kumamoto earthquake) and welfare organisations nationwide. Your gift goes straight to each organisation's official page, with no fee.",
     tagline: "Disaster areas and welfare facilities in Japan first. Then the world.",
     heroLead:
       "Find disaster-hit local governments and welfare facilities in Japan in one place. Your gift goes directly to each organisation's official donation page. Support for disaster-hit countries overseas is expanding step by step.",
@@ -160,6 +167,7 @@ const dict = {
     emergencyBadge: "Emergency",
     emergencyTitle: "Emergency appeal",
     emergencyBody: (fee: number) => `This is a disaster emergency appeal, so the administrative fee is reduced to ${fee}%.`,
+    emergencyReferralBody: "Donations for this disaster are being accepted at the official page.",
     emergencyHome: "Disasters that need help now",
     matching: (sponsor: string) => `${sponsor} will match every gift to this recipient.`,
     matchingCap: (cap: string) => ` (up to ${cap})`,
