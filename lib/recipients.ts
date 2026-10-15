@@ -67,7 +67,7 @@ const referral = {
   sample: false,
 } as const;
 
-// Real organisations, linked to their official donation pages (checked 2026-10-13; additions 2026-10-14). None of
+// Real organisations, linked to their official donation pages (checked 2026-10-13; additions 2026-10-14 and 2026-10-15). None of
 // them is a partner yet, so nothing is paid on this site. Order is set by priorityRank.
 const listed: Recipient[] = [
   {
@@ -785,6 +785,338 @@ const listed: Recipient[] = [
     ...referral,
     payment: { mode: "external", url: "https://www.globalgiving.org/disasters/", via: { ja: "GlobalGiving", en: "GlobalGiving" } },
     emoji: "🌊",
+  },
+  // Added 2026-10-15 after checking each official page that day.
+  // ===== OVERSEAS (region: "world") =====
+
+  // verified 2026-10-15: https://www.japanplatform.org/emergency/program/nepal-flash-flood.html
+  // Page title is 「ネパール中部土石流災害被災者支援（寄付受付中）」; debris flow of 2026-08-26, donation form + PayPal linked, no end date.
+  {
+    slug: "jpf-nepal-debris-flow-2026",
+    category: "disaster",
+    region: "world",
+    country: { ja: "ネパール", en: "Nepal" },
+    name: { ja: "ジャパン・プラットフォーム（ネパール中部土石流災害被災者支援）", en: "Japan Platform – Central Nepal Debris Flow Response" },
+    summary: {
+      ja: "2026年8月にネパール中部を襲った大規模土石流の被災者を、加盟NGOを通じて支援します。",
+      en: "Supports people hit by the massive August 2026 debris flow in central Nepal through Japan Platform's member NGOs.",
+    },
+    description: {
+      ja: "ジャパン・プラットフォーム（JPF）は、NGO・経済界・政府が連携して緊急人道支援を行う日本の仕組みです。2026年8月26日にネパールと中国チベット自治区の国境付近で発生した土石流で被害を受けたラスワ郡・ヌワコット郡・ダディン郡などで、加盟NGOが行う支援活動に寄付が充てられます。",
+      en: "Japan Platform (JPF) is a Japanese partnership of NGOs, business and government that delivers emergency humanitarian aid. Donations fund relief work by its member NGOs in areas such as Rasuwa, Nuwakot and Dhading, hit by the debris flow on the Nepal–Tibet border on 26 August 2026.",
+    },
+    ...referral,
+    payment: { mode: "external", url: "https://www.japanplatform.org/emergency/program/nepal-flash-flood.html", via: { ja: "団体の公式寄付ページ", en: "the organisation's official donation page" } },
+    emergency: { since: "2026-08-26" },
+    emoji: "🏔️",
+  },
+
+  // verified 2026-10-15: https://www.cwsjapan.org/project/2026_nepal_floods/
+  // Page asks for donations for 「ネパール洪水緊急支援」 (floods/debris flows from 2026-08-26, update dated 2026-09-04); donors write 「ネパール洪水」 in the form; no end date.
+  {
+    slug: "cws-japan-nepal-floods-2026",
+    category: "disaster",
+    region: "world",
+    country: { ja: "ネパール", en: "Nepal" },
+    name: { ja: "CWS Japan（ネパール洪水・土石流 緊急支援）", en: "CWS Japan – Nepal Floods and Debris Flows Emergency Response" },
+    summary: {
+      ja: "ネパール北部の洪水・土石流の被災者に、シェルター資材や食料、水・衛生の支援を届けます。",
+      en: "Delivers shelter materials, food, and water and sanitation support to people hit by floods and debris flows in northern Nepal.",
+    },
+    description: {
+      ja: "CWS Japanは、国内外で災害対応と防災支援を行う東京のNPOです。寄付は、2026年8月26日から続くネパール北部の洪水・土石流への緊急支援に充てられ、現地政府やパートナー団体と連携してシェルター資材、食料、水・衛生の支援を行います（寄付フォームの備考欄に「ネパール洪水」と記入してください）。",
+      en: "CWS Japan is a Tokyo-based NPO working on disaster response and disaster risk reduction in Japan and abroad. Donations fund its emergency response to the floods and debris flows in northern Nepal that began on 26 August 2026, providing shelter materials, food, and water and sanitation support with the Nepali government and local partners (write \"ネパール洪水\" in the remarks field of the form).",
+    },
+    ...referral,
+    payment: { mode: "external", url: "https://www.cwsjapan.org/project/2026_nepal_floods/", via: { ja: "団体の公式寄付ページ", en: "the organisation's official donation page" } },
+    emergency: { since: "2026-08-26" },
+    emoji: "🌊",
+  },
+
+  // verified 2026-10-15: https://www.jrc.or.jp/contribute/help/2026nepal/
+  // Page says 受付期間「2026年９月３日（木）から 2026年11月30日（月）まで」 for the 2026年ネパール洪水救援金.
+  {
+    slug: "jrc-nepal-floods-2026",
+    category: "disaster",
+    region: "world",
+    country: { ja: "ネパール", en: "Nepal" },
+    name: { ja: "日本赤十字社（2026年ネパール洪水救援金）", en: "Japanese Red Cross Society – 2026 Nepal Floods Relief" },
+    summary: {
+      ja: "ネパール北部の土石流・洪水被害に対する赤十字の救援・復興活動を支える救援金です。",
+      en: "A relief fund supporting Red Cross relief and recovery work after the debris flow and floods in northern Nepal.",
+    },
+    description: {
+      ja: "日本赤十字社が2026年9月3日から11月30日まで受け付けている、ネパール向けの海外救援金です。2026年8月26日の大規模土石流で被害を受けたラスワ郡・ヌワコット郡・ダディン郡などで、ネパール赤十字社や国際赤十字の救援・復興活動に充てられます。",
+      en: "This is the Japanese Red Cross Society's overseas relief fund for Nepal, open from 3 September to 30 November 2026. It funds relief and recovery work by the Nepal Red Cross Society and the international Red Cross in districts such as Rasuwa, Nuwakot and Dhading, hit by the debris flow of 26 August 2026.",
+    },
+    ...referral,
+    payment: { mode: "external", url: "https://www.jrc.or.jp/contribute/help/2026nepal/", via: { ja: "団体の公式寄付ページ", en: "the organisation's official donation page" } },
+    emergency: { since: "2026-08-26" },
+    emoji: "⛑️",
+  },
+
+  // verified 2026-10-15: https://www.unicef.or.jp/kinkyu/venezuela/
+  // Live 「ベネズエラ地震 緊急募金」 page with payment options; quakes of 2026-06-24, situation figures as of 8月3日, no end date.
+  {
+    slug: "unicef-japan-venezuela-earthquake-2026",
+    category: "disaster",
+    region: "world",
+    country: { ja: "ベネズエラ", en: "Venezuela" },
+    name: { ja: "日本ユニセフ協会（ベネズエラ地震 緊急募金）", en: "Japan Committee for UNICEF – Venezuela Earthquake Appeal" },
+    summary: {
+      ja: "2026年6月のベネズエラ地震で被災した子どもと家族に、安全な水や予防接種、心のケアを届けます。",
+      en: "Brings safe water, vaccines and psychosocial care to children and families affected by the June 2026 earthquakes in Venezuela.",
+    },
+    description: {
+      ja: "公益財団法人日本ユニセフ協会は、ユニセフの日本における国内委員会です。2026年6月24日にベネズエラ北西部を襲った2度の強い地震を受け、寄付は浄水剤や予防接種、衛生キット、緊急医療キット、子どもの保護と心のケアなどの支援に充てられます。",
+      en: "The Japan Committee for UNICEF is UNICEF's national committee in Japan. After two strong earthquakes struck north-western Venezuela on 24 June 2026, donations fund water-purification tablets, vaccinations, hygiene and emergency medical kits, and child protection and mental-health care.",
+    },
+    ...referral,
+    payment: { mode: "external", url: "https://www.unicef.or.jp/kinkyu/venezuela/", via: { ja: "団体の公式寄付ページ", en: "the organisation's official donation page" } },
+    emergency: { since: "2026-06-24" },
+    emoji: "🧒",
+  },
+
+  // verified 2026-10-15: https://aarjapan.gr.jp/emergency/middle_east_crisis/
+  // Listed as 実施中 on AAR's emergency index; page published 2026-03-05, last updated 2026-04-22, active one-time/monthly donate buttons, no closing date.
+  {
+    slug: "aar-japan-middle-east-crisis-2026",
+    category: "disaster",
+    region: "world",
+    country: { ja: "レバノン", en: "Lebanon" },
+    name: { ja: "AAR Japan［難民を助ける会］（中東危機緊急支援）", en: "AAR Japan – Middle East Crisis Emergency Response" },
+    summary: {
+      ja: "中東危機で避難を強いられたレバノンの人々に、現地パートナーと食料を届けています。",
+      en: "Delivers food to people displaced in Lebanon by the Middle East crisis, working with a local partner.",
+    },
+    description: {
+      ja: "AAR Japan［難民を助ける会］は、東京都に認定された認定NPO法人で、国内外で緊急支援を行っています。2026年3月に始めた中東危機緊急支援では、レバノンで現地団体と協力して国内避難民や弱い立場の人々に食料を配付しており、寄付はこうした活動に充てられます。",
+      en: "AAR Japan is a certified NPO (certified by the Tokyo Metropolitan Government) providing emergency aid in Japan and abroad. Its Middle East crisis response, launched in March 2026, delivers food with a local partner to internally displaced and vulnerable people in Lebanon, and donations fund this work.",
+    },
+    ...referral,
+    payment: { mode: "external", url: "https://aarjapan.gr.jp/emergency/middle_east_crisis/", via: { ja: "団体の公式寄付ページ", en: "the organisation's official donation page" } },
+      emoji: "🍞",
+  },
+
+  // verified 2026-10-15: https://ccp-ngo.jp/get-involved/donaton/
+  // Page offers a 「ガザ緊急」 donation option (Congrant form "パレスチナ・ガザ緊急支援にご協力をお願いします！" is live); latest Gaza update on the site dated 2026-09-18.
+  {
+    slug: "ccp-japan-gaza-emergency",
+    category: "disaster",
+    region: "world",
+    country: { ja: "パレスチナ（ガザ）", en: "Palestine (Gaza)" },
+    name: { ja: "パレスチナ子どものキャンペーン（ガザ緊急支援）", en: "Campaign for the Children of Palestine – Gaza Emergency Appeal" },
+    summary: {
+      ja: "攻撃が続くガザで、子どもと家族への緊急支援を続けている日本のNGOです。",
+      en: "A Japanese NGO continuing emergency aid for children and families in Gaza as attacks go on.",
+    },
+    description: {
+      ja: "認定NPO法人パレスチナ子どものキャンペーンは、パレスチナやレバノンの子どもたちを支援する日本のNGOです。寄付ページでは「ガザ緊急」を選んで寄付でき、子どもの食事や家族の食料・燃料、障がいのある子どもの補助具などの支援に充てられます。",
+      en: "The Campaign for the Children of Palestine is a Japanese certified NPO supporting children in Palestine and Lebanon. Its donation page lets you choose \"Gaza emergency\", and gifts fund support such as meals for children, food and fuel for families, and assistive devices for children with disabilities.",
+    },
+    ...referral,
+    payment: { mode: "external", url: "https://ccp-ngo.jp/get-involved/donaton/", via: { ja: "団体の公式寄付ページ", en: "the organisation's official donation page" } },
+    emoji: "🕊️",
+  },
+
+  // ===== DOMESTIC (region: "japan") =====
+
+  // verified 2026-10-15: https://aarjapan.gr.jp/emergency/kumamoto_eq/
+  // Page 「2026年9月9日更新」, listed under 現在実施中の緊急支援, active 寄付する button, no closing date.
+  {
+    slug: "aar-japan-kumamoto-earthquake-2026",
+    category: "disaster",
+    region: "japan",
+    country: { ja: "日本", en: "Japan" },
+    name: { ja: "AAR Japan［難民を助ける会］（熊本地震緊急支援）", en: "AAR Japan – Kumamoto Earthquake Emergency Response" },
+    summary: {
+      ja: "2026年熊本地震の被災地で、炊き出しや物資配付、障がい者支援施設への支援を行っています。",
+      en: "Runs hot-meal services, supply distribution and support for a disability centre in areas hit by the 2026 Kumamoto earthquake.",
+    },
+    description: {
+      ja: "AAR Japan［難民を助ける会］は、東京都に認定された認定NPO法人で、国内外の災害で緊急支援を行っています。2026年7月28日の熊本地震では、炊き出し、物資配付、仮設シャワー、外国人住民向けの支援物資拠点、八代市の障がい者支援施設への支援などを行っており、寄付はこうした活動に充てられます。",
+      en: "AAR Japan is a certified NPO (certified by the Tokyo Metropolitan Government) providing emergency aid in disasters in Japan and abroad. After the Kumamoto earthquake of 28 July 2026 it has run hot-meal services, supply distribution, temporary showers, a relief point for foreign residents and support for a disability centre in Yatsushiro, and donations fund this work.",
+    },
+    ...referral,
+    payment: { mode: "external", url: "https://aarjapan.gr.jp/emergency/kumamoto_eq/", via: { ja: "団体の公式寄付ページ", en: "the organisation's official donation page" } },
+    emergency: { since: "2026-07-28" },
+    emoji: "🍙",
+  },
+
+  // verified 2026-10-15: https://lp.peace-winds.org/support_kumamoto_earthquake/
+  // Live one-time donation and ARROWSサポーター options; journal entry ~2 months after the quake says shelter operation in 氷川町 continues since September; no closing date.
+  {
+    slug: "peace-winds-arrows-kumamoto-2026",
+    category: "disaster",
+    region: "japan",
+    country: { ja: "日本", en: "Japan" },
+    name: { ja: "空飛ぶ捜索医療団ARROWS／ピースウィンズ・ジャパン（熊本地震支援）", en: "ARROWS / Peace Winds Japan – Kumamoto Earthquake Response" },
+    summary: {
+      ja: "熊本地震の発生直後から、医療・物資・避難所運営などで被災者を支え続けています。",
+      en: "Has supported earthquake survivors in Kumamoto with medical care, supplies and shelter management since just after the quake.",
+    },
+    description: {
+      ja: "ピースウィンズ・ジャパンは広島県に本部を置く認定NPO法人で、空飛ぶ捜索医療団ARROWSを運営しています。2026年熊本地震では医療、物資配付、捜索、避難所運営（9月からは県の委託で氷川町の避難所を運営）を行っており、寄付は在宅避難者や仮設住宅へ移る世帯の支援を含む緊急対応と復興支援に充てられます。",
+      en: "Peace Winds Japan is a certified NPO headquartered in Hiroshima Prefecture that runs the ARROWS search-and-medical team. In the 2026 Kumamoto earthquake it has provided medical care, supply distribution, rescue and shelter management (running a shelter in Hikawa Town for the prefecture since September), and donations fund this emergency and recovery work, including help for people sheltering at home and households moving into temporary housing.",
+    },
+    ...referral,
+    payment: { mode: "external", url: "https://lp.peace-winds.org/support_kumamoto_earthquake/", via: { ja: "団体の公式寄付ページ", en: "the organisation's official donation page" } },
+    emergency: { since: "2026-07-28" },
+    emoji: "🚁",
+  },
+
+  // verified 2026-10-15: https://www.japanheart.org/topics/support/20260728_kumamoto_earthquake.html
+  // Page marked 「寄付・募金受付中」 for 令和8年熊本地震緊急支援, 8月27日更新; may close without notice.
+  {
+    slug: "japan-heart-kumamoto-earthquake-2026",
+    category: "disaster",
+    region: "japan",
+    country: { ja: "日本", en: "Japan" },
+    name: { ja: "ジャパンハート（令和8年熊本地震緊急支援）", en: "Japan Heart – 2026 Kumamoto Earthquake Emergency Relief" },
+    summary: {
+      ja: "熊本地震の被災地に医療チームを派遣し、医療支援を行っています。",
+      en: "Sends medical teams to provide healthcare in areas hit by the Kumamoto earthquake.",
+    },
+    description: {
+      ja: "ジャパンハートは国内外で医療支援を行う認定NPO法人で、地震翌日の7月29日には八代市に医療チームが到着しました。寄付は医薬品や救援活動の費用、医療者・調整員の派遣にかかる交通費などに充てられます。",
+      en: "Japan Heart is a certified NPO providing medical aid in Japan and abroad; its medical team reached Yatsushiro on 29 July, the day after the quake. Donations fund medical supplies, relief activities and travel costs for deploying doctors, nurses and coordinators.",
+    },
+    ...referral,
+    payment: { mode: "external", url: "https://www.japanheart.org/topics/support/20260728_kumamoto_earthquake.html", via: { ja: "団体の公式寄付ページ", en: "the organisation's official donation page" } },
+    emergency: { since: "2026-07-28" },
+    emoji: "🩺",
+  },
+
+  // verified 2026-10-15: https://www.worldvision.jp/donate/r8-kumamoto-earthquake/index.html
+  // Active 「熊本地震緊急支援募金」 donation buttons, latest news item dated 2026-08-27, no end date.
+  {
+    slug: "world-vision-japan-kumamoto-2026",
+    category: "disaster",
+    region: "japan",
+    country: { ja: "日本", en: "Japan" },
+    name: { ja: "ワールド・ビジョン・ジャパン（熊本地震緊急支援募金）", en: "World Vision Japan – Kumamoto Earthquake Emergency Appeal" },
+    summary: {
+      ja: "熊本地震の被災地で、子どもの居場所づくりや子どもの施設への支援を行っています。",
+      en: "Supports children in quake-hit Kumamoto with safe spaces and help for children's facilities.",
+    },
+    description: {
+      ja: "ワールド・ビジョン・ジャパンは、子どもの支援に取り組む国際NGOです。2026年熊本地震では、美里町の公民館での「子どもの居場所」運営、30人の子どもが暮らす施設への飲料水の提供、子どもの安全な環境づくりのためのスタッフ派遣などに寄付が充てられます。",
+      en: "World Vision Japan is an international NGO focused on children. In the 2026 Kumamoto earthquake, donations fund a children's space at a community centre in Misato Town, emergency drinking water for a children's facility caring for 30 children, and staff deployed to keep children safe.",
+    },
+    ...referral,
+    payment: { mode: "external", url: "https://www.worldvision.jp/donate/r8-kumamoto-earthquake/index.html", via: { ja: "団体の公式寄付ページ", en: "the organisation's official donation page" } },
+    emergency: { since: "2026-07-28" },
+    emoji: "🧸",
+  },
+
+  // verified 2026-10-15: https://www.savechildren.or.jp/lp/kumamotoearthquake2026/
+  // Accepting card/form/postal donations (memo 「熊本地震」); latest update dated 2026-09-16 (school supplies in 八代市); no closing date.
+  {
+    slug: "save-the-children-japan-kumamoto-2026",
+    category: "disaster",
+    region: "japan",
+    country: { ja: "日本", en: "Japan" },
+    name: { ja: "セーブ・ザ・チルドレン・ジャパン（2026年熊本地震 緊急子ども支援）", en: "Save the Children Japan – 2026 Kumamoto Earthquake Children's Emergency Response" },
+    summary: {
+      ja: "熊本地震で被災した子どもたちに、心のケアや学びの支援、学用品などを届けています。",
+      en: "Provides psychological first aid, learning support and school supplies for children affected by the Kumamoto earthquake.",
+    },
+    description: {
+      ja: "公益社団法人セーブ・ザ・チルドレン・ジャパンは、子ども支援を専門とする国際NGOです。2026年熊本地震では、子どものための心理的応急処置の情報提供、子どもや子ども関連施設への物資・備品の提供、学びの支援などを行っており、9月には八代市で学用品や学校備品の支援を行いました。",
+      en: "Save the Children Japan is a public interest incorporated association and international NGO dedicated to children. In the 2026 Kumamoto earthquake it provides psychological first aid information for children, supplies and equipment for children and children's facilities, and learning support, including school supplies and equipment in Yatsushiro in September.",
+    },
+    ...referral,
+    payment: { mode: "external", url: "https://www.savechildren.or.jp/lp/kumamotoearthquake2026/", via: { ja: "団体の公式寄付ページ", en: "the organisation's official donation page" } },
+    emergency: { since: "2026-07-28" },
+    emoji: "🎒",
+  },
+
+  // verified 2026-10-15: https://www.pref.chiba.lg.jp/bousaik/press/2026/r8-chibagouu-gienkin.html
+  // Page says 「募集期間は令和9年3月31日(水曜日)までとします。」 for 令和8年8月千葉豪雨及び台風第25号 千葉県災害義援金 (bank transfer only).
+  {
+    slug: "chiba-prefecture-rain-typhoon-2026",
+    category: "municipality",
+    region: "japan",
+    country: { ja: "日本", en: "Japan" },
+    name: { ja: "千葉県（令和8年8月千葉豪雨及び台風第25号 災害義援金）", en: "Chiba Prefecture – August 2026 Heavy Rain and Typhoon No. 25 Relief Donations" },
+    summary: {
+      ja: "8月の豪雨と台風第25号で被害を受けた千葉県内の被災者に、義援金として全額届けられます。",
+      en: "Relief donations passed on to people in Chiba Prefecture affected by the August heavy rain and Typhoon No. 25.",
+    },
+    description: {
+      ja: "千葉県が、令和8年8月の千葉豪雨と9月の台風第25号の被災者のために一本化して募集している義援金で、受付は令和9年3月31日までです。義援金は配分委員会が配分を決め、被災市町村を通じて被災世帯に届けられます（寄付は銀行振込で、ページに口座が掲載されています）。",
+      en: "Chiba Prefecture runs this combined relief fund for victims of the August 2026 Chiba heavy rain and September's Typhoon No. 25, open until 31 March 2027. A distribution committee allocates the money, which reaches affected households through their municipalities (donations are by bank transfer to the accounts listed on the page).",
+    },
+    ...referral,
+    payment: { mode: "external", url: "https://www.pref.chiba.lg.jp/bousaik/press/2026/r8-chibagouu-gienkin.html", via: { ja: "自治体の公式寄附ページ", en: "the municipality's official donation page" } },
+    emergency: { since: "2026-08-19" },
+    emoji: "☔",
+  },
+
+  // verified 2026-10-15: https://www.pref.kanagawa.jp/docs/ga4/saigaigien/r8typhoon25gouboshuu.html
+  // Page gives 募集期間 2026年10月8日（木）〜2027年3月31日（水） for 令和8年台風第25号災害義援金 (bank transfer).
+  {
+    slug: "kanagawa-prefecture-typhoon-25-2026",
+    category: "municipality",
+    region: "japan",
+    country: { ja: "日本", en: "Japan" },
+    name: { ja: "神奈川県（令和8年台風第25号災害義援金）", en: "Kanagawa Prefecture – 2026 Typhoon No. 25 Relief Donations" },
+    summary: {
+      ja: "2026年9月の台風第25号で被害を受けた神奈川県内の方々に、義援金として届けられます。",
+      en: "Relief donations for people in Kanagawa Prefecture affected by Typhoon No. 25 in September 2026.",
+    },
+    description: {
+      ja: "神奈川県が2026年10月8日から2027年3月31日まで募集している、台風第25号の災害義援金です。日本赤十字社神奈川県支部や神奈川県共同募金会に寄せられた分と合わせ、県の配分委員会が市町村ごとの配分を決め、市町村から被災者に届けられます（寄付は銀行振込で、ページに口座が掲載されています）。",
+      en: "Kanagawa Prefecture collects these Typhoon No. 25 relief donations from 8 October 2026 to 31 March 2027. Together with money given to the Red Cross Kanagawa branch and the Kanagawa Community Chest, the prefecture's distribution committee sets each municipality's share, and municipalities pass it to those affected (donations are by bank transfer to the accounts listed on the page).",
+    },
+    ...referral,
+    payment: { mode: "external", url: "https://www.pref.kanagawa.jp/docs/ga4/saigaigien/r8typhoon25gouboshuu.html", via: { ja: "自治体の公式寄附ページ", en: "the municipality's official donation page" } },
+    emergency: { since: "2026-10-08" },
+    emoji: "🌀",
+  },
+
+  // verified 2026-10-15: https://akaihane-ishikawa.or.jp/info/%e7%9f%b3%e5%b7%9d%e7%9c%8c%e4%bb%a4%e5%92%8c%ef%bc%98%e5%b9%b4%ef%bc%98%e6%9c%88%e5%a4%a7%e9%9b%a8%e7%81%bd%e5%ae%b3%e7%be%a9%e6%8f%b4%e9%87%91%e3%81%ae%e5%8b%9f%e9%9b%86%e3%81%ab%e3%81%a4%e3%81%84/
+  // Page says 受付期間「令和８年８月３１日（月）から令和９年１月２９日（金）まで」, last updated 2026-10-09.
+  {
+    slug: "akaihane-ishikawa-august-rain-2026",
+    category: "disaster",
+    region: "japan",
+    country: { ja: "日本", en: "Japan" },
+    name: { ja: "石川県共同募金会（石川県令和8年8月大雨災害義援金）", en: "Ishikawa Community Chest – August 2026 Heavy Rain Relief Donations" },
+    summary: {
+      ja: "2026年8月の大雨で被災した石川県内の方々に、市町を通じて義援金を届けます。",
+      en: "Relief donations reaching people in Ishikawa Prefecture affected by the August 2026 heavy rain, via their municipalities.",
+    },
+    description: {
+      ja: "石川県共同募金会（赤い羽根）が、令和8年8月の大雨災害の義援金を令和9年1月29日まで受け付けています（状況により延長の場合があります）。関係機関でつくる石川県災害義援金配分委員会が配分基準を決め、市町を通じて被災者に届けられます。",
+      en: "The Ishikawa Community Chest (Red Feather) is accepting relief donations for the August 2026 heavy rain until 29 January 2027, possibly extended depending on the situation. The prefecture's disaster donation distribution committee sets the allocation, and the money reaches survivors through their municipalities.",
+    },
+    ...referral,
+    payment: { mode: "external", url: "https://akaihane-ishikawa.or.jp/info/%e7%9f%b3%e5%b7%9d%e7%9c%8c%e4%bb%a4%e5%92%8c%ef%bc%98%e5%b9%b4%ef%bc%98%e6%9c%88%e5%a4%a7%e9%9b%a8%e7%81%bd%e5%ae%b3%e7%be%a9%e6%8f%b4%e9%87%91%e3%81%ae%e5%8b%9f%e9%9b%86%e3%81%ab%e3%81%a4%e3%81%84/", via: { ja: "団体の公式寄付ページ", en: "the organisation's official donation page" } },
+    emergency: { since: "2026-08-27" },
+    emoji: "🪶",
+  },
+
+  // verified 2026-10-15: https://akaihane-fukui.jp/88.html
+  // Page says 受付期間「令和8年9月3日（木）から 令和8年11月30日（月）まで」 for 令和8年8月大雨福井県災害義援金.
+  {
+    slug: "akaihane-fukui-august-rain-2026",
+    category: "disaster",
+    region: "japan",
+    country: { ja: "日本", en: "Japan" },
+    name: { ja: "福井県共同募金会（令和8年8月大雨福井県災害義援金）", en: "Fukui Community Chest – August 2026 Heavy Rain Relief Donations" },
+    summary: {
+      ja: "2026年8月の大雨で被災した福井県内の方々に、市町を通じて義援金を届けます。",
+      en: "Relief donations reaching people in Fukui Prefecture affected by the August 2026 heavy rain, via their municipalities.",
+    },
+    description: {
+      ja: "社会福祉法人福井県共同募金会が、令和8年8月の大雨災害の義援金を令和8年11月30日まで受け付けています。福井県や共同募金会などでつくる災害義援金配分委員会がとりまとめ、被災地の市町を通じて被災者に届けられます（寄付は銀行振込などで、ページに口座が掲載されています）。",
+      en: "The Fukui Community Chest, a social welfare corporation, is accepting relief donations for the August 2026 heavy rain until 30 November 2026. A distribution committee including Fukui Prefecture and the Community Chest pools the money, which reaches survivors through the affected municipalities (donations are by bank transfer and other methods listed on the page).",
+    },
+    ...referral,
+    payment: { mode: "external", url: "https://akaihane-fukui.jp/88.html", via: { ja: "団体の公式寄付ページ", en: "the organisation's official donation page" } },
+    emergency: { since: "2026-08-27" },
+    emoji: "🪶",
   },
 ];
 
