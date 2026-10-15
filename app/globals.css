@@ -197,3 +197,13 @@ h1, h2, h3 { line-height: 1.35; }
 .faq dt { font-weight: 600; }
 .faq dd { margin: 4px 0 0; color: var(--muted); }
 .cause-heading { margin-top: 28px; }
+
+/* Home campaign (Kumamoto and Chiba first) */
+.hero-kicker { font-weight: 600; color: var(--primary); margin: 0 0 8px; }
+.campaigns { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 16px; margin: 24px 0 12px; }
+.campaign { background: var(--surface); border: 2px solid var(--primary); border-radius: var(--radius); padding: 18px 20px; display: flex; flex-direction: column; gap: 10px; }
+.campaign h2 { margin: 0; font-size: 1.35rem; }
+.campaign p { margin: 0; }
+.campaign-picks { display: flex; flex-direction: column; gap: 8px; }
+.campaign-picks .btn { text-align: center; font-size: 0.95rem; white-space: normal; }
+.campaign-more { font-weight: 600; }

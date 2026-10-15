@@ -19,6 +19,11 @@ export type Disaster = {
   /** Whether appeals are still in their emergency phase (shown first). */
   active: boolean;
   emoji: string;
+  /**
+   * Featured campaign on the home page (Masa, 2026-10-15: Kumamoto and Chiba first).
+   * `picks` are recipient slugs shown as direct buttons to their official pages.
+   */
+  campaign?: { headline: Localized; picks: { slug: string; label: Localized }[] };
 };
 
 export const disasters: Disaster[] = [
@@ -59,36 +64,75 @@ export const disasters: Disaster[] = [
     ],
     active: true,
     emoji: "🏯",
+    campaign: {
+      headline: { ja: "熊本地震の被災地へ", en: "Help Kumamoto recover" },
+      picks: [
+        { slug: "jrc-2026-kumamoto-earthquake", label: { ja: "義援金を送る（日本赤十字社）", en: "Give to the relief fund (Japanese Red Cross)" } },
+        { slug: "kumamoto-pref-2026-earthquake", label: { ja: "熊本県に寄附する（ふるさと納税）", en: "Donate to Kumamoto Prefecture" } },
+      ],
+    },
   },
   {
-    slug: "august-2026-heavy-rain",
-    name: { ja: "令和8年8月豪雨・台風第25号", en: "August 2026 Heavy Rain and Typhoon No. 25" },
+    slug: "chiba-2026-flood",
+    name: { ja: "千葉の豪雨・台風第25号（令和8年）", en: "Chiba Floods: August 2026 Heavy Rain and Typhoon No. 25" },
     since: "2026-08-13",
-    area: { ja: "千葉県・神奈川県・石川県・福井県", en: "Chiba, Kanagawa, Ishikawa and Fukui prefectures" },
+    area: { ja: "千葉県（千葉市など）", en: "Chiba Prefecture (Chiba City and more)" },
     summary: {
-      ja: "令和8年8月の豪雨と台風第25号の被災地へ寄付できる、県・市・共同募金会の公式窓口です。",
-      en: "Official donation pages of prefectures, cities and community chests after the August 2026 heavy rain and Typhoon No. 25.",
+      ja: "令和8年8月の千葉豪雨と台風第25号で被災した千葉県の方々へ寄付できる、県と千葉市の公式窓口です。",
+      en: "Official donation pages of Chiba Prefecture and Chiba City for people hit by the August 2026 heavy rain and Typhoon No. 25.",
     },
     body: [
       {
-        ja: "8月の大雨は千葉県・石川県・福井県に、台風第25号は千葉県や神奈川県に被害をもたらしました。県と共同募金会は義援金を、千葉市と羽咋市はふるさと納税サイトを通じた災害支援寄付を受け付けています。",
-        en: "The August heavy rain hit Chiba, Ishikawa and Fukui, and Typhoon No. 25 hit Chiba and Kanagawa. The prefectures and community chests collect relief funds, while Chiba City and Hakui accept disaster-support donations through furusato nozei sites.",
+        ja: "千葉県は8月の千葉豪雨と9月の台風第25号の被災者のための義援金を一本化して募集しています。義援金は配分委員会が配分を決め、被災した市町村を通じて被災世帯に届けられます。受付は2027年3月31日までで、寄付は銀行振込です。",
+        en: "Chiba Prefecture runs one combined relief fund for the August heavy rain and September's Typhoon No. 25. A distribution committee allocates the money, which reaches affected households through their municipalities. It is open until 31 March 2027, by bank transfer.",
       },
       {
-        ja: "県や共同募金会の義援金は、受付期間が決まっています（千葉県・神奈川県は2027年3月31日まで、石川県共同募金会は2027年1月29日まで、福井県共同募金会は2026年11月30日まで）。",
-        en: "Relief funds have deadlines: Chiba and Kanagawa until 31 March 2027, the Ishikawa Community Chest until 29 January 2027, and the Fukui Community Chest until 30 November 2026.",
+        ja: "日本赤十字社も千葉豪雨の義援金を2027年3月31日まで受け付けており、全額が千葉県の義援金配分委員会へ送られます。",
+        en: "The Japanese Red Cross also collects relief money for the Chiba heavy rain until 31 March 2027, all of it sent to Chiba Prefecture's distribution committee.",
+      },
+      {
+        ja: "千葉市は、市の被災者へ直接配分する義援金（2026年11月30日まで）と、被災者支援と復旧のための災害支援寄附（ふるさと納税サイト経由、返礼品なし）の両方を受け付けています。",
+        en: "Chiba City runs both a relief fund paid directly to its affected residents (until 30 November 2026) and disaster-support donations for recovery through furusato nozei sites (no return gifts).",
+      },
+    ],
+    recipientSlugs: ["chiba-prefecture-rain-typhoon-2026", "jrc-2026-chiba-flood", "chiba-city-2026-flood-gienkin", "chiba-2026-heavy-rain"],
+    active: true,
+    emoji: "☔",
+    campaign: {
+      headline: { ja: "千葉の水害の被災地へ", en: "Help flood-hit Chiba" },
+      picks: [
+        { slug: "chiba-prefecture-rain-typhoon-2026", label: { ja: "千葉県の義援金を送る", en: "Give to Chiba Prefecture's relief fund" } },
+        { slug: "chiba-2026-heavy-rain", label: { ja: "千葉市に寄附する（ふるさと納税）", en: "Donate to Chiba City" } },
+      ],
+    },
+  },
+  {
+    slug: "august-2026-heavy-rain",
+    name: { ja: "令和8年8月大雨・台風第25号（神奈川・石川・福井）", en: "August 2026 Heavy Rain and Typhoon No. 25 (Kanagawa, Ishikawa, Fukui)" },
+    since: "2026-08-27",
+    area: { ja: "神奈川県・石川県（羽咋市など）・福井県", en: "Kanagawa, Ishikawa (Hakui and more) and Fukui prefectures" },
+    summary: {
+      ja: "令和8年8月の大雨と台風第25号で被災した神奈川県・石川県・福井県への寄付の公式窓口です。千葉県は別のページにまとめています。",
+      en: "Official donation pages for Kanagawa, Ishikawa and Fukui after the August 2026 heavy rain and Typhoon No. 25. Chiba has its own page.",
+    },
+    body: [
+      {
+        ja: "8月の大雨は石川県・福井県に、台風第25号は神奈川県に被害をもたらしました。県と共同募金会は義援金を、羽咋市はふるさと納税サイトを通じた災害支援寄付を受け付けています。",
+        en: "The August heavy rain hit Ishikawa and Fukui, and Typhoon No. 25 hit Kanagawa. The prefecture and community chests collect relief funds, and Hakui accepts disaster-support donations through furusato nozei sites.",
+      },
+      {
+        ja: "義援金には受付期間があります（神奈川県は2027年3月31日まで、石川県共同募金会は2027年1月29日まで、福井県共同募金会は2026年11月30日まで）。",
+        en: "Relief funds have deadlines: Kanagawa until 31 March 2027, the Ishikawa Community Chest until 29 January 2027, and the Fukui Community Chest until 30 November 2026.",
       },
     ],
     recipientSlugs: [
-      "chiba-prefecture-rain-typhoon-2026",
-      "chiba-2026-heavy-rain",
       "kanagawa-prefecture-typhoon-25-2026",
       "akaihane-ishikawa-august-rain-2026",
       "hakui-2026-heavy-rain",
       "akaihane-fukui-august-rain-2026",
     ],
     active: true,
-    emoji: "☔",
+    emoji: "⛈️",
   },
   {
     slug: "nepal-2026-floods",
