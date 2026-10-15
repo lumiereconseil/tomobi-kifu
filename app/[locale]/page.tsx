@@ -3,6 +3,7 @@ import { notFound } from "next/navigation";
 import { RecipientCard } from "@/components/RecipientCard";
 import { formatMoney } from "@/lib/donation";
 import { getDictionary, isLocale } from "@/lib/i18n";
+import { disasters } from "@/lib/disasters";
 import { isDirect, type Category, type Region } from "@/lib/recipients";
 import { homeJsonLd } from "@/lib/seo";
 import { recipientsWithStats } from "@/lib/stats";
@@ -71,6 +72,28 @@ export default async function Home({
             </div>
           </dl>
           )}
+        </div>
+      </section>
+
+      <section className="container section disaster-strip">
+        <h2>{t.byDisaster}</h2>
+        <div className="disaster-links">
+          {disasters.map((d) => (
+            <Link key={d.slug} href={`/${locale}/disasters/${d.slug}`} className="disaster-link">
+              <span aria-hidden>{d.emoji}</span>
+              <span>
+                <strong>{d.name[locale]}</strong>
+                <small>{d.area[locale]}</small>
+              </span>
+            </Link>
+          ))}
+          <Link href={`/${locale}/guide`} className="disaster-link guide-link">
+            <span aria-hidden>📘</span>
+            <span>
+              <strong>{t.guide}</strong>
+              <small>{t.guideSub}</small>
+            </span>
+          </Link>
         </div>
       </section>
 
