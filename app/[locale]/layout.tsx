@@ -67,6 +67,7 @@ export default async function LocaleLayout({
               <Link href={`/${locale}/how-it-works`}>{t.howItWorks}</Link>
               <Link href={`/${locale}/apply`}>{t.apply}</Link>
               <Link href={`/${locale}/legal`}>{t.legal}</Link>
+              <Link href={`/${locale}/press`}>{locale === "ja" ? "報道関係の方へ" : "Press"}</Link>
             </nav>
           </div>
         </footer>

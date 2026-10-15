@@ -10,7 +10,8 @@ import { getDictionary, isLocale } from "@/lib/i18n";
 import { getStore } from "@/lib/db";
 import { getRecipient, isDirect, type Recipient } from "@/lib/recipients";
 import { recipientsWithStats } from "@/lib/stats";
-import { pageMetadata } from "@/lib/seo";
+import { pageMetadata, pageUrl } from "@/lib/seo";
+import { ShareButtons } from "@/components/ShareButtons";
 import { getStripe } from "@/lib/stripe";
 
 // Totals and supporters change with every gift.
@@ -104,6 +105,12 @@ export default async function RecipientPage({ params }: { params: Params }) {
             {r.matching.capJpy != null && t.matchingCap(formatMoney(r.matching.capJpy, "jpy", locale))}
           </p>
         )}
+        <ShareButtons
+          url={pageUrl(locale, `/recipients/${r.slug}`)}
+          locale={locale}
+          text={locale === "ja" ? `${r.name.ja}への寄付はこちらから｜${t.siteName}` : `Donate to ${r.name.en} | ${t.siteName}`}
+          hashtags={locale === "ja" ? ["寄付"] : ["Donate"]}
+        />
         {r.sample && <p className="notice">{t.sampleNotice}</p>}
         {r.partner === false && <p className="notice">{t.referralDetail}</p>}
         {r.partner === false && (
