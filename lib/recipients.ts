@@ -1416,6 +1416,715 @@ const listed: Recipient[] = [
     emergency: { since: "2026-08-21" },
     emoji: "🤝",
   },
+  // 児童養護施設 nationwide (Masa, 2026-10-15). Each donation page was opened on 2026-10-15.
+  // pref: 北海道
+  // verified 2026-10-15: https://iwanaikouseien.jp/pages/36/ — bank transfer (北海道銀行岩内支店) or 現金書留, receipts mailed, page states donations are tax-deductible; latest news 2026-10-05
+  {
+    slug: "iwanai-kouseien-hokkaido",
+    category: "welfare",
+    region: "japan",
+    country: { ja: "日本", en: "Japan" },
+    name: { ja: "社会福祉法人岩内厚生園 児童養護施設岩内厚生園（北海道岩内郡岩内町）", en: "Iwanai Kouseien Children's Home (Iwanai, Hokkaido)" },
+    summary: { ja: "北海道岩内町の児童養護施設で暮らす子どもたちを、寄付で支えることができます。", en: "Support the children living at a children's home in Iwanai, Hokkaido, with a donation." },
+    description: { ja: "北海道岩内町にある社会福祉法人岩内厚生園が運営する児童養護施設です。寄付金は子どもたちがより安心・安全・快適に過ごすために使われます。", en: "A children's home in Iwanai, Hokkaido, run by the social welfare corporation Iwanai Kouseien. Donations are used to help the children live more safely, securely and comfortably." },
+    ...referral,
+    taxDeductible: true,
+    payment: { mode: "external", url: "https://iwanaikouseien.jp/pages/36/", via: { ja: "施設の公式寄付ページ", en: "the home's official donation page" } },
+    emoji: "🏔️",
+  },
+  // pref: 北海道
+  // verified 2026-10-15: https://kurumi.koseiin.or.jp/donation/ — bank transfer (北洋銀行), 寄附金受領証明書 on request, 育英基金 for leavers' further education; latest news 2026-10-06
+  {
+    slug: "kurumi-gakuen-hakodate",
+    category: "welfare",
+    region: "japan",
+    country: { ja: "日本", en: "Japan" },
+    name: { ja: "社会福祉法人函館厚生院 児童養護施設くるみ学園（北海道函館市）", en: "Kurumi Gakuen Children's Home (Hakodate, Hokkaido)" },
+    summary: { ja: "函館の児童養護施設の子どもたちの暮らしと、退所後の進学を寄付で応援できます。", en: "Help children at a Hakodate children's home with daily life and further study after they leave care." },
+    description: { ja: "北海道函館市で1歳から18歳までの子どもたちが暮らす、社会福祉法人函館厚生院の児童養護施設です。寄付金は退所後に進学を希望する子どもを支える育英基金や、生活環境の改善・施設運営に使われます。", en: "A children's home in Hakodate, Hokkaido, run by Hakodate Koseiin for children aged 1 to 18. Donations go to a scholarship fund for young people who want to continue their studies after leaving care, and to improving living conditions and running the home." },
+    ...referral,
+    taxDeductible: false,
+    payment: { mode: "external", url: "https://kurumi.koseiin.or.jp/donation/", via: { ja: "施設の公式寄付ページ", en: "the home's official donation page" } },
+    emoji: "🌰",
+  },
+  // pref: 青森県
+  // verified 2026-10-15: https://fujiseiboen.or.jp/藤聖母園-法人本部/ご支援のお願い/ — 郵便振替 02330-2-10252 / bank 当座, fee-free slip on request, cites 所得税法78条 tax treatment; latest news 2026-10-09
+  {
+    slug: "fuji-seiboen-aomori",
+    category: "welfare",
+    region: "japan",
+    country: { ja: "日本", en: "Japan" },
+    name: { ja: "社会福祉法人藤聖母園 児童養護施設藤聖母園（青森県青森市）", en: "Fuji Seiboen Children's Home (Aomori City, Aomori)" },
+    summary: { ja: "青森市で児童養護施設などを運営する社会福祉法人藤聖母園を寄付で支えられます。", en: "Support Fuji Seiboen, an Aomori social welfare corporation that runs a children's home, with a donation." },
+    description: { ja: "青森市で児童養護施設藤聖母園や乳児院、こども園などを運営する社会福祉法人です。寄付金は法人と各施設・事業所の運営に活用されます。", en: "A social welfare corporation in Aomori City that runs the Fuji Seiboen children's home along with an infant home, nursery schools and other services. Donations are used to run the corporation and its facilities." },
+    ...referral,
+    taxDeductible: true,
+    payment: { mode: "external", url: "https://fujiseiboen.or.jp/%E8%97%A4%E8%81%96%E6%AF%8D%E5%9C%92-%E6%B3%95%E4%BA%BA%E6%9C%AC%E9%83%A8/%E3%81%94%E6%94%AF%E6%8F%B4%E3%81%AE%E3%81%8A%E9%A1%98%E3%81%84/", via: { ja: "法人の公式寄付ページ", en: "the corporation's official donation page" } },
+    emoji: "🍎",
+  },
+  // pref: 岩手県
+  // verified 2026-10-15: https://seikougakuen.jp/donation/ — bank transfer (岩手銀行石鳥谷支店) / 現金書留 + downloadable form, receipt for 寄附金控除; latest news 2026-10-03
+  {
+    slug: "seikou-gakuen-iwate",
+    category: "welfare",
+    region: "japan",
+    country: { ja: "日本", en: "Japan" },
+    name: { ja: "社会福祉法人青松会 児童養護施設清光学園（岩手県花巻市）", en: "Seikou Gakuen Children's Home (Hanamaki, Iwate)" },
+    summary: { ja: "岩手県花巻市の児童養護施設で暮らす子どもたちを寄付で応援できます。", en: "Support the children living at a children's home in Hanamaki, Iwate, with a donation." },
+    description: { ja: "岩手県花巻市石鳥谷町にある社会福祉法人青松会の児童養護施設です。寄付金は子どもたちのために大切に使われ、領収書は確定申告の寄附金控除に使えます。", en: "A children's home in Ishidoriya, Hanamaki, Iwate, run by the social welfare corporation Seishokai. Donations are used for the children, and the receipt can be used to claim the donation deduction on a tax return." },
+    ...referral,
+    taxDeductible: true,
+    payment: { mode: "external", url: "https://seikougakuen.jp/donation/", via: { ja: "施設の公式寄付ページ", en: "the home's official donation page" } },
+    emoji: "🌾",
+  },
+  // pref: 宮城県
+  // verified 2026-10-15: http://sayurien.com/support.html — donation application form, tax credit formula stated, funds for children/rebuilding; latest news 2026-10-09 (rebuild tender result)
+  {
+    slug: "sayurien-sendai",
+    category: "welfare",
+    region: "japan",
+    country: { ja: "日本", en: "Japan" },
+    name: { ja: "社会福祉法人善き牧者会 児童養護施設小百合園（宮城県仙台市）", en: "Sayurien Children's Home (Sendai, Miyagi)" },
+    summary: { ja: "仙台市の児童養護施設の子どもたちの生活と、施設の建て替えを寄付で支えられます。", en: "Support children's lives at a Sendai children's home and the rebuilding of its premises." },
+    description: { ja: "宮城県仙台市宮城野区にある社会福祉法人善き牧者会の児童養護施設です。寄付金は子どもたちの生活の質の向上や自立・社会経験の支援、施設の建て替えなどに使われます。", en: "A children's home in Miyagino Ward, Sendai, run by the Good Shepherd social welfare corporation. Donations improve the children's quality of life, support their independence and social experience, and help fund the rebuilding of the home." },
+    ...referral,
+    taxDeductible: true,
+    payment: { mode: "external", url: "https://sayurien.com/support.html", via: { ja: "施設の公式寄付ページ", en: "the home's official donation page" } },
+    emoji: "🌸",
+  },
+  // pref: 山形県
+  // verified 2026-10-15: https://yamagatashi-sj.or.jp/facility/facility02/ — 山形学園ひとつぶの種の会基金 for leavers' new-life costs (PDF: contact office → 郵便振替 slip); page says NOT tax-deductible; page modified 2025-04
+  {
+    slug: "yamagata-gakuen-yamagata",
+    category: "welfare",
+    region: "japan",
+    country: { ja: "日本", en: "Japan" },
+    name: { ja: "社会福祉法人山形市社会福祉事業団 児童養護施設山形学園（山形県山形市）", en: "Yamagata Gakuen Children's Home (Yamagata City, Yamagata)" },
+    summary: { ja: "山形学園を退所する若者の新生活を支える基金に寄付できます。", en: "Give to a fund that helps young people leaving Yamagata Gakuen start their new lives." },
+    description: { ja: "山形市蔵王上野にある、社会福祉法人山形市社会福祉事業団が運営する定員37名の児童養護施設です。「ひとつぶの種の会基金」は、退所する高校生の進学・就職時の新生活資金を援助しています。", en: "A children's home for up to 37 children in Zao-Ueno, Yamagata City, run by the Yamagata City Social Welfare Service Corporation. Its Hitotsubu no Tane fund helps high-school leavers with the cost of starting university or work." },
+    ...referral,
+    taxDeductible: false,
+    payment: { mode: "external", url: "https://yamagatashi-sj.or.jp/facility/facility02/", via: { ja: "施設の公式ページ（基金のご案内）", en: "the home's official page (fund information)" } },
+    emoji: "🌱",
+  },
+  // pref: 福島県
+  // verified 2026-10-15: https://shirakawagakuen.or.jp/pages/32/ — monetary donations via 寄付申込書 obtained from office (tel); donor thanks page; latest news 2026-09-07
+  {
+    slug: "shirakawa-gakuen-fukushima",
+    category: "welfare",
+    region: "japan",
+    country: { ja: "日本", en: "Japan" },
+    name: { ja: "社会福祉法人白河学園 児童養護施設白河学園（福島県白河市）", en: "Shirakawa Gakuen Children's Home (Shirakawa, Fukushima)" },
+    summary: { ja: "福島県白河市の児童養護施設の子どもたちへの支援を、寄付で厚くできます。", en: "Strengthen support for the children at a children's home in Shirakawa, Fukushima." },
+    description: { ja: "福島県白河市にある社会福祉法人白河学園の児童養護施設です。養育費は国・県の措置費で賄われており、寄付金は子どもたちへの支援をさらに充実させるために使われます。", en: "A children's home in Shirakawa, Fukushima, run by the social welfare corporation Shirakawa Gakuen. Basic care is publicly funded, and donations strengthen the support the children receive." },
+    ...referral,
+    taxDeductible: false,
+    payment: { mode: "external", url: "https://shirakawagakuen.or.jp/pages/32/", via: { ja: "施設の公式寄付ページ", en: "the home's official donation page" } },
+    emoji: "🏯",
+  },
+  // pref: 茨城県
+  // verified 2026-10-15: https://www.runbini.info/bosyu/ — invites 寄附金 (contact facility first by phone) for 自立支援基金「ののの会」 (grants/loans to leavers); latest news 2026-10-07
+  {
+    slug: "runbini-ibaraki",
+    category: "welfare",
+    region: "japan",
+    country: { ja: "日本", en: "Japan" },
+    name: { ja: "社会福祉法人照桑福祉会 児童養護施設るんびにー（茨城県行方市）", en: "Runbini Children's Home (Namegata, Ibaraki)" },
+    summary: { ja: "施設を巣立った若者の進学や生活を支える自立支援基金に寄付できます。", en: "Give to a fund that helps young people who have left care with study and living costs." },
+    description: { ja: "茨城県行方市にある社会福祉法人照桑福祉会の児童養護施設です。寄付金は自立支援のための基金「ののの会」に積み立てられ、退所後の進学助成や生活困窮時の貸付、出産祝い金などに使われます。", en: "A children's home in Namegata, Ibaraki, run by the social welfare corporation Shoso Fukushikai. Cash gifts go into its Nonono-kai independence fund, which provides study grants, hardship loans and childbirth gifts to young people after they leave care." },
+    ...referral,
+    taxDeductible: false,
+    payment: { mode: "external", url: "https://www.runbini.info/bosyu/", via: { ja: "施設の公式寄付案内", en: "the home's official donation information" } },
+    emoji: "🌻",
+  },
+  // pref: 群馬県
+  // verified 2026-10-15: https://www.francisco.or.jp/ — homepage lists ゆうちょ 00380-2-17094 (友の会, general support) and 群馬銀行 account for leavers' scholarships; latest posts 2026-10-13
+  {
+    slug: "francisco-no-machi-gunma",
+    category: "welfare",
+    region: "japan",
+    country: { ja: "日本", en: "Japan" },
+    name: { ja: "社会福祉法人フランシスコの町 児童養護施設フランシスコの町（群馬県高崎市）", en: "Francisco no Machi Children's Home (Takasaki, Gunma)" },
+    summary: { ja: "高崎市の児童養護施設と、退所した若者の奨学金を寄付で支えられます。", en: "Support a Takasaki children's home and scholarships for young people who have left it." },
+    description: { ja: "群馬県高崎市で2歳から18歳までの子どもたちが暮らす児童養護施設です。寄付は施設への一般支援の口座と、退所した子どもたちの奨学金の口座に分けて受け付けています。", en: "A children's home in Takasaki, Gunma, for children aged 2 to 18. Gifts can go either to general support for the home or to a scholarship fund for young people who have left it." },
+    ...referral,
+    taxDeductible: false,
+    payment: { mode: "external", url: "https://www.francisco.or.jp/", via: { ja: "施設の公式サイト（寄付口座のご案内）", en: "the home's official website (donation accounts)" } },
+    emoji: "🕊️",
+  },
+  // pref: 埼玉県
+  // verified 2026-10-15: https://kodomonomachi.jp/wp/?page_id=22 — cash/現金書留/bank transfer + application form, 税額控除対象法人 with certificate PDF (2026/06); latest news 2026-08-26
+  {
+    slug: "kodomo-no-machi-saitama",
+    category: "welfare",
+    region: "japan",
+    country: { ja: "日本", en: "Japan" },
+    name: { ja: "社会福祉法人子供の町 児童養護施設子供の町（埼玉県春日部市）", en: "Kodomo no Machi Children's Home (Kasukabe, Saitama)" },
+    summary: { ja: "春日部市の児童養護施設の子どもたちと、大学進学の奨学基金を寄付で支えられます。", en: "Support the children at a Kasukabe children's home and its university scholarship fund." },
+    description: { ja: "埼玉県春日部市で児童養護施設「子供の町」と「エンジェルホーム」を運営する社会福祉法人です。寄付金は入所児童の支援や大学に通う子どものための奨学基金、送迎車両の購入などに使われます。", en: "A social welfare corporation in Kasukabe, Saitama, that runs the Kodomo no Machi and Angel Home children's homes. Donations support the children in care, a scholarship fund for residents at university, and needs such as transport vehicles." },
+    ...referral,
+    taxDeductible: true,
+    payment: { mode: "external", url: "https://kodomonomachi.jp/wp/?page_id=22", via: { ja: "法人の公式寄付ページ", en: "the corporation's official donation page" } },
+    emoji: "🏡",
+  },
+  // pref: 千葉県
+  // verified 2026-10-15: https://ichiryuukai.org/ご寄附・ご寄贈/ — bank transfer (京葉銀行, account from 2026-01-01) or 現金書留, contact first; latest news 2026-10-08
+  {
+    slug: "nonohana-no-ie-chiba",
+    category: "welfare",
+    region: "japan",
+    country: { ja: "日本", en: "Japan" },
+    name: { ja: "社会福祉法人一粒会 児童養護施設野の花の家（千葉県木更津市）", en: "Nonohana no Ie Children's Home (Kisarazu, Chiba)" },
+    summary: { ja: "木更津市の児童養護施設で暮らす子どもたちの学びや暮らしを寄付で応援できます。", en: "Support learning and daily life for the children at a children's home in Kisarazu, Chiba." },
+    description: { ja: "千葉県木更津市で児童養護施設「野の花の家」や自立援助ホームを運営する社会福祉法人一粒会です。運営は国・自治体の措置費で賄われており、寄付は教育・学習塾や習い事、施設の改善に役立てられます。", en: "Ichiryuukai runs the Nonohana no Ie children's home and a supported-living home for young people in Kisarazu, Chiba. Its operations are publicly funded, and donations help with education, tutoring, lessons and improvements to the home." },
+    ...referral,
+    taxDeductible: false,
+    payment: { mode: "external", url: "https://ichiryuukai.org/%e3%81%94%e5%af%84%e9%99%84%e3%83%bb%e3%81%94%e5%af%84%e8%b4%88/", via: { ja: "法人の公式寄付ページ", en: "the corporation's official donation page" } },
+    emoji: "🌼",
+  },
+  // pref: 千葉県 (after-care)
+  // verified 2026-10-15: http://www.chibakenshakyo.com/0000kifu_page2023.php?001 — online donation application form (or by phone) for 千葉県 児童養護施設等退所者奨学金; deductible under 所得税法78条; prefecture page updated 2025-09-17
+  {
+    slug: "chiba-care-leaver-scholarship",
+    category: "welfare",
+    region: "japan",
+    country: { ja: "日本", en: "Japan" },
+    name: { ja: "社会福祉法人千葉県社会福祉協議会 児童養護施設等退所者奨学金（千葉県千葉市）", en: "Chiba Care-Leaver Scholarship Fund (Chiba City, Chiba)" },
+    summary: { ja: "児童養護施設などを退所して進学する若者のための千葉県の奨学金に寄付できます。", en: "Give to Chiba Prefecture's scholarship for young people going on to study after leaving care." },
+    description: { ja: "千葉県の児童養護施設等退所者向け奨学金制度は全額が寄付で賄われ、千葉県社会福祉協議会が県に代わって基金を管理しています。寄付金は全額が奨学金として退所者の進学を支えます。", en: "Chiba Prefecture's scholarship for care leavers is funded entirely by donations, with the Chiba Prefectural Council of Social Welfare managing the fund on the prefecture's behalf. The full amount of each gift goes to scholarships for care leavers in further education." },
+    ...referral,
+    taxDeductible: true,
+    payment: { mode: "external", url: "https://www.chibakenshakyo.com/0000kifu_page2023.php?001", via: { ja: "千葉県社会福祉協議会の公式寄付ページ", en: "the Chiba Prefectural Council of Social Welfare's official donation page" } },
+    emoji: "🎓",
+  },
+  // pref: 東京都
+  // verified 2026-10-15: https://syncable.biz/associate/to-iku — linked from to-iku.or.jp (also 郵便振替/城南信金); card/Amazon Pay, one-off or monthly, 寄付金控除対象; official site news 2026-08-21
+  {
+    slug: "tokyo-ikuseien-tokyo",
+    category: "welfare",
+    region: "japan",
+    country: { ja: "日本", en: "Japan" },
+    name: { ja: "社会福祉法人東京育成園 児童養護施設東京育成園（東京都世田谷区）", en: "Tokyo Ikuseien Children's Home (Setagaya, Tokyo)" },
+    summary: { ja: "世田谷区の児童養護施設東京育成園に、オンラインで寄付できます。", en: "Give online to Tokyo Ikuseien, a children's home in Setagaya, Tokyo." },
+    description: { ja: "東京都世田谷区上馬にある社会福祉法人東京育成園の児童養護施設です。クレジットカードやAmazon Payで単発・毎月の寄付ができ、寄付金控除の対象です。", en: "A children's home in Kamiuma, Setagaya, Tokyo, run by the social welfare corporation Tokyo Ikuseien. One-off or monthly gifts can be made by card or Amazon Pay and qualify for the donation deduction." },
+    ...referral,
+    taxDeductible: true,
+    payment: { mode: "external", url: "https://syncable.biz/associate/to-iku", via: { ja: "施設の公式寄付ページ（Syncable）", en: "the home's official donation page (Syncable)" } },
+    emoji: "🌳",
+  },
+  // pref: 東京都
+  // verified 2026-10-15: https://www.megurowakabaryo.com/donation/ — monthly supporter by card + bank transfer (三菱UFJ), 特定寄付金 deduction explained; page modified 2026-01-19, news 2026-10-06
+  {
+    slug: "meguro-wakabaryo-tokyo",
+    category: "welfare",
+    region: "japan",
+    country: { ja: "日本", en: "Japan" },
+    name: { ja: "社会福祉法人愛隣会 児童養護施設目黒若葉寮（東京都目黒区）", en: "Meguro Wakabaryo Children's Home (Meguro, Tokyo)" },
+    summary: { ja: "目黒区の児童養護施設の改修やグループホーム、子どもの自立支援を寄付で支えられます。", en: "Help a Meguro children's home with renovation, group homes and independence support." },
+    description: { ja: "東京都目黒区大橋にある社会福祉法人愛隣会の児童養護施設です。寄付金は施設の改修、グループホームの拡充・強化、子どもたちの自立支援に使われます。", en: "A children's home in Ohashi, Meguro, Tokyo, run by the social welfare corporation Airinkai. Donations fund renovation, more and better group homes, and support for the children's independence." },
+    ...referral,
+    taxDeductible: true,
+    payment: { mode: "external", url: "https://www.megurowakabaryo.com/donation/", via: { ja: "施設の公式寄付ページ", en: "the home's official donation page" } },
+    emoji: "🍃",
+  },
+  // pref: 東京都 (after-care)
+  // verified 2026-10-15: https://wfc.or.jp/support/ — ゆうちょ/みずほ transfer + Syncable online (card/Amazon Pay), Tokyo-certified, deductions explained; FY2026 tour flyer (2026/08)
+  {
+    slug: "seishonen-fukushi-center-tokyo",
+    category: "welfare",
+    region: "japan",
+    country: { ja: "日本", en: "Japan" },
+    name: { ja: "社会福祉法人青少年福祉センター（東京都足立区）", en: "Youth Welfare Centre (Adachi, Tokyo)" },
+    summary: { ja: "日本初の自立援助ホームを開いた法人の、児童養護施設と若者の自立支援を寄付で支えられます。", en: "Support the organisation behind Japan's first supported-living home for young care leavers." },
+    description: { ja: "1958年に設立され、東京都で自立援助ホーム3か所と児童養護施設2か所などを運営する社会福祉法人です。寄付金は公費で足りない子ども一人ひとりへの支援や施設の改修に使われます。", en: "Founded in 1958, this Tokyo social welfare corporation runs three supported-living homes for young people, two children's homes and other services. Donations fund individual support for each young person and facility renovation that public money does not cover." },
+    ...referral,
+    taxDeductible: true,
+    payment: { mode: "external", url: "https://wfc.or.jp/support/", via: { ja: "法人の公式寄付ページ", en: "the organisation's official donation page" } },
+    emoji: "🤝",
+  },
+  // pref: 神奈川県
+  // verified 2026-10-15: https://www.kodomonosono.or.jp/publics/index/20/ — card/PayPay online, bank/postal transfer, 特定寄附金 (deduction or credit) explained; latest news 2026-09-27
+  {
+    slug: "kodomo-no-sono-chigasaki",
+    category: "welfare",
+    region: "japan",
+    country: { ja: "日本", en: "Japan" },
+    name: { ja: "社会福祉法人福光会 児童養護施設子どもの園（神奈川県茅ヶ崎市）", en: "Kodomo no Sono Children's Home (Chigasaki, Kanagawa)" },
+    summary: { ja: "茅ヶ崎市の児童養護施設に、カードやPayPayでも寄付できます。", en: "Give to a Chigasaki children's home by card, PayPay or bank transfer." },
+    description: { ja: "神奈川県茅ヶ崎市で約40人の子どもたちが職員と暮らす、社会福祉法人福光会の児童養護施設です。寄付金は子どもたちがより安心・安全・快適に暮らすために使われます。", en: "A children's home in Chigasaki, Kanagawa, run by Fukukokai, where about 40 children live with staff. Donations help the children live more safely, securely and comfortably." },
+    ...referral,
+    taxDeductible: true,
+    payment: { mode: "external", url: "https://www.kodomonosono.or.jp/publics/index/20/", via: { ja: "施設の公式寄付ページ", en: "the home's official donation page" } },
+    emoji: "🌊",
+  },
+  // pref: 神奈川県
+  // verified 2026-10-15: https://seikou-fukushikai.org/donate.html — Congrant card link, 郵便振替 00260-1-82833, ゆうちょ transfer; deduction (not credit) stated; site cites 経営協 2025-03 feature
+  {
+    slug: "seikou-gakuen-zama",
+    category: "welfare",
+    region: "japan",
+    country: { ja: "日本", en: "Japan" },
+    name: { ja: "社会福祉法人成光福祉会 児童養護施設成光学園（神奈川県座間市）", en: "Seikou Gakuen Children's Home (Zama, Kanagawa)" },
+    summary: { ja: "座間市の児童養護施設の運営や居住棟の建て替えを寄付で支えられます。", en: "Support the running of a Zama children's home and the rebuilding of its living quarters." },
+    description: { ja: "神奈川県座間市緑ケ丘にある社会福祉法人成光福祉会の児童養護施設です。寄付金は施設の運営や居住棟の建て替えの自己負担分、小規模ホームなどの計画に使われます。", en: "A children's home in Midorigaoka, Zama, Kanagawa, run by the social welfare corporation Seikou Fukushikai. Donations fund the home's running costs, its own share of rebuilding the living quarters, and plans such as small group homes." },
+    ...referral,
+    taxDeductible: true,
+    payment: { mode: "external", url: "https://seikou-fukushikai.org/donate.html", via: { ja: "施設の公式寄付ページ", en: "the home's official donation page" } },
+    emoji: "☀️",
+  },
+  // pref: 新潟県
+  // verified 2026-10-15: https://niigatacaritas.or.jp/supportus/ — transfers to 新潟天使園 etc. (contact via form/phone for details), 寄付控除 receipts issued; Tenshien page modified 2026-09-08
+  {
+    slug: "niigata-tenshien-niigata",
+    category: "welfare",
+    region: "japan",
+    country: { ja: "日本", en: "Japan" },
+    name: { ja: "社会福祉法人新潟カリタス会 児童養護施設新潟天使園（新潟県新潟市）", en: "Niigata Tenshien Children's Home (Niigata City, Niigata)" },
+    summary: { ja: "新潟市の児童養護施設で暮らす子どもたちの自立を寄付で支えられます。", en: "Help the children at a Niigata City children's home move steadily towards independence." },
+    description: { ja: "新潟市西区青山にある定員35名の児童養護施設で、社会福祉法人新潟カリタス会が運営しています。寄付金は子どもたちが着実に自立へ向かえるよう大切に使われ、寄付控除用の領収証が発行されます。", en: "A children's home for up to 35 children in Aoyama, Nishi Ward, Niigata City, run by the social welfare corporation Niigata Caritas. Donations help the children move steadily towards independence, and receipts for the tax deduction are issued." },
+    ...referral,
+    taxDeductible: true,
+    payment: { mode: "external", url: "https://niigatacaritas.or.jp/supportus/", via: { ja: "法人の公式寄付ページ", en: "the corporation's official donation page" } },
+    emoji: "👼",
+  },
+  // pref: 富山県
+  // verified 2026-10-15: https://www.lunbinien.jp/pages/22 — 寄付募集 page with bank transfer (北陸銀行越前町支店), receipt on request; latest topics 2026-09-28
+  {
+    slug: "lunbinien-toyama",
+    category: "welfare",
+    region: "japan",
+    country: { ja: "日本", en: "Japan" },
+    name: { ja: "社会福祉法人ルンビニ園 児童養護施設ルンビニ園（富山県富山市）", en: "Lunbini-en Children's Home (Toyama City, Toyama)" },
+    summary: { ja: "富山市の児童養護施設ルンビニ園を寄付で応援できます。", en: "Support Lunbini-en, a children's home in Toyama City, with a donation." },
+    description: { ja: "富山県富山市中布目にある社会福祉法人ルンビニ園の児童養護施設で、小規模なホームを増やしています。寄付は銀行振込で受け付けており、希望者には領収書が発行されます。", en: "A children's home in Nakanunome, Toyama City, run by the social welfare corporation Lunbini-en, which is opening more small group homes. Gifts are accepted by bank transfer, and receipts are issued on request." },
+    ...referral,
+    taxDeductible: false,
+    payment: { mode: "external", url: "https://www.lunbinien.jp/pages/22", via: { ja: "施設の公式寄付ページ", en: "the home's official donation page" } },
+    emoji: "🪷",
+  },
+  // pref: 石川県
+  // verified 2026-10-15: https://www.rinshoen.or.jp/pages/29/ — bank (北陸銀行) / ゆうちょ 00750-4-14972 transfers to 入所児童支援事業 fund (174 gifts as of 2025-07)
+  {
+    slug: "rinshoen-kanazawa",
+    category: "welfare",
+    region: "japan",
+    country: { ja: "日本", en: "Japan" },
+    name: { ja: "社会福祉法人林鐘園 児童養護施設林鐘園（石川県金沢市）", en: "Rinshoen Children's Home (Kanazawa, Ishikawa)" },
+    summary: { ja: "金沢市の児童養護施設で、子どもたちの特技や退所後の自立を支える基金に寄付できます。", en: "Give to a Kanazawa children's home fund that nurtures children's talents and supports them after they leave." },
+    description: { ja: "石川県金沢市若松町にある社会福祉法人林鐘園の児童養護施設です。寄付金は入所中から退所後3年までの子どもの特技の育成や自立のための経済的支援を行う「入所児童支援事業」の基金に使われています。", en: "A children's home in Wakamatsu, Kanazawa, Ishikawa, run by the social welfare corporation Rinshoen. Donations go to its children's support fund, which nurtures children's talents and gives financial help towards independence while they are in care and for up to three years after they leave." },
+    ...referral,
+    taxDeductible: false,
+    payment: { mode: "external", url: "https://www.rinshoen.or.jp/pages/29/", via: { ja: "施設の公式寄付ページ", en: "the home's official donation page" } },
+    emoji: "🔔",
+  },
+  // pref: 山梨県
+  // verified 2026-10-15: https://jidouyougo-clovergakuen.net/donate — monetary gifts by phone/inquiry form, 特定公益増進法人 → 寄付金控除; donation thanks 2026-07-01, news 2026-07-13
+  {
+    slug: "clover-gakuen-yamanashi",
+    category: "welfare",
+    region: "japan",
+    country: { ja: "日本", en: "Japan" },
+    name: { ja: "社会福祉法人光塩福祉会 児童養護施設クローバー学園（山梨県甲州市）", en: "Clover Gakuen Children's Home (Koshu, Yamanashi)" },
+    summary: { ja: "甲州市の児童養護施設の子どもたちと、退所する若者の自立を寄付で支えられます。", en: "Support the children at a Koshu children's home and young people as they leave care." },
+    description: { ja: "山梨県甲州市塩山にある社会福祉法人光塩福祉会の児童養護施設です。寄付金は公費で賄えない生活用品や、退所時の自立・進学費用、退所者の生活支援に使われます。", en: "A children's home in Enzan, Koshu, Yamanashi, run by the social welfare corporation Koen Fukushikai. Donations pay for everyday items public funds do not cover, independence and school costs when children leave, and living support for former residents." },
+    ...referral,
+    taxDeductible: true,
+    payment: { mode: "external", url: "https://jidouyougo-clovergakuen.net/donate", via: { ja: "施設の公式寄付ページ", en: "the home's official donation page" } },
+    emoji: "🍀",
+  },
+  // pref: 長野県
+  // verified 2026-10-15: https://e-gaku.or.jp/donation/ — bank transfer (長野信金/楽天銀行) from ¥1, anonymous OK; uses listed; latest blog 2026-10-11
+  {
+    slug: "iiyama-gakuen-nagano",
+    category: "welfare",
+    region: "japan",
+    country: { ja: "日本", en: "Japan" },
+    name: { ja: "社会福祉法人飯山学園 児童養護施設飯山学園（長野県飯山市）", en: "Iiyama Gakuen Children's Home (Iiyama, Nagano)" },
+    summary: { ja: "飯山市の児童養護施設の子どもたちの巣立ちや経験の幅を寄付で広げられます。", en: "Help children at an Iiyama children's home broaden their experiences and start out on their own." },
+    description: { ja: "長野県飯山市南町にある社会福祉法人飯山学園の児童養護施設です。寄付金は退所時の就職・進学の支度金、子どもたちの教育やレクリエーション、遊具など設備の維持に使われます。", en: "A children's home in Minamimachi, Iiyama, Nagano, run by the social welfare corporation Iiyama Gakuen. Donations provide start-up money for children leaving for work or study, education and recreation costs, and upkeep of facilities such as play equipment." },
+    ...referral,
+    taxDeductible: false,
+    payment: { mode: "external", url: "https://e-gaku.or.jp/donation/", via: { ja: "施設の公式寄付ページ", en: "the home's official donation page" } },
+    emoji: "⛰️",
+  },
+  // pref: 熊本県
+  // verified 2026-10-15: https://jiaien.or.jp/volunteer/ — "寄付のお願い" section with an online application form, then transfer to ゆうちょ/三井住友/三菱UFJ (account sent after applying); page says gifts get income/resident-tax deductions; site shows recruitment notices for April 2026 hires (posted 2025). Form lets donor pick the facility.
+  {
+    slug: "jiaien-childrens-home-kumamoto",
+    category: "welfare",
+    region: "japan",
+    country: { ja: "日本", en: "Japan" },
+    name: { ja: "社会福祉法人慈愛園 児童養護施設 慈愛園子供ホーム（熊本県熊本市）", en: "Jiaien Children's Home (Kumamoto City, Kumamoto)" },
+    summary: {
+      ja: "熊本市で100年以上続く法人が運営する児童養護施設を支えます。",
+      en: "Supports a children's home run by a Kumamoto welfare body with over a century of history.",
+    },
+    description: {
+      ja: "熊本市中央区の社会福祉法人慈愛園が運営する児童養護施設で、家庭で暮らせない子どもたちを児童相談所からの措置で受け入れています。寄付は申込フォームから施設を選んで申し込むことができ、子どもたちの遊具や行事の用品などに使われます。",
+      en: "A children's home run by the Jiaien welfare corporation in Chuo Ward, Kumamoto City, caring for children placed by the child guidance centre who cannot live at home. Donors apply through a form where they can choose the facility, and gifts pay for play equipment and supplies for events for the children.",
+    },
+    ...referral,
+    taxDeductible: true,
+    payment: { mode: "external", url: "https://jiaien.or.jp/volunteer/", via: { ja: "施設の公式寄付ページ", en: "the home's official donation page" } },
+    emoji: "🏡",
+  },
+  // pref: 熊本県
+  // verified 2026-10-15: https://fujisakidaidoen.com/doen/support/ — 藤崎台童園後援会: individuals ¥2,000/unit, groups ¥10,000/unit a year, application by post/email/FAX then a 郵便振替 slip is sent; no tax statement; site news to 2026.10.13. (Supporters' association fee, not a one-off gift form.)
+  {
+    slug: "fujisakidai-doen-kumamoto",
+    category: "welfare",
+    region: "japan",
+    country: { ja: "日本", en: "Japan" },
+    name: { ja: "社会福祉法人藤崎台童園 児童養護施設 藤崎台童園（熊本県熊本市）", en: "Fujisakidai Doen Children's Home (Kumamoto City, Kumamoto)" },
+    summary: {
+      ja: "後援会の会員になって熊本市の児童養護施設の子どもたちを支えます。",
+      en: "Become a member of the supporters' association of a children's home in Kumamoto City.",
+    },
+    description: {
+      ja: "熊本市中央区古京町にある児童養護施設で、社会福祉法人藤崎台童園が保育園とあわせて運営しています。後援会の会費は、子どもたちの進学や就職・自立への援助、施設の活動支援や設備の整備などに使われます。",
+      en: "A children's home in Kokyo-machi, Chuo Ward, Kumamoto City, run by the Fujisakidai Doen welfare corporation alongside a nursery. Fees paid to its supporters' association help children go on to further study or work and become independent, and support the home's activities and equipment.",
+    },
+    ...referral,
+    taxDeductible: false,
+    payment: { mode: "external", url: "https://fujisakidaidoen.com/doen/support/", via: { ja: "施設の公式後援会ページ", en: "the home's official supporters' association page" } },
+    emoji: "🌳",
+  },
+  // pref: 福岡県
+  // verified 2026-10-15: https://www.wakaji.jp/donation/ — one-off or monthly online giving via Congrant (card or bank), plus direct transfer to 福岡銀行若松支店; lists uses in detail; no tax statement; home page news to 2026.09.13.
+  {
+    slug: "wakamatsu-jido-home-fukuoka",
+    category: "welfare",
+    region: "japan",
+    country: { ja: "日本", en: "Japan" },
+    name: { ja: "社会福祉法人若松児童ホーム 児童養護施設 若松児童ホーム（福岡県北九州市）", en: "Wakamatsu Children's Home (Kitakyushu, Fukuoka)" },
+    summary: {
+      ja: "北九州市の児童養護施設で暮らす子どもの生活と自立を支えます。",
+      en: "Supports the daily lives and independence of children at a home in Kitakyushu.",
+    },
+    description: {
+      ja: "北九州市若松区の児童養護施設で、さまざまな事情で家庭で暮らせない子どもたちが生活しています。寄付は家具や家電などの生活環境、学習用品や受験の支援、退所後の自立やアフターケア、心理ケア、旅行や体験活動などに使われます。",
+      en: "A children's home in Wakamatsu Ward, Kitakyushu, for children who cannot live with their families. Donations pay for furniture and appliances, school supplies and exam support, help with independence and aftercare after leaving, psychological care, and trips and other experiences.",
+    },
+    ...referral,
+    taxDeductible: false,
+    payment: { mode: "external", url: "https://www.wakaji.jp/donation/", via: { ja: "施設の公式寄付ページ", en: "the home's official donation page" } },
+    emoji: "🎒",
+  },
+  // pref: 福岡県
+  // verified 2026-10-15: https://ikujiin.com/donation/ — online application form (also FAX/email/phone); page explains income-tax and corporate deductions with the home's receipt; current appeal is rebuilding/renovating the main building; home page shows R8 (2026) recruitment exam 2026-09-13 and a project starting Oct 2026.
+  {
+    slug: "fukuoka-ikujiin-fukuoka",
+    category: "welfare",
+    region: "japan",
+    country: { ja: "日本", en: "Japan" },
+    name: { ja: "社会福祉法人福岡育児院 児童養護施設 福岡育児院（福岡県福岡市）", en: "Fukuoka Ikujiin Children's Home (Fukuoka City, Fukuoka)" },
+    summary: {
+      ja: "福岡市の児童養護施設の本園の建て替え・改修を支えます。",
+      en: "Helps a Fukuoka City children's home rebuild and renovate its main building.",
+    },
+    description: {
+      ja: "福岡市東区原田にある児童養護施設で、家族はいても家庭で暮らすことができない子どもたちを養育しています。公的な措置費だけでは足りない子どもたちへの支援を補うため寄付を募っており、現在は本園の新築・改修に使われます。",
+      en: "A children's home in Harada, Higashi Ward, Fukuoka City, caring for children who have families but cannot live at home. It asks for donations to fill the gap left by public funding, and current gifts go towards building and renovating its main facility.",
+    },
+    ...referral,
+    taxDeductible: true,
+    payment: { mode: "external", url: "https://ikujiin.com/donation/", via: { ja: "施設の公式寄付ページ", en: "the home's official donation page" } },
+    emoji: "🏗️",
+  },
+  // pref: 大阪府
+  // verified 2026-10-15: https://uminoko.org/donation-contact/ — "うみっこ基金" (後援会): online application form, then free 郵便振替 slip mailed, or direct transfer to 00980-9-284002; individuals from ¥2,000/unit, groups ¥10,000/unit; no tax statement; blog posts to 2026/09/20, 2026 後援会 report PDF.
+  {
+    slug: "uminoko-gakuen-osaka",
+    category: "welfare",
+    region: "japan",
+    country: { ja: "日本", en: "Japan" },
+    name: { ja: "社会福祉法人海の子学園 児童養護施設 入舟寮・池島寮（大阪府大阪市）", en: "Uminoko Gakuen Children's Homes (Osaka City, Osaka)" },
+    summary: {
+      ja: "大阪市港区の児童養護施設の子どもたちの進学と自立を応援します。",
+      en: "Helps children at two Osaka children's homes go on to study and live independently.",
+    },
+    description: {
+      ja: "大阪市港区の社会福祉法人海の子学園は児童養護施設の入舟寮と池島寮を運営し、約130人の子どもたちが暮らしています。後援会の「うみっこ基金」は、子どもたちの進学や自立の支援、緊急の生活支援、児童福祉の研究・啓発などに使われます。",
+      en: "The Uminoko Gakuen welfare corporation in Minato Ward, Osaka, runs the Irifune-ryo and Ikejima-ryo children's homes, where about 130 children live. Its supporters' fund, Umikko Kikin, pays for help with further study and independence, emergency living support, and child-welfare research and awareness.",
+    },
+    ...referral,
+    taxDeductible: false,
+    payment: { mode: "external", url: "https://uminoko.org/donation-contact/", via: { ja: "施設の公式寄付ページ", en: "the home's official donation page" } },
+    emoji: "🌊",
+  },
+  // pref: 愛知県
+  // verified 2026-10-15: https://umegaoka.site/support/ — "寄付金を常時受けつけています": online support form (bank details emailed after choosing 振込), donor picks use (children / operating costs / other); receipts issued citing 所得税法78条2項3号・法人税法37条; site posts to 2026-10-07.
+  {
+    slug: "umegaoka-gakuen-aichi",
+    category: "welfare",
+    region: "japan",
+    country: { ja: "日本", en: "Japan" },
+    name: { ja: "社会福祉法人愛知玉葉会 児童養護施設 梅ヶ丘学園（愛知県豊田市）", en: "Umegaoka Gakuen Children's Home (Toyota, Aichi)" },
+    summary: {
+      ja: "豊田市で親元を離れて暮らす子どもたちの生活を支えます。",
+      en: "Supports children living apart from their parents at a home in Toyota.",
+    },
+    description: {
+      ja: "愛知県豊田市梅坪町にある児童養護施設で、さまざまな事情で親元を離れて暮らす子どもたちが生活しています。寄付は入所している子どもたちのため、または施設の運営費などに、寄付者が選んだ使い道で使われます。",
+      en: "A children's home in Umetsubo-cho, Toyota, Aichi, for children who must live apart from their parents. Donors choose whether their gift goes to the children living there, to the home's running costs or to another purpose.",
+    },
+    ...referral,
+    taxDeductible: true,
+    payment: { mode: "external", url: "https://umegaoka.site/support/", via: { ja: "施設の公式寄付ページ", en: "the home's official donation page" } },
+    emoji: "🌸",
+  },
+  // pref: 静岡県
+  // verified 2026-10-15: https://www.shumpu.or.jp/donation/ — bank transfer to 静岡銀行焼津支店 普通0861700; page says gifts are 特定寄付金 eligible for income deduction; latest report is FY2025 H2 donations (posted May 2026); news to 2026.09.15.
+  {
+    slug: "shumpuryo-shizuoka",
+    category: "welfare",
+    region: "japan",
+    country: { ja: "日本", en: "Japan" },
+    name: { ja: "社会福祉法人春風寮 児童養護施設 春風寮（静岡県焼津市）", en: "Shumpuryo Children's Home (Yaizu, Shizuoka)" },
+    summary: {
+      ja: "焼津市の児童養護施設で子どもたちの暮らしと楽しみを支えます。",
+      en: "Adds comfort and fun to children's lives at a home in Yaizu.",
+    },
+    description: {
+      ja: "静岡県焼津市田尻にある児童養護施設で、児童家庭支援センターなどもあわせて運営しています。寄付は家庭では買ってもらえるような物や生活を豊かにする物、キャンプや映画・外食などの行事、必要な備品に使われます。",
+      en: "A children's home in Tajiri, Yaizu, Shizuoka, which also runs a child and family support centre. Donations buy the things a family would provide and that enrich daily life, pay for camps, films, meals out and other outings, and cover necessary supplies.",
+    },
+    ...referral,
+    taxDeductible: true,
+    payment: { mode: "external", url: "https://www.shumpu.or.jp/donation/", via: { ja: "施設の公式寄付ページ", en: "the home's official donation page" } },
+    emoji: "🍃",
+  },
+  // pref: 静岡県
+  // verified 2026-10-15: https://www.saiseikai-kawana.jp/kifu/ — application form (Word/PDF by FAX/post) plus transfer to 静岡銀行伊東支店 普通0818801; page says individual gifts are income/resident-tax deductible; newsletter No.580 dated 2026-09-01.
+  {
+    slug: "kawana-rinkai-gakuen-shizuoka",
+    category: "welfare",
+    region: "japan",
+    country: { ja: "日本", en: "Japan" },
+    name: { ja: "社会福祉法人恩賜財団静岡県済生会 児童養護施設 川奈臨海学園（静岡県伊東市）", en: "Kawana Rinkai Gakuen Children's Home (Ito, Shizuoka)" },
+    summary: {
+      ja: "伊東市の海辺の児童養護施設で暮らす子どもたちを支えます。",
+      en: "Supports children living at a seaside children's home in Ito.",
+    },
+    description: {
+      ja: "静岡県伊東市川奈にある児童養護施設で、2021年に建て替えられ、少人数の生活単位で家庭的な環境をつくっています。寄付は子どもたちのため、子どもたちへの支援、施設の整備などに使われます。",
+      en: "A children's home in Kawana, Ito, Shizuoka, rebuilt in 2021 so that children live in small, family-like groups. Donations are used for the children, for supporting them and for improving the facilities.",
+    },
+    ...referral,
+    taxDeductible: true,
+    payment: { mode: "external", url: "https://www.saiseikai-kawana.jp/kifu/", via: { ja: "施設の公式寄付ページ", en: "the home's official donation page" } },
+    emoji: "🌅",
+  },
+  // pref: 滋賀県
+  // verified 2026-10-15: https://moriyama-gakuen.jp/support/donate — transfer to 滋賀銀行守山北支店 (two accounts: facility improvement / children in residence) then a 振込済みお知らせフォーム; no tax statement; news lists events on 2026-10-25 and 2026-11-07.
+  {
+    slug: "moriyama-gakuen-shiga",
+    category: "welfare",
+    region: "japan",
+    country: { ja: "日本", en: "Japan" },
+    name: { ja: "社会福祉法人ひかり会 児童養護施設 守山学園（滋賀県守山市）", en: "Moriyama Gakuen Children's Home (Moriyama, Shiga)" },
+    summary: {
+      ja: "守山市の児童養護施設の子どもたちと施設の整備を支えます。",
+      en: "Supports the children and the buildings of a children's home in Moriyama.",
+    },
+    description: {
+      ja: "滋賀県守山市笠原町にある児童養護施設で、さまざまな事情で家族と離れて暮らす子どもたちが生活しています。寄付は振込先の口座によって、施設の整備費か入所している子どもたちのために使われます。",
+      en: "A children's home in Kasahara-cho, Moriyama, Shiga, for children living apart from their families. Depending on the account chosen, gifts go to improving the facilities or directly to the children living there.",
+    },
+    ...referral,
+    taxDeductible: false,
+    payment: { mode: "external", url: "https://moriyama-gakuen.jp/support/donate", via: { ja: "施設の公式寄付ページ", en: "the home's official donation page" } },
+    emoji: "🌾",
+  },
+  // pref: 京都府
+  // verified 2026-10-15: https://www.kyoto-seieikai.org/support/ — ゆうちょ振替 00910-2-170525 (fees borne by the home); page says gifts qualify for the deduction under 所得税法78条; FY2025 donor list and FY2026 festival notice on the page; page modified 2026-07-20.
+  {
+    slug: "kyoto-seieikai-kyoto",
+    category: "welfare",
+    region: "japan",
+    country: { ja: "日本", en: "Japan" },
+    name: { ja: "社会福祉法人 児童養護施設 京都聖嬰会（京都府京都市）", en: "Kyoto Seieikai Children's Home (Kyoto City, Kyoto)" },
+    summary: {
+      ja: "京都市の児童養護施設の子どもたちの進学・就職・自立を支えます。",
+      en: "Helps children at a Kyoto home with further study, jobs and independence.",
+    },
+    description: {
+      ja: "京都市北区衣笠、金閣寺の近くにある社会福祉法人の児童養護施設です。寄付は子どもたちの進学・就職・生活などの自立支援に限って使われます。",
+      en: "A children's home run by a social welfare corporation in Kinugasa, Kita Ward, Kyoto, near Kinkaku-ji. Donations are used only to help the children become independent, covering further study, employment and daily living.",
+    },
+    ...referral,
+    taxDeductible: true,
+    payment: { mode: "external", url: "https://www.kyoto-seieikai.org/support/", via: { ja: "施設の公式寄付ページ", en: "the home's official donation page" } },
+    emoji: "⛩️",
+  },
+  // pref: 兵庫県
+  // verified 2026-10-15: https://shinai-g.com/donation — ゆうちょ 01160-6-1554 (社会福祉法人信愛学園); page says donations are tax-deductible; children's-home page lists job fairs on 2026-04-26, 2026-06-21 and 2026-10-18.
+  {
+    slug: "shinai-gakuen-hyogo",
+    category: "welfare",
+    region: "japan",
+    country: { ja: "日本", en: "Japan" },
+    name: { ja: "社会福祉法人信愛学園 児童養護施設 信愛学園（兵庫県神戸市）", en: "Shinai Gakuen Children's Home (Kobe, Hyogo)" },
+    summary: {
+      ja: "神戸市東灘区の児童養護施設で暮らす子どもたちを支えます。",
+      en: "Supports children living at a children's home in Higashinada, Kobe.",
+    },
+    description: {
+      ja: "神戸市東灘区御影にあるキリスト教精神に基づく児童養護施設で、家庭で暮らせない子どもたちを小規模・家庭的な養育で支え、心理ケアや自立・アフターケアも行っています。寄付は子どもたちのために使われます。",
+      en: "A Christian children's home in Mikage, Higashinada Ward, Kobe, raising children who cannot live at home in small, family-style groups, with psychological care and support for independence and aftercare. Donations are used for the children.",
+    },
+    ...referral,
+    taxDeductible: true,
+    payment: { mode: "external", url: "https://shinai-g.com/donation", via: { ja: "施設の公式寄付ページ", en: "the home's official donation page" } },
+    emoji: "🕊️",
+  },
+  // pref: 鳥取県
+  // verified 2026-10-15: https://www.tottorikodomogakuen.or.jp/bokinjigyo — ¥1,000/unit; 郵便振替 01490-9-9106, 山陰合同銀行・鳥取銀行 accounts, and online card giving (VISA/JCB/AMEX, per the linked 法令表記 page); links to a 寄附控除 page but deductibility not stated on this page; home page news to 2026.09.30.
+  {
+    slug: "tottori-kodomo-gakuen-tottori",
+    category: "welfare",
+    region: "japan",
+    country: { ja: "日本", en: "Japan" },
+    name: { ja: "社会福祉法人鳥取こども学園 児童養護施設 鳥取こども学園（鳥取県鳥取市）", en: "Tottori Kodomo Gakuen Children's Home (Tottori City, Tottori)" },
+    summary: {
+      ja: "1906年から続く鳥取市の児童養護施設の子どもたちの活動を支えます。",
+      en: "Supports activities for children at a Tottori home running since 1906.",
+    },
+    description: {
+      ja: "鳥取市立川町を拠点に1906年から活動する社会福祉法人で、児童養護施設のほか乳児院や児童心理治療施設なども運営しています。募金は1口1,000円から受け付け、子どもたちへの活動に使われます。",
+      en: "A welfare corporation based in Tachikawa-cho, Tottori City, working since 1906 and running a children's home as well as an infant home and a child psychological treatment facility. Gifts start at ¥1,000 per unit and fund activities for the children.",
+    },
+    ...referral,
+    taxDeductible: false,
+    payment: { mode: "external", url: "https://www.tottorikodomogakuen.or.jp/bokinjigyo", via: { ja: "施設の公式寄付ページ", en: "the home's official donation page" } },
+    emoji: "🏔️",
+  },
+  // pref: 岡山県
+  // verified 2026-10-15: https://www.shintenchi-ikujiin.com/blank-1 — 郵便振替 accounts for child welfare work (01370-7-2974) and a university-entrance fund (01340-7-107567); no tax statement; home page lists 新天地こどもまつり on 2026-06-20.
+  {
+    slug: "shintenchi-ikujiin-okayama",
+    category: "welfare",
+    region: "japan",
+    country: { ja: "日本", en: "Japan" },
+    name: { ja: "社会福祉法人新天地育児院 児童養護施設 新天地育児院（岡山県岡山市）", en: "Shintenchi Ikujiin Children's Home (Okayama City, Okayama)" },
+    summary: {
+      ja: "石井十次の岡山孤児院につながる児童養護施設の子どもたちを応援します。",
+      en: "Backs children at an Okayama home descended from Ishii Juji's orphanage.",
+    },
+    description: {
+      ja: "岡山市中区門田本町にある児童養護施設で、石井十次が創設した岡山孤児院の流れをくんでいます。寄付は児童福祉事業のほか、子どもたちの習い事や大学進学のための基金に使われます。",
+      en: "A children's home in Kadota Honmachi, Naka Ward, Okayama City, which traces its roots to the Okayama Orphanage founded by Ishii Juji. Donations support its child-welfare work and a fund for children's lessons and university entrance.",
+    },
+    ...referral,
+    taxDeductible: false,
+    payment: { mode: "external", url: "https://www.shintenchi-ikujiin.com/blank-1", via: { ja: "施設の公式寄付ページ", en: "the home's official donation page" } },
+    emoji: "📚",
+  },
+  // pref: 広島県
+  // verified 2026-10-15: https://kobushinomura.com/donation/ — online donation form (¥3,000–¥50,000 or custom), pay by cash or 広島銀行 transfer; page says receipts are issued for tax benefits; こぶしヶ丘学園 page news to 2026.10.08, blog to 2026.08.30.
+  {
+    slug: "kobushigaoka-gakuen-hiroshima",
+    category: "welfare",
+    region: "japan",
+    country: { ja: "日本", en: "Japan" },
+    name: { ja: "社会福祉法人こぶしの村福祉会 児童養護施設 こぶしヶ丘学園（広島県福山市）", en: "Kobushigaoka Gakuen Children's Home (Fukuyama, Hiroshima)" },
+    summary: {
+      ja: "福山市の児童養護施設で暮らす2歳から18歳の子どもたちを支えます。",
+      en: "Supports children aged 2 to 18 at a children's home in Fukuyama.",
+    },
+    description: {
+      ja: "広島県福山市加茂町の社会福祉法人こぶしの村福祉会が運営する児童養護施設で、おおむね2歳から18歳の子どもたちが5つの家庭的なユニットで暮らしています。寄付は理事会の審議を経て、必要とする各施設の運営に使われます。",
+      en: "A children's home run by the Kobushi no Mura welfare corporation in Kamo-cho, Fukuyama, Hiroshima, where children aged roughly 2 to 18 live in five family-style units. After review by the board, donations go to the running of the facilities that need them.",
+    },
+    ...referral,
+    taxDeductible: true,
+    payment: { mode: "external", url: "https://kobushinomura.com/donation/", via: { ja: "法人の公式寄付ページ", en: "the operator's official donation page" } },
+    emoji: "🌼",
+  },
+  // pref: 香川県
+  // verified 2026-10-15: https://4on.or.jp/kameyama/support — "ご寄付・ご支援" page: 亀ちゃん基金 (亀山学園奨学基金), pay at the home or by 郵便振替 01640-0-130300; no tax statement; site news to 2026/05/14 (renewed 2026/02/10).
+  {
+    slug: "kameyama-gakuen-kagawa",
+    category: "welfare",
+    region: "japan",
+    country: { ja: "日本", en: "Japan" },
+    name: { ja: "社会福祉法人四恩の里 児童養護施設 亀山学園（香川県丸亀市）", en: "Kameyama Gakuen Children's Home (Marugame, Kagawa)" },
+    summary: {
+      ja: "丸亀市の児童養護施設の子どもたちが習い事に通えるよう支えます。",
+      en: "Helps children at a Marugame home take part in after-school lessons.",
+    },
+    description: {
+      ja: "香川県丸亀市柞原町にある児童養護施設で、家族に育てられないさまざまな事情を抱えた子どもたちが暮らしています。「亀ちゃん基金」への会費は、子どもたちが同年代の子と同じように習い事に通うための費用に使われます。",
+      en: "A children's home in Marugame, Kagawa, for children who cannot be raised by their families. Payments to its Kame-chan Fund cover after-school lessons so the children can do the same activities as others their age.",
+    },
+    ...referral,
+    taxDeductible: false,
+    payment: { mode: "external", url: "https://4on.or.jp/kameyama/support", via: { ja: "施設の公式寄付ページ", en: "the home's official donation page" } },
+    emoji: "🐢",
+  },
+  // pref: 長崎県
+  // verified 2026-10-15: https://wakatakeryou.jp/pages/38/ — monetary gifts in person or by bank transfer after submitting the inquiry form (account details sent back); no tax statement; site news to 2026-10-14.
+  {
+    slug: "wakatake-no-ie-nagasaki",
+    category: "welfare",
+    region: "japan",
+    country: { ja: "日本", en: "Japan" },
+    name: { ja: "社会福祉法人若竹寮 児童養護施設 若竹の家（長崎県佐世保市）", en: "Wakatake no Ie Children's Home (Sasebo, Nagasaki)" },
+    summary: {
+      ja: "佐世保市の児童養護施設の子どもたちの生活・学習・自立を支えます。",
+      en: "Supports the daily life, study and independence of children at a Sasebo home.",
+    },
+    description: {
+      ja: "長崎県佐世保市柚木町にある児童養護施設で、幼児から高校生まで約45人の子どもたちが、本体施設と地域の小規模グループホームの7つのホームで暮らしています。寄付は子どもたちの生活、学習、進学、自立の支援に使われます。",
+      en: "A children's home in Yunoki-cho, Sasebo, Nagasaki, where about 45 children from pre-school to high-school age live in seven homes on site and in the community. Donations support the children's daily life, study, further education and independence.",
+    },
+    ...referral,
+    taxDeductible: false,
+    payment: { mode: "external", url: "https://wakatakeryou.jp/pages/38/", via: { ja: "施設の公式寄付ページ", en: "the home's official donation page" } },
+    emoji: "🎋",
+  },
+  // pref: 大分県
+  // verified 2026-10-15: https://sayurihome.jp/pages/29/ — transfer to 大分銀行大在支店 (corporation account or 小百合ホーム account) plus an online/emailed application for a receipt; page says gifts qualify for 寄附金控除; home page news to 2026-09-04.
+  {
+    slug: "sayuri-home-oita",
+    category: "welfare",
+    region: "japan",
+    country: { ja: "日本", en: "Japan" },
+    name: { ja: "社会福祉法人小百合愛児園 児童養護施設 小百合ホーム（大分県大分市）", en: "Sayuri Home Children's Home (Oita City, Oita)" },
+    summary: {
+      ja: "大分市の児童養護施設で暮らす子どもたちの環境と自立を支えます。",
+      en: "Improves the surroundings and independence of children at a home in Oita City.",
+    },
+    description: {
+      ja: "大分市城原にある社会福祉法人小百合愛児園の児童養護施設です。寄付は使い道を選ぶことができ、入所している子どもたちの処遇や法人の運営に使われ、生活環境の改善や個別の支援、アフターケアにも役立てられます。",
+      en: "A children's home in Oita City run by the Sayuri Aijien welfare corporation. Donors can choose the use, either care for the children living there or the corporation's running costs, and gifts help improve living conditions, individual support and aftercare.",
+    },
+    ...referral,
+    taxDeductible: true,
+    payment: { mode: "external", url: "https://sayurihome.jp/pages/29/", via: { ja: "施設の公式寄付ページ", en: "the home's official donation page" } },
+    emoji: "🌷",
+  },
+  // pref: 沖縄県
+  // verified 2026-10-15: https://www.shimazoenooka.com/support.php — 「児童を支援する会」: annual ¥5,000/unit individuals, ¥10,000/unit companies, paid to 琉球銀行・沖縄銀行・海邦銀行・JAバンク accounts or in cash; online or posted application form; no tax statement; home page news to 2026.10.09.
+  {
+    slug: "shimazoe-no-oka-okinawa",
+    category: "welfare",
+    region: "japan",
+    country: { ja: "日本", en: "Japan" },
+    name: { ja: "社会福祉法人豊友会 児童養護施設 島添の丘（沖縄県南城市）", en: "Shimazoe no Oka Children's Home (Nanjo, Okinawa)" },
+    summary: {
+      ja: "支援する会の会員になって南城市の児童養護施設の子どもたちを応援します。",
+      en: "Join the supporters' association of a children's home in Nanjo, Okinawa.",
+    },
+    description: {
+      ja: "沖縄県南城市大里にある児童養護施設で、本園のほか地域小規模児童養護施設も運営しています。「児童を支援する会」の会費は、子どもたちの健やかな成長と自立の支援に使われます。",
+      en: "A children's home in Ozato, Nanjo, Okinawa, which also runs small community-based homes. Fees paid to its children's supporters' association help the children grow up healthy and become independent.",
+    },
+    ...referral,
+    taxDeductible: false,
+    payment: { mode: "external", url: "https://www.shimazoenooka.com/support.php", via: { ja: "施設の公式支援ページ", en: "the home's official support page" } },
+    emoji: "🌺",
+  },
 ];
 
 export const recipients: Recipient[] =

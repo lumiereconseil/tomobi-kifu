@@ -9,6 +9,8 @@ export type Theme = {
   body: Localized[];
   /** Listed recipients for this theme, by slug. Unknown slugs are ignored. */
   recipientSlugs: string[];
+  /** Optional sub-groups (e.g. by region) shown as separate grids; slugs must be in recipientSlugs. */
+  groups?: { label: Localized; slugs: string[] }[];
   emoji: string;
 };
 
@@ -83,7 +85,38 @@ export const themes: Theme[] = [
     ],
     emoji: "💛",
   },
+  {
+    slug: "childrens-homes",
+    name: { ja: "全国の児童養護施設", en: "Children's Homes across Japan" },
+    summary: {
+      ja: "親と暮らせない子どもたちが生活する、全国の児童養護施設への寄付先です。施設や運営法人の公式ページで、寄付の受付を確かめたところだけを載せています。",
+      en: "Children's homes across Japan caring for children who cannot live with their parents. We list only homes whose own official pages invite donations.",
+    },
+    body: [
+      {
+        ja: "児童養護施設は、虐待や家庭の事情で親と暮らせない子どもたちが生活する施設で、多くは社会福祉法人が運営しています。寄付は子どもたちの生活や行事、進学や自立の費用、施設を巣立った若者への支援などに使われます。",
+        en: "Children's homes care for children who cannot live with their families because of abuse or other circumstances; most are run by social welfare corporations. Gifts fund daily life and activities, education and independence costs, and support for young people who have left care.",
+      },
+      {
+        ja: "寄付の方法は施設ごとに違います。オンラインで寄付できる施設のほか、銀行・郵便振込や、先に電話や申込書で連絡してから寄付する施設もあります。各施設のページでご確認ください。",
+        en: "How to give differs by home: some take online payments, others bank or postal transfers, and some ask you to contact them first. Please check each home's page.",
+      },
+    ],
+    recipientSlugs: [],
+    groups: [
+      { label: { ja: "北海道・東北", en: "Hokkaido and Tohoku" }, slugs: ["iwanai-kouseien-hokkaido", "kurumi-gakuen-hakodate", "fuji-seiboen-aomori", "seikou-gakuen-iwate", "sayurien-sendai", "yamagata-gakuen-yamagata", "shirakawa-gakuen-fukushima"] },
+      { label: { ja: "関東", en: "Kanto" }, slugs: ["runbini-ibaraki", "francisco-no-machi-gunma", "kodomo-no-machi-saitama", "nonohana-no-ie-chiba", "chiba-care-leaver-scholarship", "tokyo-ikuseien-tokyo", "meguro-wakabaryo-tokyo", "seishonen-fukushi-center-tokyo", "kodomo-no-sono-chigasaki", "seikou-gakuen-zama"] },
+      { label: { ja: "中部", en: "Chubu" }, slugs: ["niigata-tenshien-niigata", "lunbinien-toyama", "rinshoen-kanazawa", "clover-gakuen-yamanashi", "iiyama-gakuen-nagano", "shumpuryo-shizuoka", "kawana-rinkai-gakuen-shizuoka", "umegaoka-gakuen-aichi"] },
+      { label: { ja: "近畿", en: "Kinki" }, slugs: ["moriyama-gakuen-shiga", "kyoto-seieikai-kyoto", "uminoko-gakuen-osaka", "shinai-gakuen-hyogo"] },
+      { label: { ja: "中国・四国", en: "Chugoku and Shikoku" }, slugs: ["tottori-kodomo-gakuen-tottori", "shintenchi-ikujiin-okayama", "kobushigaoka-gakuen-hiroshima", "kameyama-gakuen-kagawa"] },
+      { label: { ja: "九州・沖縄", en: "Kyushu and Okinawa" }, slugs: ["wakamatsu-jido-home-fukuoka", "fukuoka-ikujiin-fukuoka", "wakatake-no-ie-nagasaki", "jiaien-childrens-home-kumamoto", "fujisakidai-doen-kumamoto", "sayuri-home-oita", "shimazoe-no-oka-okinawa"] },
+    ],
+    emoji: "🏠",
+  },
 ];
+
+// A grouped theme lists every grouped slug.
+for (const t of themes) if (t.groups && t.recipientSlugs.length === 0) t.recipientSlugs = t.groups.flatMap((g) => g.slugs);
 
 export function getTheme(slug: string): Theme | undefined {
   return themes.find((t) => t.slug === slug);

@@ -37,6 +37,10 @@ export default async function CausePage({ params }: { params: Params }) {
       facts={[[ja ? "地域" : "Area", ja ? "日本全国" : "Across Japan"]]}
       body={t.body}
       list={themeRecipients(t)}
+      groups={t.groups?.map((g) => ({
+        title: g.label[locale],
+        list: g.slugs.map((s) => themeRecipients(t).find((r) => r.slug === s)).filter((r) => r !== undefined),
+      }))}
     />
   );
 }
