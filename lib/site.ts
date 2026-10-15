@@ -2,7 +2,7 @@
 export const operator = {
   tradeName: "Lumière Conseil",
   name: process.env.OPERATOR_NAME?.trim() || "Yusuke Tachibana",
-  email: process.env.CONTACT_EMAIL?.trim() || "masashida0912@gmail.com",
+  email: process.env.CONTACT_EMAIL?.trim() || "lumiere.conseil@outlook.com",
   phone: process.env.CONTACT_PHONE?.trim() || "070-9182-7701",
 };
 
