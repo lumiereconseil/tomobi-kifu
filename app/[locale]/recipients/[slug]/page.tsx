@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
+import Link from "next/link";
 import { DonateForm } from "@/components/DonateForm";
+import { disasterFor } from "@/lib/disasters";
 import { Progress } from "@/components/Progress";
 import { formatMoney, limits, platformFeePercent } from "@/lib/donation";
 import { getDictionary, isLocale } from "@/lib/i18n";
@@ -55,6 +57,7 @@ export default async function RecipientPage({ params }: { params: Params }) {
   const t = getDictionary(locale);
   const demo = !getStripe();
   const fee = platformFeePercent(r.feePercent);
+  const disaster = disasterFor(r.slug);
 
   const minMax = (c: "jpy" | "usd") =>
     t.minMax(formatMoney(limits[c].min, c, locale), formatMoney(limits[c].max, c, locale));
@@ -79,6 +82,13 @@ export default async function RecipientPage({ params }: { params: Params }) {
         <h1>{r.name[locale]}</h1>
         <p className="lead">{r.summary[locale]}</p>
         <p>{r.description[locale]}</p>
+        {disaster && (
+          <p className="disaster-backlink">
+            <Link href={`/${locale}/disasters/${disaster.slug}`}>
+              {disaster.emoji} {t.disasterGuideLink(disaster.name[locale])} →
+            </Link>
+          </p>
+        )}
         {r.matching && (
           <p className="matching">
             🤝 {t.matching(r.matching.sponsor[locale])}
@@ -87,6 +97,11 @@ export default async function RecipientPage({ params }: { params: Params }) {
         )}
         {r.sample && <p className="notice">{t.sampleNotice}</p>}
         {r.partner === false && <p className="notice">{t.referralDetail}</p>}
+        {r.partner === false && (
+          <p className="small muted">
+            {t.forThisOrg} <Link href={`/${locale}/apply`}>{t.forThisOrgLink}</Link>
+          </p>
+        )}
 
         {r.payment.mode === "direct" && (
           <>
