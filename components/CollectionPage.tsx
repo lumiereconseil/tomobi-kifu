@@ -3,6 +3,7 @@ import { RecipientCard } from "@/components/RecipientCard";
 import { getDictionary, type Locale, type Localized } from "@/lib/i18n";
 import type { Recipient } from "@/lib/recipients";
 import { pageUrl } from "@/lib/seo";
+import { ShareButtons } from "@/components/ShareButtons";
 
 /** Shared layout for the disaster and cause pages: intro, key facts and the recipient grid. */
 export function CollectionPage({
@@ -70,6 +71,12 @@ export function CollectionPage({
           <Link href={`/${locale}/guide`}>{ja ? "→ 義援金・支援金・ふるさと納税の違い（寄付の選び方）" : "→ Relief funds, support funds and furusato nozei: our giving guide"}</Link>
         </p>
         <p className="notice">{t.referralNotice}</p>
+        <ShareButtons
+          url={pageUrl(locale, path)}
+          locale={locale}
+          text={`${title}｜${t.siteName}`}
+          hashtags={ja ? ["寄付", "ともに寄付"] : ["Japan", "Donate"]}
+        />
       </div>
       {(groups ?? [{ title: "", list }])
         .filter((g) => g.list.length > 0)
