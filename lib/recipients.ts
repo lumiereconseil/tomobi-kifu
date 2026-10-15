@@ -1371,6 +1371,51 @@ const listed: Recipient[] = [
     payment: { mode: "external", url: "https://fbyamaguchi.org/support_fby/donation/", via: { ja: "団体の公式寄付ページ", en: "the organisation's official donation page" } },
     emoji: "🥫",
   },
+  // Added 2026-10-15 (Masa: Chiba floods first). Verified on the official pages that day.
+  // verified 2026-10-15: https://www.city.chiba.jp/hokenfukushi/kenkofukushi/chiikifukushi/r8chibagouugiennkin.html
+  // Page says 受付期間 令和8年8月21日～11月30日, distributed directly to affected residents; updated 2026-10-13.
+  {
+    slug: "chiba-city-2026-flood-gienkin",
+    category: "municipality",
+    region: "japan",
+    country: { ja: "日本", en: "Japan" },
+    name: { ja: "千葉県千葉市 令和8年8月千葉豪雨・台風第25号等 被災者支援義援金", en: "Chiba City: August 2026 Heavy Rain and Typhoon No. 25 Relief Fund" },
+    summary: {
+      ja: "千葉市で被災した方々へ、義援金として直接配分されます。",
+      en: "Relief money distributed directly to affected residents of Chiba City.",
+    },
+    description: {
+      ja: "千葉市が受け付けている義援金で、被害の確認と配分基準の決定のあと、被災した方々へ直接配分されます。受付は2026年11月30日までで、銀行・ゆうちょ振込か市役所・区役所の募金箱で寄付できます。市のページには寄附金控除の対象になる場合があると書かれています。",
+      en: "Collected by Chiba City and paid directly to affected residents once damage is assessed. Open until 30 November 2026, by bank or postal transfer or at donation boxes in city and ward offices. The city says gifts may be tax-deductible.",
+    },
+    ...referral,
+    taxDeductible: true,
+    payment: { mode: "external", url: "https://www.city.chiba.jp/hokenfukushi/kenkofukushi/chiikifukushi/r8chibagouugiennkin.html", via: { ja: "自治体の公式寄附ページ", en: "the municipality's official donation page" } },
+    emergency: { since: "2026-08-21" },
+    emoji: "🏙️",
+  },
+  // verified 2026-10-15: https://www.jrc.or.jp/contribute/help/20260821/
+  // Page says 受付期間 2026年8月21日～2027年3月31日; funds go to Chiba Prefecture's 義援金配分委員会; bank/postal only.
+  {
+    slug: "jrc-2026-chiba-flood",
+    category: "disaster",
+    region: "japan",
+    country: { ja: "日本", en: "Japan" },
+    name: { ja: "日本赤十字社 令和8年8月千葉豪雨災害義援金", en: "Japanese Red Cross: August 2026 Chiba Heavy Rain Relief Fund" },
+    summary: {
+      ja: "義援金は千葉県の義援金配分委員会へ送られ、被災した方々に届けられます。",
+      en: "Relief money sent to Chiba Prefecture's distribution committee for affected residents.",
+    },
+    description: {
+      ja: "日本赤十字社が受け付けている千葉豪雨の義援金です。受付は2027年3月31日までで、ゆうちょ・銀行振込で寄付できます（クレジットカードは使えません）。振込の控えが寄附金控除の領収書として使えると書かれています。",
+      en: "Relief money for the Chiba heavy rain collected by the Japanese Red Cross, open until 31 March 2027 by postal or bank transfer (no credit cards). Transfer slips can be used as receipts for tax deduction.",
+    },
+    ...referral,
+    taxDeductible: true,
+    payment: { mode: "external", url: "https://www.jrc.or.jp/contribute/help/20260821/", via: { ja: "日本赤十字社の義援金窓口", en: "the Japanese Red Cross relief fund page" } },
+    emergency: { since: "2026-08-21" },
+    emoji: "🤝",
+  },
 ];
 
 export const recipients: Recipient[] =
