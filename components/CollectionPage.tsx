@@ -15,6 +15,7 @@ export function CollectionPage({
   facts,
   body,
   list,
+  groups,
 }: {
   locale: Locale;
   path: string;
@@ -25,6 +26,8 @@ export function CollectionPage({
   facts: [string, string][];
   body: Localized[];
   list: Recipient[];
+  /** When given, the list is shown as one titled grid per group. */
+  groups?: { title: string; list: Recipient[] }[];
 }) {
   const t = getDictionary(locale);
   const ja = locale === "ja";
@@ -68,11 +71,18 @@ export function CollectionPage({
         </p>
         <p className="notice">{t.referralNotice}</p>
       </div>
-      <div className="grid disaster-grid">
-        {list.map((r) => (
-          <RecipientCard key={r.slug} r={r} locale={locale} t={t} />
+      {(groups ?? [{ title: "", list }])
+        .filter((g) => g.list.length > 0)
+        .map((g) => (
+          <div key={g.title} className="region-block disaster-grid">
+            {g.title && <h2>{g.title}（{ja ? `${g.list.length}件` : g.list.length}）</h2>}
+            <div className="grid">
+              {g.list.map((r) => (
+                <RecipientCard key={r.slug} r={r} locale={locale} t={t} />
+              ))}
+            </div>
+          </div>
         ))}
-      </div>
       <p className="small muted disaster-checked">
         {ja
           ? "掲載内容は各団体・自治体の公式ページで確認した情報です。受付期間や控除の扱いは、寄付の前に公式ページでご確認ください。"

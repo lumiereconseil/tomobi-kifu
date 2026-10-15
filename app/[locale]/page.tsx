@@ -4,7 +4,7 @@ import { RecipientCard } from "@/components/RecipientCard";
 import { formatMoney } from "@/lib/donation";
 import { getDictionary, isLocale } from "@/lib/i18n";
 import { disasterRecipients, disasters } from "@/lib/disasters";
-import { themes } from "@/lib/themes";
+import { getTheme, themes } from "@/lib/themes";
 import { isDirect, type Category, type Region } from "@/lib/recipients";
 import { homeJsonLd } from "@/lib/seo";
 import { recipientsWithStats } from "@/lib/stats";
@@ -25,6 +25,9 @@ export default async function Home({
   const { cat, region } = await searchParams;
   const recipients = await recipientsWithStats();
   const campaigns = disasters.filter((d) => d.campaign);
+  // Children's homes are many; the home page links to their own page instead of listing each.
+  const homes = getTheme("childrens-homes");
+  const homeSlugs = new Set(homes?.recipientSlugs ?? []);
   // Campaign appeals (Kumamoto, Chiba) lead the emergency list.
   const featured = new Set(campaigns.flatMap((d) => d.recipientSlugs));
   const emergencies = [...recipients.filter((r) => r.emergency && featured.has(r.slug)), ...recipients.filter((r) => r.emergency && !featured.has(r.slug))];
@@ -86,6 +89,11 @@ export default async function Home({
           </div>
           <p className="small muted">{t.campaignNote}</p>
           <div className="hero-actions">
+            {homes && (
+              <Link href={`/${locale}/causes/${homes.slug}`} className="btn btn-primary">
+                {homes.emoji} {t.homesCta(homeSlugs.size)}
+              </Link>
+            )}
             <Link href="#recipients" className="btn btn-ghost">
               {t.browse}
             </Link>
@@ -178,7 +186,7 @@ export default async function Home({
           </div>
         </div>
         {[
-          { key: "japan", title: t.sectionJapan, items: list.filter((r) => r.region === "japan" && !(r.emergency && !cat && !region)) },
+          { key: "japan", title: t.sectionJapan, items: list.filter((r) => r.region === "japan" && !homeSlugs.has(r.slug) && !(r.emergency && !cat && !region)) },
           { key: "world", title: t.sectionWorld, items: list.filter((r) => r.region === "world" && !(r.emergency && !cat && !region)) },
         ]
           .filter((s) => s.items.length > 0)
