@@ -4,6 +4,7 @@ import { RecipientCard } from "@/components/RecipientCard";
 import { formatMoney } from "@/lib/donation";
 import { getDictionary, isLocale } from "@/lib/i18n";
 import { disasters } from "@/lib/disasters";
+import { themes } from "@/lib/themes";
 import { isDirect, type Category, type Region } from "@/lib/recipients";
 import { homeJsonLd } from "@/lib/seo";
 import { recipientsWithStats } from "@/lib/stats";
@@ -94,6 +95,17 @@ export default async function Home({
               <small>{t.guideSub}</small>
             </span>
           </Link>
+        </div>
+        <h2 className="cause-heading">{t.byCause}</h2>
+        <div className="disaster-links">
+          {themes.map((c) => (
+            <Link key={c.slug} href={`/${locale}/causes/${c.slug}`} className="disaster-link">
+              <span aria-hidden>{c.emoji}</span>
+              <span>
+                <strong>{c.name[locale]}</strong>
+              </span>
+            </Link>
+          ))}
         </div>
       </section>
 
