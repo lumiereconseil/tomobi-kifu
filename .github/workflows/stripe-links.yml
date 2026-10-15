@@ -1,0 +1,39 @@
+name: Create Stripe payment links
+
+# Creates donation Payment Links for a partner organisation that finished Stripe Connect
+# onboarding. Needs the repository secret STRIPE_SECRET_KEY. The links are public URLs; the
+# output is the entry to add to lib/payment-links.ts.
+on:
+  workflow_dispatch:
+    inputs:
+      slug:
+        description: "Recipient slug in lib/recipients.ts"
+        required: true
+      account:
+        description: "Connected account id (acct_...)"
+        required: true
+      fee:
+        description: "Fee percent"
+        required: false
+        default: "10"
+
+permissions:
+  contents: read
+
+jobs:
+  links:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      - name: Create links
+        env:
+          STRIPE_SECRET_KEY: ${{ secrets.STRIPE_SECRET_KEY }}
+          SLUG: ${{ inputs.slug }}
+          ACCOUNT: ${{ inputs.account }}
+          FEE: ${{ inputs.fee }}
+        run: node scripts/stripe-setup.mjs links "$SLUG" "$ACCOUNT" "$FEE" | tee -a "$GITHUB_STEP_SUMMARY"

@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import Link from "next/link";
 import { DonateForm } from "@/components/DonateForm";
+import { DonateLinks } from "@/components/DonateLinks";
+import { paymentLinksFor } from "@/lib/payment-links";
 import { disasterFor } from "@/lib/disasters";
 import { themeFor } from "@/lib/themes";
 import { Progress } from "@/components/Progress";
@@ -61,6 +63,7 @@ export default async function RecipientPage({ params }: { params: Params }) {
   const fee = platformFeePercent(r.feePercent);
   const disaster = disasterFor(r.slug);
   const cause = themeFor(r.slug);
+  const links = paymentLinksFor(r.slug);
 
   const minMax = (c: "jpy" | "usd") =>
     t.minMax(formatMoney(limits[c].min, c, locale), formatMoney(limits[c].max, c, locale));
@@ -171,6 +174,10 @@ export default async function RecipientPage({ params }: { params: Params }) {
             {r.supporters.toLocaleString(locale)} {t.supporters}
           </p>
           <h2>{t.donateNow}</h2>
+          {links ? (
+            <DonateLinks links={links} locale={locale} feePercent={fee} />
+          ) : (
+            <>
           {demo && <p className="notice">{t.demoNote}</p>}
           <DonateForm
             slug={r.slug}
@@ -195,6 +202,8 @@ export default async function RecipientPage({ params }: { params: Params }) {
             }}
           />
           <p className="small muted">{t.feeNote(fee)}</p>
+            </>
+          )}
           <p className="small muted">{t.secureNote}</p>
           <p className="small muted">{t.taxNote}</p>
         </aside>
