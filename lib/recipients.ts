@@ -1118,6 +1118,259 @@ const listed: Recipient[] = [
     emergency: { since: "2026-08-27" },
     emoji: "🪶",
   },
+  // Welfare organisations added 2026-10-15 after checking each official page that day.
+  // theme: children
+  // verified 2026-10-15: https://www.sosjapan.org/support/donation — one-time (any amount) and monthly credit-card giving via ROBOT PAYMENT, page says gifts to this 認定NPO法人 get tax benefits; home page news dated up to 2026-09-28 (new site "あかり" opened 2026-08-19)
+  {
+    slug: "sos-childrens-villages-japan",
+    category: "welfare",
+    region: "japan",
+    country: { ja: "日本", en: "Japan" },
+    name: { ja: "認定NPO法人 SOS子どもの村JAPAN", en: "SOS Children's Villages Japan" },
+    summary: {
+      ja: "家族と離れて暮らす子どもが家庭的な環境で育つよう支えます。",
+      en: "Helps children who cannot live with their families grow up in a family-like home.",
+    },
+    description: {
+      ja: "福岡市を拠点とする認定NPO法人で、「子どもの村福岡」の運営や里親支援、ヤングケアラーの相談などを行っています。寄付は使途を限定せず、家族と離れて暮らす子どもや困難を抱える家庭への支援全体に使われます。",
+      en: "A certified NPO based in Fukuoka City that runs Children's Village Fukuoka, supports foster families and offers advice to young carers. Donations are unrestricted and fund its work with children living apart from their families and families in difficulty.",
+    },
+    ...referral,
+    taxDeductible: true,
+    payment: { mode: "external", url: "https://www.sosjapan.org/support/donation", via: { ja: "団体の公式寄付ページ", en: "the organisation's official donation page" } },
+    emoji: "🏡",
+  },
+  // theme: children
+  // verified 2026-10-15: https://asuiku.org/donation — monthly and one-time Congrant donation forms linked; page lists uses (food bank "プラアス", 多賀城こども食堂, nature facility, 子ども第三の居場所); site news dated up to 2026-10-15; no tax-deduction mention (NPO法人)
+  {
+    slug: "asuiku",
+    category: "welfare",
+    region: "japan",
+    country: { ja: "日本", en: "Japan" },
+    name: { ja: "NPO法人 アスイク", en: "Asuiku" },
+    summary: {
+      ja: "宮城県で困難を抱える子どもや若者の食と居場所を支えます。",
+      en: "Food support and safe places for children and young people in difficulty in Miyagi.",
+    },
+    description: {
+      ja: "仙台市のNPO法人で、子どもの学習・生活支援や不登校・ヤングケアラー支援、食支援などを行っています。寄付はフードバンク「プラアス」の配送、多賀城こども食堂、自然体験施設、子ども第三の居場所の運営などに使われます。",
+      en: "An NPO in Sendai offering learning and daily-life support, help for children out of school and young carers, and food support. Donations fund deliveries by its Pura-Asu food bank, the Tagajo children's cafeteria, a nature-experience facility and a third place for children.",
+    },
+    ...referral,
+    taxDeductible: false,
+    payment: { mode: "external", url: "https://asuiku.org/donation", via: { ja: "団体の公式寄付ページ", en: "the organisation's official donation page" } },
+    emoji: "🍙",
+  },
+  // theme: children (難病の子ども)
+  // verified 2026-10-15: https://www.solaputi.jp/aid/donation/ — card form (Congrant), PayPal, PayPay, Syncable; 特定公益増進法人 so gifts get income/resident-tax benefits; page modified 2026-01-29, site news to 2026-10-14
+  {
+    slug: "solaputi-kids-camp",
+    category: "welfare",
+    region: "japan",
+    country: { ja: "日本", en: "Japan" },
+    name: { ja: "公益財団法人 そらぷちキッズキャンプ", en: "Solaputi Kids' Camp" },
+    summary: {
+      ja: "難病とたたかう子どものための医療ケア付きキャンプ場を運営します。",
+      en: "Runs a camp with medical care for children fighting serious illness.",
+    },
+    description: {
+      ja: "北海道滝川市にある、難病の子どもと家族のための医療ケア付きキャンプ場を運営する公益財団法人です。寄付は医療体制の整備、施設の維持・運営、子どもたちの滞在費に使われます。",
+      en: "A public-interest foundation running a camp with medical care in Takikawa, Hokkaido, for seriously ill children and their families. Donations pay for medical staffing, upkeep of the site and the children's stays.",
+    },
+    ...referral,
+    taxDeductible: true,
+    payment: { mode: "external", url: "https://www.solaputi.jp/aid/donation/", via: { ja: "団体の公式寄付ページ", en: "the organisation's official donation page" } },
+    emoji: "🏕️",
+  },
+  // theme: children (難病の子ども)
+  // verified 2026-10-15: https://www.dmhcj.or.jp/support/ — one-time/monthly/annual card forms (dmhcj.my.salesforce-sites.com); page says donations are tax-deductible; 12 houses run entirely on donations; site news to 2026-10-05
+  {
+    slug: "ronald-mcdonald-house-japan",
+    category: "welfare",
+    region: "japan",
+    country: { ja: "日本", en: "Japan" },
+    name: { ja: "公益財団法人 ロナルド・マクドナルド・ハウス・ジャパン", en: "Ronald McDonald House Japan" },
+    summary: {
+      ja: "病気の子どもに付き添う家族が病院の近くに滞在できるハウスを運営します。",
+      en: "Runs houses near hospitals where families of children in treatment can stay.",
+    },
+    description: {
+      ja: "全国12か所で、入院中の子どもの家族が滞在できるハウスを病院の近くに運営する公益財団法人です。ハウスの運営はすべて寄付と支援で賄われ、家族の身体的・精神的・経済的な負担を軽くします。",
+      en: "A public-interest foundation running 12 houses beside hospitals across Japan where families of children in hospital can stay. The houses run entirely on donations, easing families' physical, emotional and financial burden.",
+    },
+    ...referral,
+    taxDeductible: true,
+    payment: { mode: "external", url: "https://www.dmhcj.or.jp/support/", via: { ja: "団体の公式寄付ページ", en: "the organisation's official donation page" } },
+    emoji: "🏠",
+  },
+  // theme: care (医療的ケア児)
+  // verified 2026-10-15: https://congrant.com/project/unleashkihu/24021 — Congrant page linked as 「寄付で応援する」 from unleash.or.jp; "寄付をする" button live, recruiting 50 monthly partners for the 2026 CareCareer project; no tax-deduction mention (NPO法人); site posts to 2026-09-18
+  {
+    slug: "unleash",
+    category: "welfare",
+    region: "japan",
+    country: { ja: "日本", en: "Japan" },
+    name: { ja: "NPO法人 アンリーシュ", en: "Unleash" },
+    summary: {
+      ja: "医療的ケアが必要な子どもを育てる家族の孤立と不安を減らします。",
+      en: "Reduces isolation and worry for families raising children who need medical care.",
+    },
+    description: {
+      ja: "東京都中央区のNPO法人で、医療的ケア児の家族向けの情報発信やオンラインのピアサポート、在宅就労支援を行っています。寄付は家族の就労を支える「CareCareer」の相談やピアサポートを継続し、全国の家族に届けるために使われます。",
+      en: "An NPO in Chuo, Tokyo, offering information, online peer support and work-from-home help to families of children with medical care needs. Donations keep its CareCareer advice and peer support running and help it reach families nationwide.",
+    },
+    ...referral,
+    taxDeductible: false,
+    payment: { mode: "external", url: "https://congrant.com/project/unleashkihu/24021", via: { ja: "団体の公式寄付ページ", en: "the organisation's official donation page" } },
+    emoji: "🩺",
+  },
+  // theme: children (不登校・困難を抱える10代)
+  // verified 2026-10-15: https://www.katariba.or.jp/donate/monthly_now/ — monthly and one-time buttons lead to a live card form (VISA/Master/JCB/Amex/Diners, also Amazon Pay, bank); 認定NPO, page says gifts get tax benefits; financial report labelled 2025年度8月期
+  {
+    slug: "katariba",
+    category: "welfare",
+    region: "japan",
+    country: { ja: "日本", en: "Japan" },
+    name: { ja: "認定NPO法人 カタリバ", en: "Katariba" },
+    summary: {
+      ja: "不登校や貧困など困難を抱える10代に居場所と学びの機会を届けます。",
+      en: "Safe places and learning for teenagers facing school non-attendance, poverty and other hardships.",
+    },
+    description: {
+      ja: "東京都中野区の認定NPO法人で、貧困や不登校、ヤングケアラーなど困難を抱える10代を支えています。寄付は手作りの食事や学習教材、放課後の教室の運営など、子どもたちへの支援に使われます。",
+      en: "A certified NPO in Nakano, Tokyo, supporting teenagers affected by poverty, school non-attendance or caring for family. Donations pay for home-cooked meals, learning materials and after-school classrooms.",
+    },
+    ...referral,
+    taxDeductible: true,
+    payment: { mode: "external", url: "https://www.katariba.or.jp/donate/monthly_now/", via: { ja: "団体の公式寄付ページ", en: "the organisation's official donation page" } },
+    emoji: "🎒",
+  },
+  // theme: children (若者・ひきこもり)
+  // verified 2026-10-15: https://www.sodateage.net/donation/ — monthly and one-time forms on kifukara.jp (card or bank debit); 認定NPO with tax benefits; site news to 2026-09-11
+  {
+    slug: "sodateage-net",
+    category: "welfare",
+    region: "japan",
+    country: { ja: "日本", en: "Japan" },
+    name: { ja: "認定NPO法人 育て上げネット", en: "Sodateage Net" },
+    summary: {
+      ja: "ひきこもりや無業の若者が働き、自立するまでを支えます。",
+      en: "Helps socially isolated and out-of-work young people into work and independence.",
+    },
+    description: {
+      ja: "東京都立川市などに拠点を持つ認定NPO法人で、ひきこもりや無業の若者の就労訓練や家族相談を行っています。寄付は若者への直接の支援と、それを支える運営に使われます。",
+      en: "A certified NPO with bases in Tachikawa, Tokyo and elsewhere, offering job training and family advice for isolated and out-of-work young people. Donations fund direct support for young people and the work behind it.",
+    },
+    ...referral,
+    taxDeductible: true,
+    payment: { mode: "external", url: "https://www.sodateage.net/donation/", via: { ja: "団体の公式寄付ページ", en: "the organisation's official donation page" } },
+    emoji: "🌱",
+  },
+  // theme: children (ひとり親)
+  // verified 2026-10-15: https://www.single-mama.com/donation/ — credit-card buttons for monthly (1,000-30,000円) and one-time gifts; page states 認定 status lapsed 2023-11-30 so gifts are NOT tax-deductible; site news to 2026-10-14
+  {
+    slug: "single-mothers-forum",
+    category: "welfare",
+    region: "japan",
+    country: { ja: "日本", en: "Japan" },
+    name: { ja: "NPO法人 しんぐるまざあず・ふぉーらむ", en: "Single Mothers' Forum" },
+    summary: {
+      ja: "ひとり親のお母さんと子どもの暮らしを支えます。",
+      en: "Supports single mothers and their children.",
+    },
+    description: {
+      ja: "東京を拠点に、ひとり親家庭への相談、就労支援、食料支援などを行うNPO法人です。寄付は物価高に苦しむ家庭へのお米や食品の支援、親子のイベント、入学お祝い（ランドセル・入学金のお祝い）に使われます。",
+      en: "A Tokyo-based NPO offering advice, job support and food aid to single-parent families. Donations fund rice and food for families hit by rising prices, parent-and-child outings and gifts for children starting school.",
+    },
+    ...referral,
+    taxDeductible: false,
+    payment: { mode: "external", url: "https://www.single-mama.com/donation/", via: { ja: "団体の公式寄付ページ", en: "the organisation's official donation page" } },
+    emoji: "👩‍👧",
+  },
+  // theme: disability (被災地の障害者支援)
+  // verified 2026-10-15: https://yumekazek.com/donation/ — one-time/monthly/annual "寄付する" card buttons (Visa/Master via アナザーレーン); page says gifts are 寄付金控除の対象; page modified 2026-08-15; 2026-08-01 appeal for 令和8年熊本地震
+  {
+    slug: "yumekaze-kikin",
+    category: "welfare",
+    region: "japan",
+    country: { ja: "日本", en: "Japan" },
+    name: { ja: "認定NPO法人 ゆめ風基金", en: "Yumekaze Fund" },
+    summary: {
+      ja: "災害で被災した障害のある人に救援金を届けます。",
+      en: "Sends relief money to disabled people hit by disasters.",
+    },
+    description: {
+      ja: "阪神・淡路大震災をきっかけに生まれた大阪市の認定NPO法人で、全国の障害者団体と連携して被災した障害者を支援しています。寄付は被災した障害者への救援金として使われ、備考欄で特定の災害を指定することもできます。",
+      en: "A certified NPO in Osaka, founded after the 1995 Kobe earthquake, that works with disability groups nationwide to support disabled people affected by disasters. Donations go to relief for disabled survivors, and donors can name a specific disaster.",
+    },
+    ...referral,
+    taxDeductible: true,
+    payment: { mode: "external", url: "https://yumekazek.com/donation/", via: { ja: "団体の公式寄付ページ", en: "the organisation's official donation page" } },
+    emoji: "🌬️",
+  },
+  // theme: disability
+  // verified 2026-10-15: https://www.moudouken.net/support/kojin/donation/ — online credit-card (3D Secure), PayPay and postal-transfer forms; /support/kojin/ says gifts to this 公益財団法人 get tax benefits; home news to 2026-10-06
+  {
+    slug: "japan-guide-dog-association",
+    category: "welfare",
+    region: "japan",
+    country: { ja: "日本", en: "Japan" },
+    name: { ja: "公益財団法人 日本盲導犬協会", en: "Japan Guide Dog Association" },
+    summary: {
+      ja: "盲導犬を育て、目の見えない・見えにくい人の暮らしを支えます。",
+      en: "Trains guide dogs and supports people who are blind or partially sighted.",
+    },
+    description: {
+      ja: "仙台・神奈川・島根などに訓練センターを持つ公益財団法人です。寄付は盲導犬の繁殖と健康管理、訓練、視覚障害のある人への歩行や生活の訓練、啓発活動に使われます。",
+      en: "A public-interest foundation with training centres in Sendai, Kanagawa, Shimane and elsewhere. Donations fund breeding and care of the dogs, guide-dog training, mobility and daily-living training for people with sight loss, and awareness work.",
+    },
+    ...referral,
+    taxDeductible: true,
+    payment: { mode: "external", url: "https://www.moudouken.net/support/kojin/donation/", via: { ja: "団体の公式寄付ページ", en: "the organisation's official donation page" } },
+    emoji: "🦮",
+  },
+  // theme: elderly
+  // verified 2026-10-15: https://www.sawayakazaidan.or.jp/partner/ — on-page card forms for general (from 1,000円) and designated donations plus membership buttons; page says gifts are income/corporate-tax deductible; home news to 2026-10-09
+  {
+    slug: "sawayaka-welfare-foundation",
+    category: "welfare",
+    region: "japan",
+    country: { ja: "日本", en: "Japan" },
+    name: { ja: "公益財団法人 さわやか福祉財団", en: "Sawayaka Welfare Foundation" },
+    summary: {
+      ja: "高齢になっても住み慣れた地域で暮らせるよう、地域の助け合いを広げます。",
+      en: "Builds local mutual aid so people can live at home with dignity into old age.",
+    },
+    description: {
+      ja: "東京都港区の公益財団法人で、全国で地域の助け合いグループの立ち上げや「地域助け合い基金」による助成を行っています。寄付は地域の助け合い活動と仕組みづくりの支援など、財団の活動全般に使われます。",
+      en: "A public-interest foundation in Minato, Tokyo, that helps set up local mutual-aid groups across Japan and makes grants through its Community Mutual-Aid Fund. Donations support its work, including local mutual-aid activities and the systems behind them.",
+    },
+    ...referral,
+    taxDeductible: true,
+    payment: { mode: "external", url: "https://www.sawayakazaidan.or.jp/partner/", via: { ja: "団体の公式寄付ページ", en: "the organisation's official donation page" } },
+    emoji: "🤝",
+  },
+  // theme: food
+  // verified 2026-10-15: https://fbyamaguchi.org/support_fby/donation/ — 「コングラントから寄付する」 buttons to a live Congrant form (one-time/monthly/yearly); no tax-deduction mention (NPO法人); site posts dated 2026-10-02 to 2026-10-15
+  {
+    slug: "foodbank-yamaguchi",
+    category: "welfare",
+    region: "japan",
+    country: { ja: "日本", en: "Japan" },
+    name: { ja: "NPO法人 フードバンク山口", en: "Food Bank Yamaguchi" },
+    summary: {
+      ja: "余った食品を集め、山口県内で食に困る人や家庭に届けます。",
+      en: "Collects surplus food and gets it to people and families in need in Yamaguchi.",
+    },
+    description: {
+      ja: "山口市のNPO法人で、県内各地でフードドライブを開き、集めた食品を必要とする人に届けています。寄付は食品を保管する倉庫や光熱費、集荷・配送費など、活動の運営に使われます。",
+      en: "An NPO in Yamaguchi City that runs food drives around the prefecture and passes the food to people who need it. Donations pay for the warehouse and utilities, collection and delivery, and day-to-day running.",
+    },
+    ...referral,
+    taxDeductible: false,
+    payment: { mode: "external", url: "https://fbyamaguchi.org/support_fby/donation/", via: { ja: "団体の公式寄付ページ", en: "the organisation's official donation page" } },
+    emoji: "🥫",
+  },
 ];
 
 export const recipients: Recipient[] =
