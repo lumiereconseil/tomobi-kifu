@@ -3,6 +3,7 @@ import { notFound } from "next/navigation";
 import Link from "next/link";
 import { DonateForm } from "@/components/DonateForm";
 import { disasterFor } from "@/lib/disasters";
+import { themeFor } from "@/lib/themes";
 import { Progress } from "@/components/Progress";
 import { formatMoney, limits, platformFeePercent } from "@/lib/donation";
 import { getDictionary, isLocale } from "@/lib/i18n";
@@ -58,6 +59,7 @@ export default async function RecipientPage({ params }: { params: Params }) {
   const demo = !getStripe();
   const fee = platformFeePercent(r.feePercent);
   const disaster = disasterFor(r.slug);
+  const cause = themeFor(r.slug);
 
   const minMax = (c: "jpy" | "usd") =>
     t.minMax(formatMoney(limits[c].min, c, locale), formatMoney(limits[c].max, c, locale));
@@ -82,6 +84,13 @@ export default async function RecipientPage({ params }: { params: Params }) {
         <h1>{r.name[locale]}</h1>
         <p className="lead">{r.summary[locale]}</p>
         <p>{r.description[locale]}</p>
+        {cause && (
+          <p className="disaster-backlink">
+            <Link href={`/${locale}/causes/${cause.slug}`}>
+              {cause.emoji} {t.causeGuideLink(cause.name[locale])} →
+            </Link>
+          </p>
+        )}
         {disaster && (
           <p className="disaster-backlink">
             <Link href={`/${locale}/disasters/${disaster.slug}`}>
