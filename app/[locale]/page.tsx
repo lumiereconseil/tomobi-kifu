@@ -137,7 +137,7 @@ export default async function Home({
         </div>
         {[
           { key: "japan", title: t.sectionJapan, items: list.filter((r) => r.region === "japan" && !(r.emergency && !cat && !region)) },
-          { key: "world", title: t.sectionWorld, items: list.filter((r) => r.region === "world") },
+          { key: "world", title: t.sectionWorld, items: list.filter((r) => r.region === "world" && !(r.emergency && !cat && !region)) },
         ]
           .filter((s) => s.items.length > 0)
           .map((s) => (
