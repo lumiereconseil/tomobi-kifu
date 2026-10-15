@@ -218,3 +218,8 @@ h1, h2, h3 { line-height: 1.35; }
 .share-facebook { background: #1877f2; color: #fff; border-color: #1877f2; }
 .share-line { background: #06c755; color: #fff; border-color: #06c755; }
 .share-bluesky { background: #1185fe; color: #fff; border-color: #1185fe; }
+
+.donate-links h3 { font-size: 1rem; margin: 1rem 0 0.5rem; }
+.donate-link-row { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+.donate-link-row .btn { flex: 1 1 6rem; text-align: center; }
+.donate-links .btn-block { display: block; text-align: center; }
