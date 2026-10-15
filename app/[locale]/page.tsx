@@ -6,7 +6,8 @@ import { getDictionary, isLocale } from "@/lib/i18n";
 import { disasterRecipients, disasters } from "@/lib/disasters";
 import { getTheme, themes } from "@/lib/themes";
 import { isDirect, type Category, type Region } from "@/lib/recipients";
-import { homeJsonLd } from "@/lib/seo";
+import { homeJsonLd, pageUrl } from "@/lib/seo";
+import { ShareButtons } from "@/components/ShareButtons";
 import { recipientsWithStats } from "@/lib/stats";
 
 const categories: Category[] = ["disaster", "welfare", "municipality"];
@@ -101,6 +102,12 @@ export default async function Home({
               {t.howItWorks}
             </Link>
           </div>
+          <ShareButtons
+            url={pageUrl(locale)}
+            locale={locale}
+            text={locale === "ja" ? "熊本地震・千葉の水害の復興と、全国の児童養護施設への寄付先を公式ページから選べる「ともに寄付」" : "Give Together: official ways to donate to Kumamoto and Chiba disaster recovery and children's homes across Japan"}
+            hashtags={locale === "ja" ? ["寄付", "熊本地震", "千葉", "児童養護施設"] : ["Japan", "DisasterRelief", "Donate"]}
+          />
           {total > 0 && (
           <dl className="stats">
             <div>

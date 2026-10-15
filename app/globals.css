@@ -207,3 +207,14 @@ h1, h2, h3 { line-height: 1.35; }
 .campaign-picks { display: flex; flex-direction: column; gap: 8px; }
 .campaign-picks .btn { text-align: center; font-size: 0.95rem; white-space: normal; }
 .campaign-more { font-weight: 600; }
+
+/* Share buttons */
+.share { margin: 24px 0; padding: 14px 16px; background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); }
+.share-label { display: block; font-weight: 700; margin-bottom: 8px; font-size: 0.95rem; }
+.share-buttons { display: flex; flex-wrap: wrap; gap: 8px; }
+.share-btn { display: inline-block; padding: 7px 14px; border-radius: 999px; border: 1px solid var(--border); background: var(--bg); color: var(--text); font-size: 0.9rem; font-weight: 600; text-decoration: none; cursor: pointer; font-family: inherit; }
+.share-btn:hover { border-color: var(--primary); }
+.share-x { background: #000; color: #fff; border-color: #000; }
+.share-facebook { background: #1877f2; color: #fff; border-color: #1877f2; }
+.share-line { background: #06c755; color: #fff; border-color: #06c755; }
+.share-bluesky { background: #1185fe; color: #fff; border-color: #1185fe; }
