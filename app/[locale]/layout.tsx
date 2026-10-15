@@ -51,7 +51,7 @@ export default async function LocaleLayout({
             </Link>
             <nav className="nav">
               <Link href={`/${locale}#recipients`}>{t.browse}</Link>
-              <Link href={`/${locale}/how-it-works`}>{t.howItWorks}</Link>
+              <Link href={`/${locale}/guide`}>{t.guideShort}</Link>
               <LocaleSwitcher locale={locale} />
             </nav>
           </div>
@@ -63,6 +63,7 @@ export default async function LocaleLayout({
               © {new Date().getFullYear()} Lumière Conseil · {t.footer}
             </p>
             <nav className="nav">
+              <Link href={`/${locale}/guide`}>{t.guideShort}</Link>
               <Link href={`/${locale}/how-it-works`}>{t.howItWorks}</Link>
               <Link href={`/${locale}/apply`}>{t.apply}</Link>
               <Link href={`/${locale}/legal`}>{t.legal}</Link>
