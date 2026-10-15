@@ -3,7 +3,7 @@ import { notFound } from "next/navigation";
 import { RecipientCard } from "@/components/RecipientCard";
 import { formatMoney } from "@/lib/donation";
 import { getDictionary, isLocale } from "@/lib/i18n";
-import { disasters } from "@/lib/disasters";
+import { disasterRecipients, disasters } from "@/lib/disasters";
 import { themes } from "@/lib/themes";
 import { isDirect, type Category, type Region } from "@/lib/recipients";
 import { homeJsonLd } from "@/lib/seo";
@@ -24,6 +24,10 @@ export default async function Home({
   const t = getDictionary(locale);
   const { cat, region } = await searchParams;
   const recipients = await recipientsWithStats();
+  const campaigns = disasters.filter((d) => d.campaign);
+  // Campaign appeals (Kumamoto, Chiba) lead the emergency list.
+  const featured = new Set(campaigns.flatMap((d) => d.recipientSlugs));
+  const emergencies = [...recipients.filter((r) => r.emergency && featured.has(r.slug)), ...recipients.filter((r) => r.emergency && !featured.has(r.slug))];
 
   const list = recipients.filter(
     (r) => (!cat || r.category === cat) && (!region || r.region === region),
@@ -51,10 +55,38 @@ export default async function Home({
       />
       <section className="hero">
         <div className="container">
-          <h1>{t.tagline}</h1>
-          <p className="lead">{t.heroLead}</p>
+          <p className="hero-kicker">{t.tagline}</p>
+          <h1>{t.campaignTitle}</h1>
+          <p className="lead">{t.campaignLead}</p>
+          <div className="campaigns">
+            {campaigns.map((d) => (
+              <div key={d.slug} className="campaign">
+                <h2>
+                  <span aria-hidden>{d.emoji}</span> {d.campaign!.headline[locale]}
+                </h2>
+                <p className="small muted">
+                  {d.name[locale]} · {t.campaignCount(disasterRecipients(d).length)}
+                </p>
+                <div className="campaign-picks">
+                  {d.campaign!.picks.map((p) => {
+                    const r = recipients.find((x) => x.slug === p.slug);
+                    if (!r || r.payment.mode !== "external") return null;
+                    return (
+                      <a key={p.slug} href={r.payment.url} target="_blank" rel="noopener noreferrer" className="btn btn-primary">
+                        {p.label[locale]} ↗
+                      </a>
+                    );
+                  })}
+                </div>
+                <Link href={`/${locale}/disasters/${d.slug}`} className="campaign-more">
+                  {t.campaignMore(disasterRecipients(d).length)} →
+                </Link>
+              </div>
+            ))}
+          </div>
+          <p className="small muted">{t.campaignNote}</p>
           <div className="hero-actions">
-            <Link href="#recipients" className="btn btn-primary">
+            <Link href="#recipients" className="btn btn-ghost">
               {t.browse}
             </Link>
             <Link href={`/${locale}/how-it-works`} className="btn btn-ghost">
@@ -113,9 +145,7 @@ export default async function Home({
         <section className="container section emergency-section">
           <h2>🚨 {t.emergencyHome}</h2>
           <div className="grid">
-            {recipients
-              .filter((r) => r.emergency)
-              .map((r) => (
+            {emergencies.map((r) => (
                 <RecipientCard key={r.slug} r={r} locale={locale} t={t} />
               ))}
           </div>

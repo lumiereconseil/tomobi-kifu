@@ -32,3 +32,16 @@ describe("disaster guides", () => {
     expect(getDisaster("nope")).toBeUndefined();
   });
 });
+
+describe("home campaigns", () => {
+  it("feature Kumamoto and Chiba with picks from their own recipients", () => {
+    const featured = disasters.filter((d) => d.campaign);
+    expect(featured.map((d) => d.slug)).toEqual(["kumamoto-2026-earthquake", "chiba-2026-flood"]);
+    for (const d of featured) {
+      for (const p of d.campaign!.picks) {
+        expect(d.recipientSlugs).toContain(p.slug);
+        expect(recipients.find((r) => r.slug === p.slug)?.payment.mode).toBe("external");
+      }
+    }
+  });
+});
