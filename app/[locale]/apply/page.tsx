@@ -10,18 +10,32 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
   return isLocale(locale) ? pageMetadata(locale, "/apply", { title: getDictionary(locale).apply }) : {};
 }
 
-const content: Record<Locale, { title: string; intro: string; who: string[]; need: string[]}> = {
+const content: Record<Locale, { title: string; intro: string; who: string[]; need: string[]; flow: string[] }> = {
   ja: {
     title: "寄付先として掲載を希望する団体の方へ",
     intro: "掲載は無料です。審査のうえ、寄付金が団体の口座に直接入金される仕組みをご用意します。",
     who: ["日本国内の社会福祉法人・NPO法人・公益法人などの福祉施設", "日本国内で災害支援を行うNPO法人・社会福祉協議会などの法人", "地方自治体・海外の団体は、公式の寄付窓口へのリンクとして無料で掲載します（当サイトでの決済は行いません）", "個人への寄付は受け付けていません"],
     need: ["団体の登記情報または設置根拠", "代表者の本人確認書類", "寄付金の使い道と報告方法", "Stripe アカウントの作成（入金先口座の登録）"],
+    flow: [
+      "団体のページに「毎月寄付」「1回寄付」のボタンを設置します。決済は Stripe（世界的な決済会社）の画面で行います。",
+      "寄付金は Stripe から団体の口座へ直接入金されます。当サイトの運営者が寄付金を預かることはありません。",
+      "事務手数料は寄付額の10%（災害の緊急支援は5%）で、カード決済手数料もこの中に含まれます。掲載料・月額料金はかかりません。",
+      "寄付金控除の領収書は、対象となる法人の場合、団体から寄付者へ発行してください。",
+      "掲載の停止はいつでもご連絡ひとつで行います。",
+    ],
   },
   en: {
     title: "For organisations",
     intro: "Listing is free. After review, we set you up so donations are paid directly into your own account.",
     who: ["Welfare facilities in Japan run by registered legal entities (social welfare corporations, NPOs, public interest corporations)", "Legal entities in Japan providing disaster relief", "Local governments and overseas organisations are listed free of charge as links to their official donation pages (no payment on this site)", "We do not accept donations to individuals"],
     need: ["Registration documents for the organisation", "Identity documents for the representative", "How funds will be used and reported", "A Stripe account to receive payouts"],
+    flow: [
+      "We add monthly and one-time donate buttons to your page. Payment is handled on Stripe's secure page.",
+      "Donations are paid by Stripe straight into your own account. The site operator never holds donated funds.",
+      "The administrative fee is 10% of each gift (5% for disaster emergency appeals), card processing included. There is no listing or monthly fee.",
+      "Tax receipts, where applicable, are issued by your organisation to the donor.",
+      "You can ask us to remove your listing at any time.",
+    ],
   },
 };
 
@@ -53,6 +67,8 @@ export default async function Apply({ params }: { params: Promise<{ locale: stri
       <ul>{c.who.map((w) => <li key={w}>{w}</li>)}</ul>
       <h2>{locale === "ja" ? "必要なもの" : "What you need"}</h2>
       <ul>{c.need.map((n) => <li key={n}>{n}</li>)}</ul>
+      <h2>{locale === "ja" ? "お金の流れと手数料" : "How donations and fees work"}</h2>
+      <ul>{c.flow.map((f) => <li key={f}>{f}</li>)}</ul>
       {acceptsApplications() ? (
         <ApplyForm locale={locale} />
       ) : (

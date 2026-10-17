@@ -80,7 +80,17 @@ if (cmd === "onboard") {
   }
   const entry = { account, once, monthly, test };
   console.log(`  ${JSON.stringify(slug)}: ${JSON.stringify(entry, null, 2).replace(/\n/g, "\n  ")},`);
+} else if (cmd === "status") {
+  // Shows whether the key works and which connected accounts can already take donations.
+  const me = await stripe.accounts.retrieve();
+  console.log(`${test ? "テストモード" : "本番モード"} / ${me.settings?.dashboard?.display_name || me.id} / 決済 ${me.charges_enabled ? "有効" : "未有効"}`);
+  const list = await stripe.accounts.list({ limit: 100 });
+  for (const a of list.data) {
+    const name = a.business_profile?.name || a.metadata?.org_name || "(名称未登録)";
+    console.log(`- ${a.id} ${name}: ${a.charges_enabled ? "寄付を受け付け可" : "登録未完了"}`);
+  }
+  if (!list.data.length) console.log("連結アカウント（団体）はまだありません。");
 } else {
-  console.error("usage: onboard <email> \"<org name>\" | links <slug> <acct_...> [feePercent]");
+  console.error("usage: onboard <email> \"<org name>\" | links <slug> <acct_...> [feePercent] | status");
   process.exit(1);
 }
