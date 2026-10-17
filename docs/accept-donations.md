@@ -9,9 +9,9 @@
 ## 手順
 
 1. **Masa さん**：Stripe のアカウントを作る（https://dashboard.stripe.com/register）。事業形態は個人事業主、屋号は Lumière Conseil。本人確認と入金口座の登録は本人しかできません。そのあと「Connect」を有効にする。
-2. **Masa さん**：GitHub のリポジトリ設定 → Secrets and variables → Actions → 「New repository secret」で、名前 `STRIPE_SECRET_KEY`、値に Stripe のテスト用シークレットキー（`sk_test_...`）を入れる。キーをチャットに貼らないでください。
+2. **Masa さん**：GitHub のリポジトリ設定 → Secrets and variables → Actions → 「New repository secret」で、名前 `STRIPE_SECRET_KEY`、値に Stripe のテスト用シークレットキー（`sk_test_...`）を入れる。キーをチャットに貼らないでください。入れたら Claude が「Stripe donations」を command=status で実行して、キーが使えることを確かめます。
 3. **団体の登録**：参加に同意した団体（日本の法人）ごとに、Stripe ダッシュボードの Connect → 連結アカウント → 「作成」で登録リンクを作り、団体に送る。団体が自分で本人確認と口座登録をする。
-4. **Claude**：登録が済んだ団体の `acct_...` で、Actions の「Create Stripe payment links」を実行し、出力を `lib/payment-links.ts` に追加して、その団体を `payment: { mode: "direct" }` にする。団体のページに「毎月 ¥1,000 / ¥3,000 / ¥5,000」「1回 ¥1,000〜¥10,000」の寄付ボタンが出る。
+4. **Claude**：登録が済んだ団体の `acct_...` で、Actions の「Stripe donations」を command=links で実行し、出力を `lib/payment-links.ts` に追加して、その団体を `payment: { mode: "direct" }` にする。団体のページに「毎月 ¥1,000 / ¥3,000 / ¥5,000」「1回 ¥1,000〜¥10,000」の寄付ボタンが出る。
 5. テストモードのリンクでテストカード `4242 4242 4242 4242` を使って寄付し、団体の残高と手数料を確認する。
 6. **本番化**：本番キー（`sk_live_...`）に入れ替えて同じ手順でリンクを作り直す。これは実際のお金が動くので、Masa さんの GO をもらってから行う。
 

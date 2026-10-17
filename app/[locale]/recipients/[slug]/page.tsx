@@ -176,6 +176,11 @@ export default async function RecipientPage({ params }: { params: Params }) {
           <h2>{t.donateNow}</h2>
           {links ? (
             <DonateLinks links={links} locale={locale} feePercent={fee} />
+          ) : process.env.NEXT_PUBLIC_STATIC_EXPORT === "1" ? (
+            // The static site has no checkout API, so the form would not work.
+            <p className="notice">
+              {locale === "ja" ? "この団体の寄付ボタンは準備中です。" : "Donations to this organisation open soon."}
+            </p>
           ) : (
             <>
           {demo && <p className="notice">{t.demoNote}</p>}
