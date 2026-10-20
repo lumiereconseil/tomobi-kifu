@@ -1,0 +1,6 @@
+:HL["/tomobi-kifu/_next/static/chunks/3dinv860w7ikl.css","style"]
+4:[["children",{"s":"__PAGE__","h":160}]]
+3:[["children",{"s":{"n":"slug","t":"d","k":"jpf-nepal-debris-flow-2026","s":[]},"h":96,"c":"$Q4"}]]
+2:[["children",{"s":"recipients","h":96,"c":"$Q3"}]]
+1:[["children",{"s":{"n":"locale","t":"d","k":"ja","s":[]},"h":112,"c":"$Q2"}]]
+0:{"b":"cxs4JyVXsUCwUGw_Lnrlx","t":{"t":{"s":"","h":80,"c":"$Q1"}}}
