@@ -44,6 +44,7 @@ jobs:
           FEE: ${{ inputs.fee }}
           COMMAND: ${{ inputs.command }}
         run: |
+          set -o pipefail
           if [ "$COMMAND" = links ]; then
             node scripts/stripe-setup.mjs links "$SLUG" "$ACCOUNT" "$FEE" | tee -a "$GITHUB_STEP_SUMMARY"
           else
