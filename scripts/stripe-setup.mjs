@@ -80,6 +80,25 @@ if (cmd === "onboard") {
   }
   const entry = { account, once, monthly, test };
   console.log(`  ${JSON.stringify(slug)}: ${JSON.stringify(entry, null, 2).replace(/\n/g, "\n  ")},`);
+} else if (cmd === "test-org") {
+  // Test mode only: a dummy organisation to try the whole flow end to end. Its onboarding
+  // link is for test data, so printing it in a public log is harmless.
+  if (!test) throw new Error("test-org はテストキーでのみ使えます。");
+  const account = await stripe.accounts.create({
+    type: "express",
+    country: "JP",
+    email: "test-org@example.com",
+    business_type: "non_profit",
+    capabilities: { card_payments: { requested: true }, transfers: { requested: true } },
+    metadata: { org_name: "テスト団体（動作確認用）" },
+  });
+  const link = await stripe.accountLinks.create({
+    account: account.id,
+    type: "account_onboarding",
+    refresh_url: `${site}/ja/apply/`,
+    return_url: `${site}/ja/apply/`,
+  });
+  console.log(JSON.stringify({ account: account.id, onboardingUrl: link.url, test }, null, 2));
 } else if (cmd === "status") {
   // Shows whether the key works and which connected accounts can already take donations.
   const me = await stripe.accounts.retrieve();
