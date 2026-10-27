@@ -1,5 +1,13 @@
 # ともに寄付 / Give Together
 
+**公開中のサイト：** https://lumiereconseil.github.io/tomobi-kifu/
+
+- [令和8年熊本地震の寄付先（義援金・自治体・支援団体）](https://lumiereconseil.github.io/tomobi-kifu/ja/disasters/kumamoto-2026-earthquake/)
+- [千葉の豪雨・台風第25号の寄付先（千葉県・千葉市の義援金）](https://lumiereconseil.github.io/tomobi-kifu/ja/disasters/chiba-2026-flood/)
+- [全国の児童養護施設への寄付](https://lumiereconseil.github.io/tomobi-kifu/ja/causes/childrens-homes/)
+- [義援金・支援金・ふるさと納税の違い](https://lumiereconseil.github.io/tomobi-kifu/ja/guide/)
+- English: [Give Together](https://lumiereconseil.github.io/tomobi-kifu/en/)
+
 Lumière Conseil の新規事業。日本国内と世界の自治体・福祉施設・災害支援への寄付をつなぐプラットフォーム（Next.js + Stripe Checkout / Connect）。日本語・英語対応。
 
 寄付先には2種類あります（`lib/recipients.ts` の `payment`）：
