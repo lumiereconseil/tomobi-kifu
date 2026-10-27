@@ -60,7 +60,7 @@ if (cmd === "onboard") {
     on_behalf_of: account,
     transfer_data: { destination: account },
     metadata: { recipient: slug },
-    after_completion: { type: "redirect", redirect: { url: `${site}/ja/recipients/${slug}/?thanks=1` } },
+    after_completion: { type: "redirect", redirect: { url: `${site}/ja/thanks/` } },
   };
 
   // Payment Links take a percent fee only on subscriptions, so one-time gifts use fixed
@@ -97,6 +97,26 @@ if (cmd === "onboard") {
   // config and its test links skip on_behalf_of.
   if (!test) throw new Error("test-org はテストキーでのみ使えます。");
   console.log(JSON.stringify(await createOrgAccount("test-org@example.com", "テスト団体（動作確認用）", { merchant: false }), null, 2));
+} else if (cmd === "test-links") {
+  // Test mode only: buttons for the unlisted /test-donation page, paid to the platform's own
+  // test balance (no organisation), to check the site → Stripe → thank-you flow.
+  if (!test) throw new Error("test-links はテストキーでのみ使えます。");
+  const product = await stripe.products.create({ name: "テスト寄付（動作確認用）" });
+  const after_completion = { type: "redirect", redirect: { url: `${site}/ja/thanks/` } };
+  const once = [];
+  for (const amountJpy of [1000, 3000, 5000, 10000]) {
+    const price = await stripe.prices.create({ product: product.id, currency: "jpy", unit_amount: amountJpy });
+    const link = await stripe.paymentLinks.create({ line_items: [{ price: price.id, quantity: 1 }], submit_type: "donate", after_completion });
+    once.push({ amountJpy, url: link.url });
+  }
+  const monthly = [];
+  for (const amountJpy of [1000, 3000, 5000]) {
+    const price = await stripe.prices.create({ product: product.id, currency: "jpy", unit_amount: amountJpy, recurring: { interval: "month" } });
+    const link = await stripe.paymentLinks.create({ line_items: [{ price: price.id, quantity: 1 }], after_completion });
+    monthly.push({ amountJpy, url: link.url });
+  }
+  const entry = { account: "platform-test", once, monthly, test };
+  console.log(`  "test-donation": ${JSON.stringify(entry, null, 2).replace(/\n/g, "\n  ")},`);
 } else if (cmd === "status") {
   // Shows whether the key works and which connected accounts can already take donations.
   const me = await stripe.accounts.retrieve();
