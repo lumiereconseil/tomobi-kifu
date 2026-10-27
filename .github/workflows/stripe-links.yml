@@ -7,11 +7,11 @@ on:
   workflow_dispatch:
     inputs:
       command:
-        description: "status (check the key and list organisations) or links (create donate links)"
+        description: "status (check the key), links (create donate links) or test-org (test-mode dummy organisation)"
         required: true
         default: "status"
         type: choice
-        options: [status, links]
+        options: [status, links, test-org, test-links]
       slug:
         description: "Recipient slug in lib/recipients.ts (links only)"
         required: false
@@ -47,6 +47,10 @@ jobs:
           set -o pipefail
           if [ "$COMMAND" = links ]; then
             node scripts/stripe-setup.mjs links "$SLUG" "$ACCOUNT" "$FEE" | tee -a "$GITHUB_STEP_SUMMARY"
+          elif [ "$COMMAND" = test-links ]; then
+            node scripts/stripe-setup.mjs test-links | tee -a "$GITHUB_STEP_SUMMARY"
+          elif [ "$COMMAND" = test-org ]; then
+            node scripts/stripe-setup.mjs test-org | tee -a "$GITHUB_STEP_SUMMARY"
           else
             node scripts/stripe-setup.mjs status | tee -a "$GITHUB_STEP_SUMMARY"
           fi
