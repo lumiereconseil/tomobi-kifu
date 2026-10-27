@@ -20,7 +20,7 @@ const site = (process.env.NEXT_PUBLIC_SITE_URL ?? "https://lumiereconseil.github
 const [cmd, ...args] = process.argv.slice(2);
 
 // New Connect platforms must create accounts with Accounts v2 (Stripe refuses v1 creates).
-async function createOrgAccount(email, orgName) {
+async function createOrgAccount(email, orgName, { merchant = true } = {}) {
   const account = await stripe.v2.core.accounts.create({
     contact_email: email,
     display_name: orgName.slice(0, 100),
@@ -28,7 +28,7 @@ async function createOrgAccount(email, orgName) {
     dashboard: "express",
     defaults: { responsibilities: { fees_collector: "application", losses_collector: "application" } },
     configuration: {
-      merchant: { capabilities: { card_payments: { requested: true } } },
+      ...(merchant ? { merchant: { capabilities: { card_payments: { requested: true } } } } : {}),
       recipient: { capabilities: { stripe_balance: { stripe_transfers: { requested: true } } } },
     },
     metadata: { org_name: orgName.slice(0, 450) },
@@ -92,9 +92,11 @@ if (cmd === "onboard") {
   console.log(`  ${JSON.stringify(slug)}: ${JSON.stringify(entry, null, 2).replace(/\n/g, "\n  ")},`);
 } else if (cmd === "test-org") {
   // Test mode only: a dummy organisation to try the whole flow end to end. Its onboarding
-  // link is for test data, so printing it in a public log is harmless.
+  // link is for test data, so printing it in a public log is harmless. Stripe's test mode
+  // (outside a sandbox) only onboards transfer-only accounts, so this one has no merchant
+  // config and its test links skip on_behalf_of.
   if (!test) throw new Error("test-org はテストキーでのみ使えます。");
-  console.log(JSON.stringify(await createOrgAccount("test-org@example.com", "テスト団体（動作確認用）"), null, 2));
+  console.log(JSON.stringify(await createOrgAccount("test-org@example.com", "テスト団体（動作確認用）", { merchant: false }), null, 2));
 } else if (cmd === "status") {
   // Shows whether the key works and which connected accounts can already take donations.
   const me = await stripe.accounts.retrieve();
