@@ -19,24 +19,34 @@ const test = !/^(sk|rk)_live_/.test(key);
 const site = (process.env.NEXT_PUBLIC_SITE_URL ?? "https://lumiereconseil.github.io/tomobi-kifu").replace(/\/$/, "");
 const [cmd, ...args] = process.argv.slice(2);
 
+// New Connect platforms must create accounts with Accounts v2 (Stripe refuses v1 creates).
+async function createOrgAccount(email, orgName) {
+  const account = await stripe.v2.core.accounts.create({
+    contact_email: email,
+    display_name: orgName.slice(0, 100),
+    identity: { country: "JP", entity_type: "non_profit" },
+    dashboard: "express",
+    defaults: { responsibilities: { fees_collector: "application", losses_collector: "application" } },
+    configuration: {
+      merchant: { capabilities: { card_payments: { requested: true } } },
+      recipient: { capabilities: { stripe_balance: { stripe_transfers: { requested: true } } } },
+    },
+    metadata: { org_name: orgName.slice(0, 450) },
+  });
+  const link = await stripe.v2.core.accountLinks.create({
+    account: account.id,
+    use_case: {
+      type: "account_onboarding",
+      account_onboarding: { refresh_url: `${site}/ja/apply/`, return_url: `${site}/ja/apply/` },
+    },
+  });
+  return { account: account.id, onboardingUrl: link.url, test };
+}
+
 if (cmd === "onboard") {
   const [email, orgName] = args;
   if (!email || !orgName) throw new Error('usage: onboard <email> "<org name>"');
-  const account = await stripe.accounts.create({
-    type: "express",
-    country: "JP",
-    email,
-    business_type: "non_profit",
-    capabilities: { card_payments: { requested: true }, transfers: { requested: true } },
-    metadata: { org_name: orgName.slice(0, 450) },
-  });
-  const link = await stripe.accountLinks.create({
-    account: account.id,
-    type: "account_onboarding",
-    refresh_url: `${site}/ja/apply/`,
-    return_url: `${site}/ja/apply/`,
-  });
-  console.log(JSON.stringify({ account: account.id, onboardingUrl: link.url, test }, null, 2));
+  console.log(JSON.stringify(await createOrgAccount(email, orgName), null, 2));
 } else if (cmd === "links") {
   const [slug, account, feeArg] = args;
   if (!slug || !account?.startsWith("acct_")) throw new Error("usage: links <slug> <acct_...> [feePercent]");
@@ -84,21 +94,7 @@ if (cmd === "onboard") {
   // Test mode only: a dummy organisation to try the whole flow end to end. Its onboarding
   // link is for test data, so printing it in a public log is harmless.
   if (!test) throw new Error("test-org はテストキーでのみ使えます。");
-  const account = await stripe.accounts.create({
-    type: "express",
-    country: "JP",
-    email: "test-org@example.com",
-    business_type: "non_profit",
-    capabilities: { card_payments: { requested: true }, transfers: { requested: true } },
-    metadata: { org_name: "テスト団体（動作確認用）" },
-  });
-  const link = await stripe.accountLinks.create({
-    account: account.id,
-    type: "account_onboarding",
-    refresh_url: `${site}/ja/apply/`,
-    return_url: `${site}/ja/apply/`,
-  });
-  console.log(JSON.stringify({ account: account.id, onboardingUrl: link.url, test }, null, 2));
+  console.log(JSON.stringify(await createOrgAccount("test-org@example.com", "テスト団体（動作確認用）"), null, 2));
 } else if (cmd === "status") {
   // Shows whether the key works and which connected accounts can already take donations.
   const me = await stripe.accounts.retrieve();
