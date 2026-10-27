@@ -8,7 +8,7 @@ const { chromium } = require('playwright');
   global.page = p;
   await p.goto('https://lumiereconseil.github.io/tomobi-kifu/ja/test-donation/', { waitUntil: 'networkidle' });
   await p.screenshot({ path: 'shots/step1.png', fullPage: true });
-  await p.click('a:has-text("3,000")');
+  await p.locator('.donate-link-row').nth(1).locator('a', { hasText: '3,000' }).click();
   await p.waitForURL(/stripe\.com/, { timeout: 30000 });
   await p.waitForSelector('#email', { timeout: 30000 });
   await p.fill('#email', 'test-donor@example.com');
