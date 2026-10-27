@@ -142,6 +142,13 @@ export default async function Home({
               <small>{t.guideSub}</small>
             </span>
           </Link>
+          <Link href={`/${locale}/global`} className="disaster-link guide-link">
+            <span aria-hidden>🌏</span>
+            <span>
+              <strong>{locale === "ja" ? "海外支援" : "Give globally"}</strong>
+              <small>{locale === "ja" ? "世界の被災地へ・海外から日本へ" : "Help Japan from abroad, and the world"}</small>
+            </span>
+          </Link>
         </div>
         <h2 className="cause-heading">{t.byCause}</h2>
         <div className="disaster-links">

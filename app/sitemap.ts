@@ -5,7 +5,7 @@ import { recipients } from "@/lib/recipients";
 import { themes } from "@/lib/themes";
 import { pageUrl } from "@/lib/seo";
 
-const staticPaths = ["", "/guide", "/how-it-works", "/apply", "/legal", "/press"];
+const staticPaths = ["", "/guide", "/how-it-works", "/apply", "/legal", "/press", "/global"];
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const paths = [...staticPaths, ...disasters.map((d) => `/disasters/${d.slug}`), ...themes.map((t) => `/causes/${t.slug}`), ...recipients.map((r) => `/recipients/${r.slug}`)];
