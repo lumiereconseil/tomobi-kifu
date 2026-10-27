@@ -28,6 +28,7 @@ const content: Record<Locale, { title: string; rows: [string, string][]; section
     ],
     sections: [
       ["プライバシー", "寄付者の氏名・メールアドレスは決済処理と受取先への寄付報告のためにのみ使用し、匿名を選んだ場合は受取先にも氏名を公開しません。"],
+      ["アクセス解析", "サイトの改善と周知のため、Metricool のアクセス解析で閲覧ページ・参照元・国や地域を集計しています。氏名などの個人を特定する情報は取得しません。"],
       ["受取先の責任", "寄付金の使途と領収書の発行は各受取先が責任を負います。運営者は掲載前の審査と、使途報告の公開を行います。"],
     ],
   },
@@ -49,6 +50,7 @@ const content: Record<Locale, { title: string; rows: [string, string][]; section
     ],
     sections: [
       ["Privacy", "Donor names and emails are used only to process payments and report gifts to recipients. If you choose anonymity, your name is not shared with the recipient."],
+      ["Analytics", "To improve and promote the site, we count page views, referrers and countries or regions with Metricool analytics. We do not collect names or other information that identifies you."],
       ["Recipient responsibility", "Each recipient is responsible for how funds are used and for issuing receipts. The operator vets recipients before listing and publishes their reports."],
     ],
   },

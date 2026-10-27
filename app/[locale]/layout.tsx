@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
+import { Analytics } from "@/components/Analytics";
 import { LocaleSwitcher } from "@/components/LocaleSwitcher";
 import { getDictionary, isLocale, locales } from "@/lib/i18n";
 import { pageMetadata } from "@/lib/seo";
@@ -71,6 +72,7 @@ export default async function LocaleLayout({
             </nav>
           </div>
         </footer>
+        <Analytics />
       </body>
     </html>
   );
