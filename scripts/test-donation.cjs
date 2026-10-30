@@ -3,7 +3,8 @@
 const { chromium } = require('playwright');
 (async () => {
   require('fs').mkdirSync('shots', { recursive: true });
-  const b = await chromium.launch();
+  // The runner's preinstalled Chrome; Playwright's own browser download does not support every runner OS.
+  const b = await chromium.launch({ channel: 'chrome' });
   const p = await b.newPage({ locale: 'ja-JP' });
   global.page = p;
   await p.goto('https://lumiereconseil.github.io/tomobi-kifu/ja/test-donation/', { waitUntil: 'networkidle' });
