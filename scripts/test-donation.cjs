@@ -27,4 +27,5 @@ const { chromium } = require('playwright');
   await b.close();
 })().catch(async e => {
    console.error('FAIL', e.message);
+  try { console.error('URL', global.page.url()); console.error((await global.page.locator('body').innerText()).slice(0, 3000)); console.error(JSON.stringify(await global.page.$$eval('input,select', (els) => els.map((x) => [x.id || x.name, x.required, x.value])))); } catch {}
   try { await global.page.screenshot({ path: 'shots/fail.png', fullPage: true }); } catch {} process.exit(1); });
