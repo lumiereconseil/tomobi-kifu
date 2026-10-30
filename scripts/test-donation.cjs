@@ -3,7 +3,8 @@
 const { chromium } = require('playwright');
 (async () => {
   require('fs').mkdirSync('shots', { recursive: true });
-  const b = await chromium.launch();
+  // The runner's preinstalled Chrome; Playwright's own browser download does not support every runner OS.
+  const b = await chromium.launch({ channel: 'chrome' });
   const p = await b.newPage({ locale: 'ja-JP' });
   global.page = p;
   await p.goto('https://lumiereconseil.github.io/tomobi-kifu/ja/test-donation/', { waitUntil: 'networkidle' });
@@ -17,6 +18,9 @@ const { chromium } = require('playwright');
   await p.fill('#cardExpiry', '12 / 34');
   await p.fill('#cardCvc', '123');
   if (await p.locator('#billingName').count()) await p.fill('#billingName', 'Test Donor');
+  if (await p.locator('#billingCountry').count()) await p.selectOption('#billingCountry', 'JP');
+  if (await p.locator('#billingPostalCode').isVisible().catch(() => false)) await p.fill('#billingPostalCode', '1000001');
+  if (await p.locator('#enableStripePass').isChecked().catch(() => false)) await p.locator('#enableStripePass').uncheck({ force: true });
   await p.screenshot({ path: 'shots/step2.png', fullPage: true });
   await p.click('button[type=submit]');
   await p.waitForURL(/github\.io\/tomobi-kifu\/ja\/thanks/, { timeout: 60000 });
@@ -26,4 +30,5 @@ const { chromium } = require('playwright');
   await b.close();
 })().catch(async e => {
    console.error('FAIL', e.message);
+  try { console.error('URL', global.page.url()); console.error((await global.page.locator('body').innerText()).slice(0, 3000)); console.error(JSON.stringify(await global.page.$$eval('input,select', (els) => els.map((x) => [x.id || x.name, x.required, x.value])))); } catch {}
   try { await global.page.screenshot({ path: 'shots/fail.png', fullPage: true }); } catch {} process.exit(1); });
