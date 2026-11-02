@@ -59,8 +59,8 @@ export default async function GlobalPage({ params }: { params: Promise<{ locale:
         facts={[[ja ? "対象" : "Covers", ja ? "日本の被災地・海外の被災国" : "Japan's disaster areas and disaster-hit countries"]]}
         body={[
           {
-            ja: "海外にお住まいの方は、GlobalGiving（米国の寄付サイト）にある日本のNGOの窓口なら、海外発行のカードで熊本地震の被災地へ寄付できます。日本赤十字社の義援金は海外からの銀行送金（SWIFT）も受け付けています（在タイ日本国大使館の案内による）。",
-            en: "If you live outside Japan, the appeals Japanese NGOs run on GlobalGiving (a US giving platform) accept international cards for the Kumamoto earthquake. The Japanese Red Cross relief fund also accepts international bank transfers (SWIFT), according to the Embassy of Japan in Thailand.",
+            ja: "海外にお住まいの方は、GlobalGiving（米国の寄付サイト）にある日本のNGOの窓口なら、海外発行のカードで熊本地震の被災地へ寄付できます。熊本県・熊本市・日本赤十字社の海外からの銀行送金の受付は、2026年10月30〜31日で終わりました。",
+            en: "If you live outside Japan, the appeals Japanese NGOs run on GlobalGiving (a US giving platform) accept international cards for the Kumamoto earthquake. International bank transfers to Kumamoto Prefecture, Kumamoto City and the Japanese Red Cross closed on 30–31 October 2026.",
           },
           {
             ja: "日本から世界の被災地へは、日本の認定NPOなどに円で寄付すると寄附金控除の対象になる場合があります。現地の小さな団体を支えたい場合は、GlobalGiving の基金も選べます。日本の決済サービスは海外の団体へ直接入金できないため、当サイトはどちらも公式ページへのご案内のみ行い、寄付金を預かりません。",
@@ -93,11 +93,6 @@ export default async function GlobalPage({ params }: { params: Promise<{ locale:
             </span>
           </Link>
         </div>
-        <p className="small muted">
-          <a href="https://www.th.emb-japan.go.jp/itpr_en/pr26_14.html" rel="noopener" target="_blank">
-            {ja ? "在タイ日本国大使館：熊本地震への寄付の案内（英語）" : "Embassy of Japan in Thailand: Donations for the 2026 Kumamoto Earthquake"}
-          </a>
-        </p>
       </section>
     </>
   );
