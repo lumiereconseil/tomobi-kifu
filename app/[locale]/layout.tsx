@@ -53,6 +53,7 @@ export default async function LocaleLayout({
             <nav className="nav">
               <Link href={`/${locale}#recipients`}>{t.browse}</Link>
               <Link href={`/${locale}/guide`}>{t.guideShort}</Link>
+              <Link href={`/${locale}/global`}>{locale === "ja" ? "海外支援" : "Give globally"}</Link>
               <LocaleSwitcher locale={locale} />
             </nav>
           </div>
@@ -68,6 +69,7 @@ export default async function LocaleLayout({
               <Link href={`/${locale}/how-it-works`}>{t.howItWorks}</Link>
               <Link href={`/${locale}/apply`}>{t.apply}</Link>
               <Link href={`/${locale}/legal`}>{t.legal}</Link>
+              <Link href={`/${locale}/global`}>{locale === "ja" ? "海外支援" : "Give globally"}</Link>
               <Link href={`/${locale}/press`}>{locale === "ja" ? "報道関係の方へ" : "Press"}</Link>
             </nav>
           </div>

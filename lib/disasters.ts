@@ -61,6 +61,8 @@ export const disasters: Disaster[] = [
       "japan-heart-kumamoto-earthquake-2026",
       "world-vision-japan-kumamoto-2026",
       "save-the-children-japan-kumamoto-2026",
+      "globalgiving-jpf-kumamoto-2026",
+      "globalgiving-civic-force-kumamoto-2026",
     ],
     active: true,
     emoji: "🏯",
@@ -153,9 +155,47 @@ export const disasters: Disaster[] = [
         en: "The Japanese Red Cross appeal is open until 30 November 2026.",
       },
     ],
-    recipientSlugs: ["jpf-nepal-debris-flow-2026", "cws-japan-nepal-floods-2026", "jrc-nepal-floods-2026"],
+    recipientSlugs: ["jpf-nepal-debris-flow-2026", "cws-japan-nepal-floods-2026", "jrc-nepal-floods-2026", "globalgiving-nepal-flood-relief-fund"],
     active: true,
     emoji: "🏔️",
+  },
+  {
+    slug: "venezuela-2026-earthquake",
+    name: { ja: "2026年ベネズエラ地震", en: "2026 Venezuela Earthquakes" },
+    since: "2026-06-24",
+    area: { ja: "ベネズエラ北西部", en: "North-western Venezuela" },
+    summary: {
+      ja: "2026年6月のベネズエラ地震で被災した子どもと家族を支援する寄付窓口です。",
+      en: "Ways to help children and families affected by the June 2026 earthquakes in Venezuela.",
+    },
+    body: [
+      {
+        ja: "2026年6月24日、ベネズエラ北西部を2度の強い地震が襲いました。日本からは日本ユニセフ協会に円で寄付できます。海外発行のカードなら GlobalGiving の救援基金も使えます。",
+        en: "Two strong earthquakes struck north-western Venezuela on 24 June 2026. From Japan you can give in yen to the Japan Committee for UNICEF; with an international card you can also give to GlobalGiving's relief fund.",
+      },
+    ],
+    recipientSlugs: ["unicef-japan-venezuela-earthquake-2026", "globalgiving-venezuela-earthquake-fund"],
+    active: true,
+    emoji: "🌎",
+  },
+  {
+    slug: "middle-east-crisis",
+    name: { ja: "中東危機（ガザ・レバノン）", en: "Middle East Crisis (Gaza and Lebanon)" },
+    since: "2023-10-07",
+    area: { ja: "パレスチナ（ガザ）・レバノン", en: "Palestine (Gaza) and Lebanon" },
+    summary: {
+      ja: "ガザとレバノンで食料や医療、子どもの支援を続ける団体の寄付窓口です。",
+      en: "Organisations delivering food, medical care and support for children in Gaza and Lebanon.",
+    },
+    body: [
+      {
+        ja: "ガザでは2023年10月から、レバノンでは2026年2月から人道危機が続いています。日本の認定NPOに円で寄付するか、GlobalGiving の基金を通じて現地の団体を支えられます。",
+        en: "A humanitarian crisis has continued in Gaza since October 2023 and in Lebanon since February 2026. You can give in yen to Japanese certified NPOs, or support local groups through GlobalGiving's fund.",
+      },
+    ],
+    recipientSlugs: ["aar-japan-middle-east-crisis-2026", "ccp-japan-gaza-emergency", "globalgiving-middle-east-crisis-fund"],
+    active: true,
+    emoji: "🕊️",
   },
   {
     slug: "noto-recovery",

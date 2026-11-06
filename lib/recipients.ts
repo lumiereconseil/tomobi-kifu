@@ -919,7 +919,131 @@ const listed: Recipient[] = [
     emoji: "🕊️",
   },
 
+  // verified 2026-10-27: https://www.globalgiving.org/projects/nepal-flood-relief-fund/ — donate buttons live, $2.6M of $3M raised; refers to the flash floods of August 26.
+  {
+    slug: "globalgiving-nepal-flood-relief-fund",
+    category: "disaster",
+    region: "world",
+    country: { ja: "ネパール", en: "Nepal" },
+    name: { ja: "GlobalGiving ネパール洪水救援基金", en: "GlobalGiving – Nepal Flood Relief Fund" },
+    summary: {
+      ja: "2026年8月26日の洪水・土石流の被災地で、現地の団体による救援と復興を支えます。",
+      en: "Funds local organisations providing relief and recovery after the flash floods of 26 August 2026.",
+    },
+    description: {
+      ja: "米国の寄付プラットフォーム GlobalGiving が運営する基金です。寄付は現地の団体に配られ、捜索・救助、医療、シェルター、食料、安全な水などの緊急支援と、山間部の長期的な復興に充てられます。海外発行のカードでも寄付できます。",
+      en: "A fund run by GlobalGiving, a US giving platform. Gifts are granted to local organisations for search and rescue, medical care, shelter, food and clean water, and later for long-term recovery in remote communities. International cards are accepted.",
+    },
+    ...referral,
+    payment: { mode: "external", url: "https://www.globalgiving.org/projects/nepal-flood-relief-fund/", via: { ja: "GlobalGiving（海外カード対応の寄付サイト）", en: "GlobalGiving (accepts international cards)" } },
+    emergency: { since: "2026-08-26" },
+    emoji: "🌐",
+  },
+
+  // verified 2026-10-27: https://www.globalgiving.org/projects/venezuela-earthquake-relief-fund/ — donate buttons live, $1.27M of $1.5M raised.
+  {
+    slug: "globalgiving-venezuela-earthquake-fund",
+    category: "disaster",
+    region: "world",
+    country: { ja: "ベネズエラ", en: "Venezuela" },
+    name: { ja: "GlobalGiving ベネズエラ地震救援基金", en: "GlobalGiving – Venezuela Earthquake Relief Fund" },
+    summary: {
+      ja: "ベネズエラ地震の被災地で、現地の団体による医療・シェルター・食料の支援を支えます。",
+      en: "Funds local organisations providing medical care, shelter and food after the earthquakes in Venezuela.",
+    },
+    description: {
+      ja: "米国の寄付プラットフォーム GlobalGiving が運営する基金です。寄付は現地の団体に配られ、緊急医療、捜索・救助、仮設シェルター、食料、安全な水、衛生用品と、その後の復旧・再建に充てられます。海外発行のカードでも寄付できます。",
+      en: "A fund run by GlobalGiving, a US giving platform. Gifts are granted to local organisations for emergency medical care, search and rescue, temporary shelter, food, clean water and hygiene supplies, and later for recovery and rebuilding. International cards are accepted.",
+    },
+    ...referral,
+    payment: { mode: "external", url: "https://www.globalgiving.org/projects/venezuela-earthquake-relief-fund/", via: { ja: "GlobalGiving（海外カード対応の寄付サイト）", en: "GlobalGiving (accepts international cards)" } },
+    emergency: { since: "2026-06-24" },
+    emoji: "🌐",
+  },
+
+  // verified 2026-10-27: https://www.globalgiving.org/projects/middle-east-crisis-relief-fund/ — donate buttons live, names Gaza and Lebanon.
+  {
+    slug: "globalgiving-middle-east-crisis-fund",
+    category: "disaster",
+    region: "world",
+    country: { ja: "ガザ・レバノン", en: "Gaza and Lebanon" },
+    name: { ja: "GlobalGiving 中東危機救援基金", en: "GlobalGiving – Middle East Crisis Relief Fund" },
+    summary: {
+      ja: "ガザとレバノンなどで、食料・水・医薬品やシェルター、心のケアを届ける現地の団体を支えます。",
+      en: "Funds local groups delivering food, water, medicine, shelter and mental-health support in Gaza, Lebanon and other affected areas.",
+    },
+    description: {
+      ja: "米国の寄付プラットフォーム GlobalGiving が運営する基金です。寄付は現地の団体に配られ、食料・安全な水・医薬品、シェルターと仮設住宅、心のケア、緊急の人道支援と長期的な復興に充てられます。海外発行のカードでも寄付できます。",
+      en: "A fund run by GlobalGiving, a US giving platform. Gifts are granted to local organisations for food, clean water and medicine, shelter and temporary housing, psychosocial support, and urgent relief and long-term recovery. International cards are accepted.",
+    },
+    ...referral,
+    payment: { mode: "external", url: "https://www.globalgiving.org/projects/middle-east-crisis-relief-fund/", via: { ja: "GlobalGiving（海外カード対応の寄付サイト）", en: "GlobalGiving (accepts international cards)" } },
+    emoji: "🌐",
+  },
+
+  // verified 2026-10-27: https://www.globalgiving.org/projects/sudan-emergency-fund/ — donate buttons live.
+  {
+    slug: "globalgiving-sudan-emergency-fund",
+    category: "disaster",
+    region: "world",
+    country: { ja: "スーダン", en: "Sudan" },
+    name: { ja: "GlobalGiving スーダン緊急基金", en: "GlobalGiving – Sudan Emergency Fund" },
+    summary: {
+      ja: "飢餓と紛争が続くスーダンで、食料・水・医療・避難民の保護を担う現地の団体を支えます。",
+      en: "Funds vetted local partners delivering food, water, medical care and protection for displaced people in Sudan.",
+    },
+    description: {
+      ja: "米国の寄付プラットフォーム GlobalGiving が運営する基金です。寄付は審査済みの現地パートナーを通じて、飢餓や危機の影響を受けた地域への食料・水・物資、避難民のシェルターと保護、医療と心のケアに充てられます。海外発行のカードでも寄付できます。",
+      en: "A fund run by GlobalGiving, a US giving platform. Gifts go through vetted local partners to deliver food, water and supplies to famine- and crisis-affected communities, shelter and protection for displaced people, and medical and psychosocial care. International cards are accepted.",
+    },
+    ...referral,
+    payment: { mode: "external", url: "https://www.globalgiving.org/projects/sudan-emergency-fund/", via: { ja: "GlobalGiving（海外カード対応の寄付サイト）", en: "GlobalGiving (accepts international cards)" } },
+    emoji: "🌐",
+  },
+
   // ===== DOMESTIC (region: "japan") =====
+
+  // verified 2026-10-27: https://www.globalgiving.org/projects/emergency-response-to-kumamoto-earthquake-2026/ — Japan Platform (Chiyoda-ku), donate buttons live, $772 of $200,000.
+  {
+    slug: "globalgiving-jpf-kumamoto-2026",
+    category: "disaster",
+    region: "japan",
+    country: { ja: "日本", en: "Japan" },
+    name: { ja: "ジャパン・プラットフォーム（熊本地震 海外からの寄付窓口）", en: "Japan Platform – Kumamoto Earthquake 2026 (give from abroad)" },
+    summary: {
+      ja: "海外発行のカードで、熊本地震の被災者を支援する日本のNGOの活動に寄付できます。",
+      en: "Give with an international card to Japanese NGOs helping survivors of the Kumamoto earthquake.",
+    },
+    description: {
+      ja: "ジャパン・プラットフォーム（JPF）が GlobalGiving に開設した、2026年7月28日の熊本地震の緊急支援プロジェクトです。猛暑と避難生活の中での二次被害を防ぐため、女性や高齢者向けの衛生用品、食事、発電機や仮設トイレなどに充てられます。海外にお住まいの方や、海外の友人に寄付を呼びかけるときに向いています。",
+      en: "Japan Platform's (JPF) emergency appeal on GlobalGiving for the earthquake of 28 July 2026 in Kumamoto. It funds sanitary products for women and older people, meals, generators, portable toilets and more, to prevent further harm in the heat and in evacuation life. A good option if you live outside Japan or want to invite friends abroad to give.",
+    },
+    ...referral,
+    payment: { mode: "external", url: "https://www.globalgiving.org/projects/emergency-response-to-kumamoto-earthquake-2026/", via: { ja: "GlobalGiving（海外カード対応の寄付サイト）", en: "GlobalGiving (accepts international cards)" } },
+    emergency: { since: "2026-07-28" },
+    emoji: "🌏",
+  },
+
+  // verified 2026-10-27: https://www.globalgiving.org/projects/z2026-kumamoto-earthquake-response/ — Civic Force (Shibuya-ku), project #78486, donate buttons live.
+  {
+    slug: "globalgiving-civic-force-kumamoto-2026",
+    category: "disaster",
+    region: "japan",
+    country: { ja: "日本", en: "Japan" },
+    name: { ja: "Civic Force（熊本地震 海外からの寄付窓口）", en: "Civic Force – 2026 Kumamoto Earthquake Response (give from abroad)" },
+    summary: {
+      ja: "海外発行のカードで、熊本地震の避難者に救援物資を届ける活動に寄付できます。",
+      en: "Give with an international card to deliver relief supplies to evacuees after the Kumamoto earthquake.",
+    },
+    description: {
+      ja: "公益社団法人Civic Force（東京都渋谷区）が GlobalGiving に開設した、2026年熊本地震の緊急支援プロジェクトです。寄付は避難者への救援物資の配布などの緊急対応に充てられます。海外にお住まいの方や、海外の友人に寄付を呼びかけるときに向いています。",
+      en: "Civic Force's (Shibuya, Tokyo) appeal on GlobalGiving for the 2026 Kumamoto earthquake. Gifts fund its emergency response, including relief supplies for evacuees. A good option if you live outside Japan or want to invite friends abroad to give.",
+    },
+    ...referral,
+    payment: { mode: "external", url: "https://www.globalgiving.org/projects/z2026-kumamoto-earthquake-response/", via: { ja: "GlobalGiving（海外カード対応の寄付サイト）", en: "GlobalGiving (accepts international cards)" } },
+    emergency: { since: "2026-07-28" },
+    emoji: "🌏",
+  },
 
   // verified 2026-10-15: https://aarjapan.gr.jp/emergency/kumamoto_eq/
   // Page 「2026年9月9日更新」, listed under 現在実施中の緊急支援, active 寄付する button, no closing date.
