@@ -1,0 +1,7 @@
+User-Agent: *
+Allow: /
+Disallow: /api/
+Disallow: /ja/donate/
+Disallow: /en/donate/
+
+Sitemap: https://lumiereconseil.github.io/tomobi-kifu/sitemap.xml
