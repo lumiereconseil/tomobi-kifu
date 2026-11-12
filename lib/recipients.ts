@@ -824,8 +824,8 @@ const listed: Recipient[] = [
       en: "Delivers shelter materials, food, and water and sanitation support to people hit by floods and debris flows in northern Nepal.",
     },
     description: {
-      ja: "CWS Japanは、国内外で災害対応と防災支援を行う東京のNPOです。寄付は、2026年8月26日から続くネパール北部の洪水・土石流への緊急支援に充てられ、現地政府やパートナー団体と連携してシェルター資材、食料、水・衛生の支援を行います（寄付フォームの備考欄に「ネパール洪水」と記入してください）。",
-      en: "CWS Japan is a Tokyo-based NPO working on disaster response and disaster risk reduction in Japan and abroad. Donations fund its emergency response to the floods and debris flows in northern Nepal that began on 26 August 2026, providing shelter materials, food, and water and sanitation support with the Nepali government and local partners (write \"ネパール洪水\" in the remarks field of the form).",
+      ja: "CWS Japanは、国内外で災害対応と防災支援を行う東京のNPOです。寄付は、2026年8月26日から続くネパール北部の洪水・土石流への緊急支援に充てられ、現地政府やパートナー団体と連携してシェルター資材、食料、水・衛生の支援を行います（寄付フォームの備考欄に「ネパール洪水」と記入してください）。2026年10月22日から、CWS Japan はシステムの不具合のためオンライン寄付を止めています。寄付したい場合は public@cwsjapan.jp か 03-6457-6840 へ連絡してください。",
+      en: "CWS Japan is a Tokyo-based NPO working on disaster response and disaster risk reduction in Japan and abroad. Donations fund its emergency response to the floods and debris flows in northern Nepal that began on 26 August 2026, providing shelter materials, food, and water and sanitation support with the Nepali government and local partners (write \"ネパール洪水\" in the remarks field of the form). Since 22 October 2026 CWS Japan has paused online donations because of a system vulnerability; to give, contact public@cwsjapan.jp or +81 3-6457-6840.",
     },
     ...referral,
     payment: { mode: "external", url: "https://www.cwsjapan.org/project/2026_nepal_floods/", via: { ja: "団体の公式寄付ページ", en: "the organisation's official donation page" } },
@@ -999,6 +999,110 @@ const listed: Recipient[] = [
     ...referral,
     payment: { mode: "external", url: "https://www.globalgiving.org/projects/sudan-emergency-fund/", via: { ja: "GlobalGiving（海外カード対応の寄付サイト）", en: "GlobalGiving (accepts international cards)" } },
     emoji: "🌐",
+  },
+
+  // verified 2026-11-12: https://jafs.or.jp/news/info/nepal_fund_202609.html — appeal open, no end date; card via Congrant with remark ネパール災害支援; 公益社団法人, 寄附金控除の対象.
+  {
+    slug: "jafs-nepal-debris-flow-2026",
+    category: "disaster",
+    region: "world",
+    country: { ja: "ネパール", en: "Nepal" },
+    name: { ja: "アジア協会アジア友の会 JAFS（ネパール土石流災害緊急募金）", en: "JAFS – Nepal Debris Flow Emergency Appeal" },
+    summary: {
+      ja: "ネパールの土石流で家を失った700世帯に、冬を越すための毛布や防寒具、子どもの文房具を届けます。",
+      en: "Brings blankets, winter clothing and school supplies to 700 households in Nepal who lost everything in the debris flow.",
+    },
+    description: {
+      ja: "公益社団法人アジア協会アジア友の会（JAFS、大阪）の「子どもの命と希望を守る」緊急募金です。2026年8月26日の土石流の被災世帯700世帯に、毛布・防寒具と、文房具やかばんなどの教育支援を届けます（目標200万円）。カードで寄付する場合は備考欄に「ネパール災害支援」と書いてください。寄付金控除の対象です。",
+      en: "An emergency appeal by JAFS (Asian Friendship Society), a public interest incorporated association in Osaka. It delivers blankets and winter clothing plus school supplies and bags to 700 households hit by the debris flow of 26 August 2026 (target ¥2 million). When paying by card, write 'ネパール災害支援' in the remarks field. Gifts are tax-deductible in Japan.",
+    },
+    ...referral,
+    payment: { mode: "external", url: "https://jafs.or.jp/news/info/nepal_fund_202609.html", via: { ja: "団体の公式寄付ページ", en: "the organisation's official donation page" } },
+    emergency: { since: "2026-08-26" },
+    emoji: "🧣",
+  },
+
+  // verified 2026-11-12: https://sva.or.jp/activitynews/nepal20261019/ — 【ご支援のお願い】「ネパールおよびアジア各地の洪水被害への支援のお願い」受付中, tagged 寄付募集中, 2026.10.19.
+  {
+    slug: "sva-nepal-floods-2026",
+    category: "disaster",
+    region: "world",
+    country: { ja: "ネパール", en: "Nepal" },
+    name: { ja: "シャンティ国際ボランティア会（ネパール・アジアの洪水被害への支援）", en: "Shanti Volunteer Association – Nepal and Asia Floods Appeal" },
+    summary: {
+      ja: "ネパールの土石流・洪水の被災世帯に、シェルター資材や冬用の毛布を届けています。",
+      en: "Delivers shelter materials and winter blankets to households hit by the debris flow and floods in Nepal.",
+    },
+    description: {
+      ja: "公益社団法人シャンティ国際ボランティア会（SVA）は、2026年8月26日にネパールで起きた土石流と洪水を受けて、ヌワコット郡でシェルター資材やトイレの建設資材、冬用の毛布などを届けています。「ネパールおよびアジア各地の洪水被害への支援のお願い」を受付中で、寄付フォームでは使いみちに「海外緊急救援」を選びます。寄付金控除の対象です。",
+      en: "The Shanti Volunteer Association (SVA), a public interest incorporated association, has delivered shelter and toilet materials and winter blankets in Nuwakot district after the debris flow and floods of 26 August 2026 in Nepal. Its appeal for flood relief in Nepal and across Asia is open; choose '海外緊急救援' (overseas emergency relief) as the purpose on the form. Gifts are tax-deductible in Japan.",
+    },
+    ...referral,
+    payment: { mode: "external", url: "https://sva.or.jp/activitynews/nepal20261019/", via: { ja: "団体の公式寄付ページ", en: "the organisation's official donation page" } },
+    emergency: { since: "2026-08-26" },
+    emoji: "🏠",
+  },
+
+  // verified 2026-11-12: https://www.gnjp.org/reports/detail/npl_20260827/ — ネパール洪水 緊急支援募金 (2026.08.27), linked from home page, donate link, no end date.
+  {
+    slug: "good-neighbors-japan-nepal-floods-2026",
+    category: "disaster",
+    region: "world",
+    country: { ja: "ネパール", en: "Nepal" },
+    name: { ja: "グッドネーバーズ・ジャパン（ネパール洪水 緊急支援募金）", en: "Good Neighbors Japan – Nepal Floods Emergency Appeal" },
+    summary: {
+      ja: "2026年8月のネパールの洪水・土石流の被災者を支援する緊急募金です。",
+      en: "An emergency appeal supporting people affected by the August 2026 floods and debris flows in Nepal.",
+    },
+    description: {
+      ja: "グッドネーバーズ・ジャパンは、東京都に認定された認定NPO法人で、子どもと地域の支援を世界各地で行っています。2026年8月27日に始めたネパール洪水の緊急支援募金で、被災者への支援に充てられます。カード・銀行振込・郵便振替などで寄付でき、寄付金控除の対象です。",
+      en: "Good Neighbors Japan is a certified NPO (certified by the Tokyo Metropolitan Government) supporting children and communities around the world. Its Nepal floods emergency appeal, launched on 27 August 2026, funds help for affected people. You can give by card, bank or postal transfer, and gifts are tax-deductible in Japan.",
+    },
+    ...referral,
+    payment: { mode: "external", url: "https://www.gnjp.org/reports/detail/npl_20260827/", via: { ja: "団体の公式寄付ページ", en: "the organisation's official donation page" } },
+    emergency: { since: "2026-08-26" },
+    emoji: "🤝",
+  },
+
+  // verified 2026-11-12: https://www.gnjp.org/reports/detail/ven_20260626/ — ベネズエラ地震 緊急支援募金 (2026.06.26), linked from home page, donate link, no end date.
+  {
+    slug: "good-neighbors-japan-venezuela-earthquake-2026",
+    category: "disaster",
+    region: "world",
+    country: { ja: "ベネズエラ", en: "Venezuela" },
+    name: { ja: "グッドネーバーズ・ジャパン（ベネズエラ地震 緊急支援募金）", en: "Good Neighbors Japan – Venezuela Earthquake Emergency Appeal" },
+    summary: {
+      ja: "2026年6月のベネズエラ地震の被災者を支援する緊急募金です。",
+      en: "An emergency appeal supporting people affected by the June 2026 earthquakes in Venezuela.",
+    },
+    description: {
+      ja: "グッドネーバーズ・ジャパンは、東京都に認定された認定NPO法人です。2026年6月26日に始めたベネズエラ地震の緊急支援募金で、被災者への支援に充てられます。カード・銀行振込・郵便振替などで寄付でき、寄付金控除の対象です。",
+      en: "Good Neighbors Japan is a certified NPO (certified by the Tokyo Metropolitan Government). Its Venezuela earthquake emergency appeal, launched on 26 June 2026, funds help for affected people. You can give by card, bank or postal transfer, and gifts are tax-deductible in Japan.",
+    },
+    ...referral,
+    payment: { mode: "external", url: "https://www.gnjp.org/reports/detail/ven_20260626/", via: { ja: "団体の公式寄付ページ", en: "the organisation's official donation page" } },
+    emergency: { since: "2026-06-24" },
+    emoji: "🤝",
+  },
+
+  // verified 2026-11-12: https://www.adrajpn.org/mideast_crisis2026/ — 中東危機人道支援, live Congrant donate button, no end date.
+  {
+    slug: "adra-japan-middle-east-crisis-2026",
+    category: "disaster",
+    region: "world",
+    country: { ja: "レバノン", en: "Lebanon" },
+    name: { ja: "ADRA Japan（中東危機人道支援）", en: "ADRA Japan – Middle East Crisis Humanitarian Response" },
+    summary: {
+      ja: "中東危機の影響を受けたレバノンなどの人々に、命をつなぐ人道支援を届けています。",
+      en: "Delivers life-saving humanitarian aid to people in Lebanon and the region affected by the Middle East crisis.",
+    },
+    description: {
+      ja: "ADRA Japanは、2016年に東京都の認定を受けた認定NPO法人です。2026年の中東危機を受けて、主にレバノンで人道支援を行っており、寄付はこの活動に充てられます。カード・銀行振込・郵便振替などで寄付でき、寄付金控除の対象です。",
+      en: "ADRA Japan is a certified NPO (certified by the Tokyo Metropolitan Government in 2016). It provides humanitarian aid mainly in Lebanon in response to the 2026 Middle East crisis, and gifts fund this work. You can give by card, bank or postal transfer, and gifts are tax-deductible in Japan.",
+    },
+    ...referral,
+    payment: { mode: "external", url: "https://www.adrajpn.org/mideast_crisis2026/", via: { ja: "団体の公式寄付ページ", en: "the organisation's official donation page" } },
+    emoji: "🕊️",
   },
 
   // ===== DOMESTIC (region: "japan") =====

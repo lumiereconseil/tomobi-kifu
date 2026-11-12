@@ -147,15 +147,15 @@ export const disasters: Disaster[] = [
     },
     body: [
       {
-        ja: "2026年8月26日、ネパール中部で大規模な土石流が起き、北部でも洪水と土石流の被害が出ました。日本から寄付できる窓口として、ジャパン・プラットフォーム、CWS Japan、日本赤十字社があります。",
-        en: "A large debris flow struck central Nepal on 26 August 2026, and floods and debris flows also hit the north. You can give from Japan through Japan Platform, CWS Japan and the Japanese Red Cross.",
+        ja: "2026年8月26日、ネパール中部で大規模な土石流が起き、北部でも洪水と土石流の被害が出ました。日本から寄付できる窓口として、ジャパン・プラットフォーム、CWS Japan、日本赤十字社、JAFS、シャンティ国際ボランティア会、グッドネーバーズ・ジャパンがあります。",
+        en: "A large debris flow struck central Nepal on 26 August 2026, and floods and debris flows also hit the north. You can give from Japan through Japan Platform, CWS Japan, the Japanese Red Cross, JAFS, the Shanti Volunteer Association and Good Neighbors Japan.",
       },
       {
         ja: "日本赤十字社の救援金の受付は2026年11月30日までです。",
         en: "The Japanese Red Cross appeal is open until 30 November 2026.",
       },
     ],
-    recipientSlugs: ["jpf-nepal-debris-flow-2026", "cws-japan-nepal-floods-2026", "jrc-nepal-floods-2026", "globalgiving-nepal-flood-relief-fund"],
+    recipientSlugs: ["jpf-nepal-debris-flow-2026", "cws-japan-nepal-floods-2026", "jrc-nepal-floods-2026", "jafs-nepal-debris-flow-2026", "sva-nepal-floods-2026", "good-neighbors-japan-nepal-floods-2026", "globalgiving-nepal-flood-relief-fund"],
     active: true,
     emoji: "🏔️",
   },
@@ -170,11 +170,11 @@ export const disasters: Disaster[] = [
     },
     body: [
       {
-        ja: "2026年6月24日、ベネズエラ北西部を2度の強い地震が襲いました。日本からは日本ユニセフ協会に円で寄付できます。海外発行のカードなら GlobalGiving の救援基金も使えます。",
-        en: "Two strong earthquakes struck north-western Venezuela on 24 June 2026. From Japan you can give in yen to the Japan Committee for UNICEF; with an international card you can also give to GlobalGiving's relief fund.",
+        ja: "2026年6月24日、ベネズエラ北西部を2度の強い地震が襲いました。日本からは日本ユニセフ協会とグッドネーバーズ・ジャパンに円で寄付できます。海外発行のカードなら GlobalGiving の救援基金も使えます。",
+        en: "Two strong earthquakes struck north-western Venezuela on 24 June 2026. From Japan you can give in yen to the Japan Committee for UNICEF and Good Neighbors Japan; with an international card you can also give to GlobalGiving's relief fund.",
       },
     ],
-    recipientSlugs: ["unicef-japan-venezuela-earthquake-2026", "globalgiving-venezuela-earthquake-fund"],
+    recipientSlugs: ["unicef-japan-venezuela-earthquake-2026", "good-neighbors-japan-venezuela-earthquake-2026", "globalgiving-venezuela-earthquake-fund"],
     active: true,
     emoji: "🌎",
   },
@@ -193,7 +193,7 @@ export const disasters: Disaster[] = [
         en: "A humanitarian crisis has continued in Gaza since October 2023 and in Lebanon since February 2026. You can give in yen to Japanese certified NPOs, or support local groups through GlobalGiving's fund.",
       },
     ],
-    recipientSlugs: ["aar-japan-middle-east-crisis-2026", "ccp-japan-gaza-emergency", "globalgiving-middle-east-crisis-fund"],
+    recipientSlugs: ["aar-japan-middle-east-crisis-2026", "ccp-japan-gaza-emergency", "adra-japan-middle-east-crisis-2026", "globalgiving-middle-east-crisis-fund"],
     active: true,
     emoji: "🕊️",
   },
